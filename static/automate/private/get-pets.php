@@ -40,5 +40,9 @@
 		);
 	}
 
+	print('<pre>');
+	print_r($responseBody);
+	print('<pre>');
 
-	file_put_contents('../../../api/adoptable-pets.json', json_encode($pets));
+
+	file_put_contents('../../api/adoptable-pets.json', json_encode($pets));
