@@ -47,4 +47,4 @@
 	print('<pre>');
 
 
-	file_put_contents('../../api/adoptable-pets.json', json_encode($pets));
+	file_put_contents(dirname(__FILE__) . '../../api/adoptable-pets.json', json_encode($pets));
