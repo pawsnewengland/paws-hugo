@@ -23,14 +23,15 @@
 	$request = $endpoint . '&account=' . $account . '&username=' . $username . '&password=' . $password;
 	$response = Requests::get($request);
 
-	// Create Pet JSON
+	// Get the data
 	$responseBody = json_decode($response->body, true);
 	if (empty($responseBody)) {
-		echo 500 . ' ' . date('Y-m-d H:i:s') . "\n";
-		return;
+		file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Fail " . "\n", FILE_APPEND);
+		return 'done';
 	}
-	$pets = array();
 
+	// Create the JSON file
+	$pets = array();
 	foreach ($responseBody as $key => $pet) {
 		$pets[] = array(
 			'id' => $pet['ID'],
@@ -45,6 +46,7 @@
 		);
 	}
 
+	// Save to the server
 	file_put_contents('../api/adoptable-pets.json', json_encode($pets));
-
-	echo 200  . ' ' . date('Y-m-d H:i:s') . "\n";
+	file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Success " . "\n", FILE_APPEND);
+	return 'done';
