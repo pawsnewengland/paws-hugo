@@ -45,6 +45,6 @@
 		);
 	}
 
-	file_put_contents('../adoptable-pets.json', json_encode($pets));
+	file_put_contents('../api/adoptable-pets.json', json_encode($pets));
 
 	echo 200  . ' ' . date('Y-m-d H:i:s') . "\n";
