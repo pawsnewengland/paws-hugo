@@ -23,7 +23,7 @@
 
 	// Create Pet JSON
 	$responseBody = json_decode($response->body, true);
-	if (empty($response)) return;
+	if (empty($responseBody)) return;
 	$pets = array();
 
 	foreach ($responseBody as $key => $pet) {
