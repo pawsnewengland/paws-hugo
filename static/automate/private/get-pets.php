@@ -1,8 +1,6 @@
 <?php
 
-	phpinfo();
-
-	return;
+	#!/usr/bin/php -q
 
 	/**
 	 * Get pets from Shelter Manager API
