@@ -42,7 +42,7 @@
 
 	print('<pre>');
 	print_r($responseBody);
-	print('<pre>');x
+	print('<pre>');
 
 
 	file_put_contents('../../api/adoptable-pets.json', json_encode($pets));
