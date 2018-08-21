@@ -25,7 +25,10 @@
 
 	// Create Pet JSON
 	$responseBody = json_decode($response->body, true);
-	if (empty($responseBody)) return 500 . ' ' . date('Y-m-d H:i:s') . "\n";
+	if (empty($responseBody)) {
+		echo 500 . ' ' . date('Y-m-d H:i:s') . "\n";
+		return;
+	}
 	$pets = array();
 
 	foreach ($responseBody as $key => $pet) {
@@ -44,4 +47,4 @@
 
 	file_put_contents('../adoptable-pets.json', json_encode($pets));
 
-	return 200  . ' ' . date('Y-m-d H:i:s') . "\n";
+	echo 200  . ' ' . date('Y-m-d H:i:s') . "\n";
