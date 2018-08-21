@@ -1,5 +1,9 @@
 <?php
 
+	phpinfo();
+
+	return;
+
 	/**
 	 * Get pets from Shelter Manager API
 	 * https://sheltermanager.com/repo/asm3_help/service.html
