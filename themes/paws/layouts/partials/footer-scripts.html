@@ -1,0 +1,30 @@
+<script src="{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/loadJS.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/loadJS.js" | absURL }}{{ end }}"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script>
+	if ('querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_')) {
+		loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/main.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/main.js" | absURL }}{{ end }}');
+		if (document.querySelector('#form-search')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/lunr.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/lunr.js" | absURL }}{{ end }}');
+		}
+		if (document.querySelector('#fetch-container')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/fetch.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/fetch.js" | absURL }}{{ end }}', function () {
+				var container = document.querySelector('#fetch-container');
+				fetch.init({
+				    key: "f72651cb74b19ac20c6f25adbab93457",
+				    shelter: "RI77",
+				    count: 150,
+				    allPetsTitle: null,
+				    filterAnimals: false,
+				    adoptionFormLink: '/adopt/application',
+				    adoptionFormClass: 'btn',
+				    filtersToggleClass: 'btn'
+				});
+				container.addEventListener('error', function () {
+					if (!event.target.matches('img')) return;
+					// event.target.setAttribute('hidden', 'hidden');
+					event.target.src = '/img/adopt-missing-photo.png';
+				}, true);
+			})
+		}
+	}
+</script>

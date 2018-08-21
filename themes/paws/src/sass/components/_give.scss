@@ -1,0 +1,40 @@
+/**
+ * @section Give
+ * Styling for GiveWP
+ */
+
+
+// Donation levels
+.give-donation-level-btn {
+	@extend .btn;
+}
+
+// Submit button
+.give-submit {
+	@extend .btn;
+	@extend .btn-block;
+	@extend .btn-large;
+}
+
+// Form title
+h2.give-form-title {
+	@extend [hidden];
+}
+
+// Currency symbol and donation amount field
+.give-total-wrap {
+	.give-currency-symbol,
+	#give-amount {
+		font-size: calc-em(21px) !important;
+		height: calc-em(28px) !important;
+	}
+}
+
+.give-currency-symbol {
+	padding-top: 2px !important;
+}
+
+// Legends
+.give-form legend {
+	padding-top: 1em !important;
+}

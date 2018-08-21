@@ -1,0 +1,24 @@
+---
+id: 1296
+title: A Thanksgiving Feast to be Thankful For!
+date: 2011-11-24T17:08:17+00:00
+author: Kelly
+layout: post
+guid: http://45.55.135.234/?p=1296
+permalink: /2011/11/24/a-thanksgiving-feast-to-be-thankful-for/
+categories:
+  - Uncategorized
+---
+<img class="alignleft size-medium wp-image-1297" style="margin-left: 5px; margin-right: 5px;" title="IMAG0227" src="https://pawsnewengland.com/wp-content/uploads/2011/11/IMAG0227-400x239.jpg" alt="" width="240" height="143" />When PAWS volunteer Carey Marston called the other day to happily exclaim, &#8220;[SmartPak](http://www.smartpakequine.com/Dog.aspx) wants to donate 15,000 pounds of dog food to PAWS!&#8221; we almost fell off our chairs! We quickly calculated that we could feed one hundred dogs per day for almost ten months with this donation. We were beside ourselves with excitement and began to make plans to move nearly seven tons of high quality donated food to our sanctuaries in Missouri and Tennessee. Volunteers Nicole Pacheco and Christen Kotch worked especially hard on this- thank you ladies!
+
+PAWS put out a plea on facebook to find a freight company that could give us a highly discounted shipping rate. Many of our supporters helped by calling companies throughout New England. Once again, John and Sherri Gagnon of [John Gagnon&#8217;s Pet Resort](http://www.4dogman.com/) came to the rescue of PAWS and not only found a company who would ship the food, but donated generously towards the cost. They even found a dear friend, Dr. Steve Harrington at [Industrial Flow Dynamics](http://www.iafdinc.com/) to sponsor the remaining cost. <img class="alignright size-medium wp-image-1298" style="margin-left: 5px; margin-right: 5px;" title="IMG_0468" src="https://pawsnewengland.com/wp-content/uploads/2011/11/IMG_0468-225x300.jpg" alt="" width="180" height="240" />
+
+Carey Marston was at [SmartPak](http://www.smartpakequine.com/Dog.aspx) the day the food was loaded and told us she had tears in her eyes. Meg Law (a former PAWS adopter herself) and Brad Bishop at [SmartPak](http://www.smartpakequine.com/Dog.aspx) were the driving forces behind helping PAWS get this food and also had tears of happiness as they watch the palates being loaded in to the trucks. Dodd Corby and his crew graciously broke down most of the food into the 100 lb boxes and also loaded it onto the trucks. PAWS will be forever grateful to the wonderful team at [SmartPak](http://www.smartpakequine.com/Dog.aspx) for this donation of a lifetime!
+  
+PAWS is also completely indebted to Jennifer Duke and [Special Service Transportation, Inc](http://www.specialservicetrans.com/). They gave us an incredibly discounted rate on the shipping and sent the most lovely drivers. One of the drivers proudly showed Carey his phone backdrop which pictured his rescued black lab who passed two years ago from cancer. He said he felt honored to be part of this project. The other driver was involved in Rottweiler Rescue and was also a rescue dog parent. Carey said she felt &#8220;Just such an amazing connection of everyone coming together for this cause.&#8221;
+
+When the food arrived in Missouri, sanctuary director Julie Adams couldn&#8217;t find the words to express her joy. In tough economic times, finding the money to feed one hundred hungry mouths every day is not easy. Knowing that this was not something she had to worry about for months brought on tears of relief. Julie created <span style="text-decoration: underline;"><strong><a href="http://www.onetruemedia.com/shared?p=fbb887c7ae4ed824e2b6fa&skin_id=701&utm_source=otm&utm_medium=text_url">this film</a></strong></span> to say thank you.. Our volunteers in TN were equally enthusiastic and said that this was the &#8220;Best Thanksgiving miracle we could have ever received!&#8221;
+
+<img class="alignleft size-medium wp-image-1299" style="margin-left: 5px; margin-right: 5px;" title="IMAG0229" src="https://pawsnewengland.com/wp-content/uploads/2011/11/IMAG0229-400x239.jpg" alt="" width="256" height="153" />Thank you to [SmartPak](http://www.smartpakequine.com/Dog.aspx) (especially Carey Marston, Brad Bishop, Megan Law, Dodd Corby), John and Sherri Gagnon at [John Gagnon&#8217;s Pet Resort](http://www.4dogman.com/), Steve Harrington of [Industrial Flow Dynamics](http://www.iafdinc.com/), and Jennifer Duke at [Special Service Transportation](http://www.specialservicetrans.com/) (and the wonderful drivers!) for making this a reality.
+
+From our PAWS family to yours- we hope everyone has a safe, happy, and healthy Thanksgiving. We are so grateful to have enough food to keep many, many bellies full for a long time! Thank you for your continued support&#8230;

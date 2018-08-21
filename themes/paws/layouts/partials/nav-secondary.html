@@ -1,0 +1,30 @@
+<nav class="tabindex nav-secondary text-small" id="nav-secondary" tabindex="-1">
+	<div class="row row-start-small margin-bottom-large">
+		<div class="grid-third">
+			<h2 class="h4">Adopt a Dog</h2>
+			<ul class="list-unstyled">
+				{{ partial "nav-items-secondary-adopt.html" . }}
+			</ul>
+		</div>
+		<div class="grid-third">
+			<h2 class="h4">Get Involved</h2>
+			<ul class="list-unstyled">
+				{{ partial "nav-items-secondary-volunteer.html" . }}
+			</ul>
+		</div>
+		{{ if false }}
+		<div class="grid-fourth">
+			<h2 class="h4">Donate</h2>
+			<ul class="list-unstyled">
+				{{ partial "nav-items-secondary-donate.html" . }}
+			</ul>
+		</div>
+		{{ end }}
+		<div class="grid-third">
+			<h2 class="h4">About Us</h2>
+			<ul class="list-unstyled">
+				{{ partial "nav-items-secondary-about.html" . }}
+			</ul>
+		</div>
+	</div>
+</nav>

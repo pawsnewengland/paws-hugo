@@ -1,0 +1,50 @@
+# hostname (and path) to the root
+baseURL: "http://next.pawsnewengland.com"
+# baseURL: "http://localhost:8888/paws-hugo/public/"
+
+# Customer parameters
+params:
+  description: "We save lives, one dog at a time."
+  rssURL: "https://pawsnewengland.com/feed/index.xml"
+  rssLimit: 7
+  cacheBust: true
+  version: "1.0.0"
+
+# The language code for the site
+languageCode: "en-us"
+
+# Site title
+title: "PAWS New England"
+
+# theme to use (located by default in /themes/THEMENAME/)
+theme: "paws"
+
+# Permalinks
+# See "content-management/permalinks"
+permalinks:
+  news: /:title/
+
+# Use absolute URLs
+canonifyURLs: true
+
+# Allows you to disable all page types and will render nothing related to 'kind';
+# values = "page", "home", "section", "taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
+disableKinds: ["RSS", "hugoGeneratorInject", "404"]
+
+# Files to ignore while rendering
+ignoreFiles: ["/content/articles/_2018-01-19-title.md", "/content/articles/_drafts/.*"]
+
+# the length of text to show in a .Summary
+summaryLength: 70
+
+# Pagination
+paginate: 35
+paginatePath: "page"
+
+# Markdown Options
+blackfriday:
+  fractions: false
+
+# Syntax Highlighting
+pygmentsCodefences: true
+pygmentsUseClasses: true

@@ -1,0 +1,32 @@
+---
+id: 36226
+title: A story of Hound Hope!
+date: 2016-07-13T20:10:05+00:00
+author: Kelly
+layout: post
+guid: https://www.pawsnewengland.com/?p=36226
+permalink: /2016/07/13/a-story-of-hound-hope/
+categories:
+  - Uncategorized
+---
+[<img class="aligncenter wp-image-37446" src="https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_13-558x640.jpg" alt="FullSizeRender_13" width="450" height="516" />](https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_13.jpg)Anyone who lays eyes on Leo the hound mix immediately falls in love. He has those deep brown eyes that are just begging for love, and the perfect golden brown coat. As if his looks weren’t enough to win you over, his story is that much more impressive.
+
+Leo was found shivering on a cold night in a field on the side of the road. How long he had been there was unknown, but it was clear that it had been quite some time because there was an imprint in the dirt in the shape of his body. It was evident that Leo needed medical attention quickly, but what was more obvious was that he simply just needed some love. Leo is an affection little guy who loves to cuddle, a quick hug can calm him down and make him feel safe even in the most dire of situations. As soon as his rescuer wrapped their jacket and arms around him, his tail immediately started to wag. It was clear from the beginning that Leo was a sweet and loving boy. The people who rescued Leo took him to their home, where he immediately felt comfortable with their entire pack—three dogs and many more cats! He was battered and bruised, but still managed to wag his tail and play with his new friends. Although with a limp, he jumped for joy any time something exciting happened, whether it be dinner time, a scratch behind the ear, or the sight of one of his new friends.
+
+[<img class="aligncenter wp-image-37436" src="https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_23-640x360.jpg" alt="FullSizeRender_23" width="482" height="271" />](https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_23.jpg)
+
+From here, Leo was taken in by PAWS New England who set him up with a vet appointment. Initially it was thought that his hip had been dislocated. In order to make sure he was comfortable, PAWS immediately set him up with a loving foster home. Jessica and Elizabeth described their first introduction to Leo as thus, “We finally met little Leo in a tornado of tail wags and little joy jumps, as he tried to sit like a good boy. He came home to stay with us in his foster home that very night. He weathered the storm of meeting our two ecstatic dogs with complete grace. They&#8217;ve been the naughty trio since.” He spent the next day patiently eyeing them for permission to come cuddle on the couch, and would whimper until they pet him to sleep. It was clear that this sweet boy was in a lot of pain.
+
+
+
+They took him in for surgery to our incredibly talented partners at [Animal Surgical Center of Michigan](http://animalsurgicalcenter.com/) and upon doing so learned that Leo did not have a dislocated hip, but rather had fractured both his right hip and his left pelvic bone. Leo was terrified during his examination and clung to his new foster moms for support, however he managed to get through his appointment and surgery like a champ. It took a few days for Leo to adjust after surgery though. At first, he was in too much pain to walk up the stairs on his own so he’d have to be carried. Once up in his bed, he faced a new set of trouble, he was in so much pain and so scarred from the trauma he had gone through that sleeping alone was very difficult for him. His foster mom ended up falling asleep on the floor next to his bed so that he would know that he was no longer alone and that he didn’t have anything to fear. After a few days however, Leo started to acclimate perfectly to his new home. By day 3 he was no longer taking pain medication and would only take his antibiotic, and before they knew it he was no longer even walking with a limp! The only time his limp was a little evident was when he would sprint while playing with his new pack. Though recovering from an injury, Leo can still run with the best of them! Being a hound and all, one of his favorite activities is to sing-a-long with the radio and to be sure to warn his family when the dreaded mail carrier or neighborhood cat has entered the yard.
+
+[<img class="aligncenter size-medium wp-image-37444" src="https://www.pawsnewengland.com/wp-content/uploads/2016/07/Image-1-640x640.jpg" alt="Image" width="640" height="640" />](https://www.pawsnewengland.com/wp-content/uploads/2016/07/Image-1.jpg)It is unsure exactly how old he is, but the vet has estimated that he is 4 years old. His foster parents say that he is patient enough to hang with their 6 year old dog, and totally content to sit and watch TV with them, yet he also has enough energy to keep up with their 2 year old dog as well. He loves to ride in the car, is a great caregiver to his toys (even bringing his favorites up to bed with him!), knows only to chew on his toys, and would likely be a great running companion as he has no trouble keeping up on long adventures. Leo has shown an immense ability to adapt to any situation—when he first arrived he was a bit of a picky eater, but now he will devour whatever is put down in front of him, and he also has learned to adapt to his moms ever changing schedules, knowing what “bed time” means regardless of the time of day.
+
+[<img class="aligncenter wp-image-37445" src="https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_7-586x640.jpg" alt="FullSizeRender_7" width="452" height="494" />](https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_7.jpg)
+
+Leo has a giant heart and is ready to share it with the perfect family. He has been resilient and brave throughout his traumatic experiences, but regardless of what he has been through, his love for those around him has never faltered. He will be the perfect addition to any size home, and is eager to share his love!
+
+-Kayla Cerretti
+
+[<img class="aligncenter wp-image-37448" src="https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_17-550x640.jpg" alt="FullSizeRender_17" width="373" height="434" />](https://www.pawsnewengland.com/wp-content/uploads/2016/07/FullSizeRender_17.jpg)

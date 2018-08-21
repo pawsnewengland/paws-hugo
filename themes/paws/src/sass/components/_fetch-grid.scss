@@ -1,0 +1,25 @@
+/**
+ * @section Fetch Grid
+ * Grid layout for Fetch
+ */
+
+
+.grid-auto.grid-fetch {
+	@media (min-width: $bp-xsmall) {
+		flex-basis: 50%;
+		max-width: 50%;
+		width: 50%;
+	}
+
+	@media (min-width: $bp-small) {
+		flex-basis: 33.33333%;
+		max-width: 33.33333%;
+		width: 33.33333%;
+	}
+
+	@media (min-width: $bp-medium) {
+		flex-basis: 25%;
+		max-width: 25%;
+		width: 25%;
+	}
+}

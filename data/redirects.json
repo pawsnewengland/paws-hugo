@@ -1,0 +1,10 @@
+[
+	{
+		"from": "/home",
+		"to": "/somewhere-else"
+	},
+	{
+		"from": "/home2",
+		"to": "/somewhere-else2"
+	}
+]

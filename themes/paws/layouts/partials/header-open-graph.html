@@ -1,0 +1,7 @@
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ChrisFerdinandi">
+<meta property="og:url" content="{{ .URL }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+{{ if .Params.image }}<meta property="og:image" content="{{ .Params.image }}">{{ end }}

@@ -1,0 +1,26 @@
+---
+id: 27251
+title: Kenny Conquers the Odds!
+date: 2016-05-25T20:33:24+00:00
+author: Kelly
+layout: post
+guid: http://www.pawsnewengland.com/?p=27251
+permalink: /2016/05/25/kenny-conquers-the-odds/
+categories:
+  - Uncategorized
+---
+<img class="alignright wp-image-27256" src="http://www.pawsnewengland.com/wp-content/uploads/2016/05/FullSizeRender-193-640x532.jpg" alt="FullSizeRender 193" width="350" height="291" />If ever there was a story of resilience and hope, it would be that of Kenny, the little black lab who could. The very beginning of his story starts as a bit of a mystery, as no one is sure how or why this little guy ended up all alone to begin with, however thanks to one compassionate and kind soul, he was given a fresh start and the perfect name! It was early February when a gentleman named Ken found a little black puppy who had crawled up onto his porch after sustaining some very obvious severe injuries. Initially Ken surmised that the puppy had been shot, however, once a local rescue joined the case it was discovered that he had been on the receiving end of a hit and run accident. With no signs of a family and a local rescue without the means to treat the poor dog, PAWS New England was enlisted to help save the day.
+
+<img class="alignleft wp-image-27333 size-medium" src="http://www.pawsnewengland.com/wp-content/uploads/2016/05/IMG_8564-e1464222138519-409x640.jpg" alt="IMG_8564" width="409" height="640" />Once PAWS joined the rescue mission, Kenny finally received a name and the [Memphis Veterinary Specialists](http://www.memphisveterinaryspecialists.com/) were added to the team. However, upon examination it was discovered that Kenny had sustained some very serious injuries that would take extensive (and expensive!) surgeries. The vet working on Kenny advised the team at PAWS that he had an injury to his tail that could potentially leave him incontinent for the rest of his life, as the nerve damage was so bad his tail had to be removed and he no longer felt the sensation of needing to go to the bathroom. PAWS was stuck in a tricky situation, do they euthanize a sweet, docile, pup or do they risk spending $5,000 on surgeries for a dog who would inevitably be very hard to adopt out? It didn’t take long for the PAWS team to realize that they couldn’t give up on Kenny—not only was he adorable, but he had an enormous and loving personality. Though many of his bones were shattered, it was abundantly clear that Kenny’s heart was still perfectly intact. The decision was made and Kenny bravely underwent a 5 hour orthopedic surgery to restore his tibia and fibula, multiple pelvic fractures, and an amputation of his shattered tail.
+
+&nbsp;
+
+<img class="alignright wp-image-27338" src="http://www.pawsnewengland.com/wp-content/uploads/2016/05/LGP.PAWSKenny0127-427x640.jpg" alt="LGP.PAWSKenny0127" width="351" height="526" />The next step was transporting Kenny to New England where he would meet his new foster family.  Luckily for him, he would join a loving family who run a doggy daycare, and already have 4 brothers and sisters for Kenny to play with at home. Though initially a bit shy, and naturally weary of people, Kenny quickly began to learn how to trust and more importantly how to play! He is still in recovery, and it will take many more weeks to discover whether or not he will regain any nerve function in his bowel and bladder, however his legs have healed up quite well and not only can he successfully walk again, but he can run and fetch with the best of them! Kenny is absolutely adored by his foster mom’s staff at the daycare, they can’t get enough of his gentle, loving, and playful demeanor. He gets along extremely well with all of his other doggy friends, and he even likes to play with cats (though an experienced, dog friendly cat would likely be best).
+
+<img class="alignleft wp-image-27340" src="http://www.pawsnewengland.com/wp-content/uploads/2016/05/LGP.PAWSKenny0192-640x427.jpg" alt="LGP.PAWSKenny0192" width="351" height="234" />Kenny is a special dog who deserves a special and loving home. He will need a lot of love and attention, but PAWS knows that the right home for Kenny is out there. Though at the time he does still have incontinence issues and because he can’t feel it coming on he sometimes will leak, that being said though, he is trained to go to the bathroom outside and his waste is solid so clean up isn’t difficult. It also seems as though he has regained some feeling back, so not all hope is lost that he will fully recover. With his spirit and determination to overcome hardships, it seems that Kenny is dead set on a full recovery and a long, healthy life. All he needs now is the support and companionship of a loving family! To learn more about adopting Kenny, [click here.](https://pawsnewengland.com/our-dogs-list/kenny/)
+
+-Kayla Cerretti
+
+<img class="aligncenter size-medium wp-image-27337" src="http://www.pawsnewengland.com/wp-content/uploads/2016/05/LGP.PAWSKenny0107-640x427.jpg" alt="LGP.PAWSKenny0107" width="640" height="427" />
+
+Photo credit: [Lisa Gilbert](https://www.facebook.com/LisaGilbertPhotography/)

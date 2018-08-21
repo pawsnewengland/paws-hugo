@@ -1,0 +1,55 @@
+<div class="callout callout-whitex">
+	<form data-donate>
+		<div>
+			<label for="donate-amount"><strong>Enter an amount to give</strong></label>
+			<div class="input-currency-wrap">
+				<span class="input-currency-before">$</span>
+				<input type="number" name="amount" class="input-currency" id="donate-amount"{{ if .Get "default" }} value='{{ .Get "default" }}'{{ end }} required>
+				<span class="input-currency-after">USD</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="grid-two-fifths">
+				<label for="donate-frequency-once">
+					<input type="radio" name="frequency" id="donate-frequency-once" value="once" checked>
+					Give Once
+				</label>
+			</div>
+			<div class="grid-two-fifths">
+				<label for="donate-frequency-monthly">
+					<input type="radio" name="frequency" id="donate-frequency-monthly" value="monthly">
+					Monthly
+				</label>
+			</div>
+		</div>
+		<div class="margin-bottom padding-top-small">
+			<a data-donate-in-honor="#in-honor" role="button" href="#">Give in honor of someone &rarr;</a>
+		</div>
+		<div id="in-honor" hidden>
+			<div>
+				<label>In honor of</label>
+				<input type="text" name="">
+			</div>
+			<div>
+				<label>From</label>
+				<input type="text" name="">
+			</div>
+			<div>
+				<label>Recipient's email</label>
+				<input type="email" name="">
+			</div>
+			<div>
+				<label>Recipient's name (if different from the honoree)</label>
+				<input type="text" name="">
+			</div>
+			<div>
+				<label>Message</label>
+				<textarea></textarea>
+			</div>
+		</div>
+		<div>
+			<button class="btn btn-large btn-block" role="submit"><svg xmlns="http://www.w3.org/2000/svg" style="height:1em;width:1em;" viewBox="0 0 17 17"><title></title><path fill="currentColor" d="M15.406 2.656H1.593c-.877 0-1.594.717-1.594 1.594v9.563c0 .877.717 1.594 1.594 1.594h13.813c.877 0 1.594-.717 1.594-1.594V4.25c0-.877-.717-1.594-1.594-1.594zM3.188 13.281H2.125v-2.125h1.063v2.125zm2.125 0H4.25v-2.125h1.063v2.125zm2.125 0H6.375v-2.125h1.063v2.125zm9.031-4.25H.531V5.843h15.938v3.188z"/></svg> Donate by Credit Card</button>
+			<button class="btn btn-large btn-block" role="submit"><svg xmlns="http://www.w3.org/2000/svg" style="height:1em;width:1em;" viewBox="0 0 17 17"><title></title><path fill="currentColor" d="M14.62 2.171c.427.209.798.506 1.071.871.573.769.734 1.816.479 3.112-.258 1.312-.837 2.419-1.68 3.221a4.806 4.806 0 0 1-.495.45c-.902.711-2.042 1.086-3.296 1.086H6.714l-1.072 5.026H3.444l.167-.769h.766l1.072-5.026h3.126c2.992 0 5.494-1.844 6.163-4.979.759-3.55-1.786-5.164-3.975-5.164H3.304L-.001 15.168h2.524l-.399 1.831h4.377l1.072-5.026h3.126c2.992 0 5.494-1.844 6.163-4.979.56-2.618-.677-4.182-2.243-4.824zm-7.608.918h2.144c1.072 0 1.786.922 1.474 2.074-.268 1.153-1.384 2.075-2.501 2.075H6.074l.938-4.149z"/></svg> Donate with PayPal</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,14 @@
+/**
+ * @section Secondary Nav
+ * Styling for the secondary navigation area
+ */
+
+.nav-secondary a,
+.nav-menu-subnav a {
+	@extend .link-no-underline;
+}
+
+.nav-menu-subnav .active a {
+	color: $color-gray-dark;
+	text-decoration: underline;
+}

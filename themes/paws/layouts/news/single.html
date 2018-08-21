@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+
+	<article>
+
+		<header>
+
+			<aside class="text-muted">
+				<time datetime="{{ .Date }}" pubdate>{{ dateFormat "January 2, 2006" .Date }}</time>
+			</aside>
+
+			<h1 class="no-padding-top">
+				{{ .Title }}
+			</h1>
+
+		</header>
+
+		{{ .Content }}
+
+	</article>
+
+	<br>
+	<aside>
+		<h2>Get more like this, sent straight to your inbox</h2>
+		<p>Sign up for the PAWS Newsletter to get about events, success stories, and tips on how you can help save lives sent straight to your inbox a few times a month.</p>
+		{{ partial "mailchimp-form.html" }}
+	</aside>
+
+{{ partial "footer.html" . }}

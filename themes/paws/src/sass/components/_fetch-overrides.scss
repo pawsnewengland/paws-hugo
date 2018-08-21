@@ -1,0 +1,22 @@
+/**
+ * @section Overrides
+ * Nudge and tweak alignment, spacing, and visibility.
+ */
+
+
+/**
+* Text sizes
+*/
+
+.fetch-all-pets-heading {
+	font-size: calc-em(19px);
+}
+
+
+/**
+ * Visibility
+ */
+
+.js-fetch-one-pet .heading-all-dogs {
+	@extend [hidden];
+}

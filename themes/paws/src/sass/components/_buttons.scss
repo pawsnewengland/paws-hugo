@@ -1,0 +1,182 @@
+/**
+ * @section Buttons
+ * Styling for CSS buttons.
+ */
+
+
+/**
+ * Primary buttons
+ */
+.btn {
+	background-color: $color-primary !important;
+	border: calc-em(2px) solid $color-primary !important;
+	border-radius: calc-em(1px);
+	color: $color-white !important;
+	display: inline-block;
+	font-size: calc-em(15px);
+	font-weight: normal;
+	line-height: 1.2;
+	margin-right: calc-em(5px);
+	margin-bottom: calc-em(5px);
+	padding: calc-em(8px) calc-em(11px);
+
+	&,
+	&:visited {
+		color: $color-white;
+	}
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: darken( $color-primary, 15% ) !important;
+		border-color: darken( $color-primary, 15% ) !important;
+		color: $color-white !important;
+		// text-decoration: none;
+	}
+
+	del {
+		@extend .text-muted-light;
+	}
+}
+
+a.btn {
+	text-decoration: none !important;
+}
+
+
+/**
+ * Secondary buttons
+ */
+.btn-secondary {
+	background-color: transparent !important;
+	border-color: $color-white !important;
+	color: $color-white !important;
+	// color: $color-white;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: $color-white !important;
+		border-color: $color-white !important;
+		color: darken( $color-primary, 15% ) !important;
+		// color: $color-white;
+		// text-decoration: none;
+	}
+
+	// del {
+	// 	@extend .text-muted-light;
+	// }
+}
+
+
+/**
+ * Tertiary buttons
+ */
+.btn-tertiary {
+	background-color: transparent !important;
+	border-color: $color-primary !important;
+	color: $color-primary !important;
+	// color: $color-white;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: $color-primary !important;
+		border-color: $color-primary !important;
+		color: $color-white !important;
+		// color: $color-white;
+		// text-decoration: none;
+	}
+
+	// del {
+	// 	@extend .text-muted-light;
+	// }
+}
+
+
+/**
+ * Active state
+ */
+.btn:active,
+.btn.active {
+	box-shadow: inset 0 calc-em(2.5px) calc-em(4px) rgba(0, 0, 0, 0.15), 0 calc-em(1px) calc-em(2.5px) rgba(0, 0, 0, 0.05);
+	outline: 0;
+}
+
+
+/**
+ * Disabled state
+ */
+.btn.disabled,
+.btn[disabled] {
+	box-shadow: none;
+	cursor: not-allowed;
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+
+/**
+ * Button size
+ */
+.btn-large {
+	font-size: 1em;
+	line-height: normal;
+	padding: calc-em(11px) calc-em(32px);
+
+	@media (min-width: $bp-medium) {
+		padding: calc-em(11px) calc-em(48px);
+	}
+}
+
+.btn-small {
+	padding: calc-em(5px) calc-em(8px);
+}
+
+
+/**
+ * Block-level buttons
+ */
+.btn-block,
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+	display: block;
+	margin-right: 0;
+	padding-right: 0;
+	padding-left: 0;
+	width: 100%;
+}
+
+
+/**
+ * General styles
+ */
+.btn,
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+
+	/**
+	 * @workaround Override default button styling
+	 * @affected Webkit/Firefox
+	 */
+	// background-image: none;
+	-webkit-appearance: none;
+}
+
+
+/**
+ * Remove right margin on last element and inputs
+ */
+.btn:last-child,
+input.btn {
+	margin-right: 0;
+}
