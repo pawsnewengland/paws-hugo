@@ -41,4 +41,4 @@
 	}
 
 
-	file_put_contents('adoptable-pets.json', json_encode($pets));
+	file_put_contents('../../../api/adoptable-pets.json', json_encode($pets));
