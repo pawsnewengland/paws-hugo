@@ -24,7 +24,10 @@
 					// event.target.setAttribute('hidden', 'hidden');
 					event.target.src = '/img/adopt-missing-photo.png';
 				}, true);
-			})
+			});
+		}
+		if (document.querySelector('[data-asm="pet-listings"]')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/asm.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/asm.js" | absURL }}{{ end }}')
 		}
 	}
 </script>

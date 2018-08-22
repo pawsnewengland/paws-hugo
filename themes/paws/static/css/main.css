@@ -1733,17 +1733,6 @@ button:-moz-focusring,
 }
 
 /**
- * @section Donate
- * Styling for the donation page.
- */
-@media (min-width: 60em) {
-  /* line 6, src/sass/components/_donate.scss */
-  .donate-description {
-    padding-top: 8em;
-  }
-}
-
-/**
  * @section WordPress Image Classes
  * Styling for the classes WordPress automatically applies to images.
  */
@@ -1895,7 +1884,7 @@ td {
 /**
  * The logo
  */
-/* line 32, src/sass/components/_nav-main.scss */
+/* line 25, src/sass/components/_nav-main.scss */
 .logo {
   display: inline-block;
   font-weight: bold;
@@ -1905,14 +1894,14 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 32, src/sass/components/_nav-main.scss */
+  /* line 25, src/sass/components/_nav-main.scss */
   .logo {
     float: left;
     margin-bottom: 0;
   }
 }
 
-/* line 52, src/sass/components/_nav-main.scss */
+/* line 39, src/sass/components/_nav-main.scss */
 .logo, .logo:active, .logo:focus, .logo:hover {
   color: #ffffff;
 }
@@ -1920,7 +1909,7 @@ td {
 /**
  * The nav menu
  */
-/* line 64, src/sass/components/_nav-main.scss */
+/* line 51, src/sass/components/_nav-main.scss */
 .nav {
   list-style: none;
   margin: 0 -0.5em;
@@ -1931,13 +1920,13 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 64, src/sass/components/_nav-main.scss */
+  /* line 51, src/sass/components/_nav-main.scss */
   .nav {
     text-align: right;
   }
 }
 
-/* line 84, src/sass/components/_nav-main.scss */
+/* line 60, src/sass/components/_nav-main.scss */
 .nav li {
   display: inline-block;
   float: none;
@@ -1945,13 +1934,13 @@ td {
   margin-right: 0.5em;
 }
 
-/* line 100, src/sass/components/_nav-main.scss */
+/* line 67, src/sass/components/_nav-main.scss */
 .nav a, .nav .link-block-styled {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 108, src/sass/components/_nav-main.scss */
+/* line 75, src/sass/components/_nav-main.scss */
 .nav a:hover, .nav .link-block-styled:hover, .nav .link-block:hover .link-block-styled, .link-block:hover .nav .link-block-styled,
 .nav a:active,
 .nav .link-block-styled:active,
@@ -1962,7 +1951,7 @@ td {
   border-bottom: 0.125em solid #ffffff;
 }
 
-/* line 117, src/sass/components/_nav-main.scss */
+/* line 84, src/sass/components/_nav-main.scss */
 
 .nav .active a,
 .nav .active .link-block-styled {
@@ -2159,6 +2148,58 @@ td {
 /**
  * Visibility
  */
+/**
+ * @section Fetch Grid
+ * Grid layout for Fetch
+ */
+@media (min-width: 19em) {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    max-width: 50%;
+    width: 50%;
+  }
+}
+
+@media (min-width: 28em) {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
+    -ms-flex-preferred-size: 33.33333%;
+        flex-basis: 33.33333%;
+    max-width: 33.33333%;
+    width: 33.33333%;
+  }
+}
+
+@media (min-width: 38em) {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    max-width: 25%;
+    width: 25%;
+  }
+}
+
+/**
+ * @section Filters
+ * Styles for pet filters
+ */
+/**
+ * @section ASM Image Styles
+ * Adds height limits to images
+ */
+/* line 6, src/sass/components/_asm-photos.scss */
+.asm-img-limit-height {
+  max-height: 12em;
+}
+
+/* line 10, src/sass/components/_asm-photos.scss */
+.asm-img-limit-height-large {
+  max-height: 25em;
+}
+
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
 /*
 
