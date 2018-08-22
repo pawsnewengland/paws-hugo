@@ -1,0 +1,34 @@
+/**
+ * @section Filters
+ * Styles for pet filters
+ */
+
+
+/**
+ * Filters for "All Pets" page
+ */
+.asm-pet-listings-filter-loaded .asm-filters {
+	display: none;
+	visibility: hidden;
+
+	@media (min-width: $bp-large) {
+		display: block;
+		visibility: visible;
+	}
+
+	&.is-visible {
+		display: block;
+		visibility: visible;
+	}
+}
+
+
+/**
+ * Filters toggle
+ */
+.asm-filters-toggle {
+	@media (min-width: $bp-large) {
+		display: none;
+		visibility: hidden;
+	}
+}

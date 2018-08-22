@@ -1994,8 +1994,8 @@ td {
  * Grid layout for Fetch
  */
 @media (min-width: 19em) {
-  /* line 7, src/sass/components/_fetch-grid.scss */
-  .grid-auto.grid-fetch {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
     max-width: 50%;
@@ -2004,8 +2004,8 @@ td {
 }
 
 @media (min-width: 28em) {
-  /* line 7, src/sass/components/_fetch-grid.scss */
-  .grid-auto.grid-fetch {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
     -ms-flex-preferred-size: 33.33333%;
         flex-basis: 33.33333%;
     max-width: 33.33333%;
@@ -2014,8 +2014,8 @@ td {
 }
 
 @media (min-width: 38em) {
-  /* line 7, src/sass/components/_fetch-grid.scss */
-  .grid-auto.grid-fetch {
+  /* line 7, src/sass/components/_asm-grid.scss */
+  .grid-auto.grid-asm {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
     max-width: 25%;
@@ -2030,162 +2030,37 @@ td {
 /**
  * Filters for "All Pets" page
  */
-/* line 10, src/sass/components/_fetch-filters.scss */
-.fetch-filters {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+/* line 10, src/sass/components/_asm-filters.scss */
+.asm-pet-listings-filter-loaded .asm-filters {
+  display: none;
+  visibility: hidden;
 }
 
 @media (min-width: 60em) {
-  /* line 21, src/sass/components/_fetch-filters.scss */
-  .js-fetch-sort .fetch-filters {
-    clip: auto;
-    height: auto;
-    margin: 0 0 1.5625em;
-    overflow: visible;
-    position: static;
-    width: auto;
-  }
-  /* line 30, src/sass/components/_fetch-filters.scss */
-  .js-fetch-has-sidebar .fetch-filters {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  /* line 10, src/sass/components/_asm-filters.scss */
+  .asm-pet-listings-filter-loaded .asm-filters {
+    display: block;
+    visibility: visible;
   }
 }
 
-/* line 42, src/sass/components/_fetch-filters.scss */
-.js-fetch-sort .fetch-filters.active {
-  clip: auto;
-  height: auto;
-  margin: 0 0 1.5625em;
-  overflow: visible;
-  position: static;
-  width: auto;
+/* line 19, src/sass/components/_asm-filters.scss */
+.asm-pet-listings-filter-loaded .asm-filters.is-visible {
+  display: block;
+  visibility: visible;
 }
 
 /**
  * Filters toggle
  */
-/* line 56, src/sass/components/_fetch-filters.scss */
-.fetch-filters-toggle {
-  display: none;
-  visibility: hidden;
-}
-
-@media (max-width: 60em) {
-  /* line 61, src/sass/components/_fetch-filters.scss */
-  .js-fetch-sort .fetch-filters-toggle {
-    display: inline-block;
-    visibility: visible;
+@media (min-width: 60em) {
+  /* line 29, src/sass/components/_asm-filters.scss */
+  .asm-filters-toggle {
+    display: none;
+    visibility: hidden;
   }
 }
 
-/* line 67, src/sass/components/_fetch-filters.scss */
-.js-fetch-has-sidebar .fetch-filters-toggle {
-  display: inline-block;
-  visibility: visible;
-}
-
-/**
- * @section Image styling
- * Adds borders and height limits to images
- */
-/**
- * Adds a border
- */
-/* line 9, src/sass/components/_fetch-snapshot.scss */
-.fetch-img-border, .fetch-img-photo {
-  border: 1px solid #cccccc;
-}
-
-/**
- * Adds padding and a white border
- */
-/* line 16, src/sass/components/_fetch-snapshot.scss */
-.fetch-img-photo {
-  padding: 0.25em;
-  background-color: #ffffff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-/**
- * Limit image height
- */
-/* line 27, src/sass/components/_fetch-snapshot.scss */
-.fetch-img-limit-height {
-  max-height: 12em;
-}
-
-/* line 31, src/sass/components/_fetch-snapshot.scss */
-.fetch-img-limit-height-large {
-  max-height: 25em;
-}
-
-/**
- * @section Overrides
- * Nudge and tweak alignment, spacing, and visibility.
- */
-/**
-* Text sizes
-*/
-/* line 11, src/sass/components/_fetch-overrides.scss */
-.fetch-all-pets-heading {
-  font-size: 1.1875em;
-}
-
-/**
- * Visibility
- */
-/**
- * @section Fetch Grid
- * Grid layout for Fetch
- */
-@media (min-width: 19em) {
-  /* line 7, src/sass/components/_asm-grid.scss */
-  .grid-auto.grid-asm {
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    max-width: 50%;
-    width: 50%;
-  }
-}
-
-@media (min-width: 28em) {
-  /* line 7, src/sass/components/_asm-grid.scss */
-  .grid-auto.grid-asm {
-    -ms-flex-preferred-size: 33.33333%;
-        flex-basis: 33.33333%;
-    max-width: 33.33333%;
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 38em) {
-  /* line 7, src/sass/components/_asm-grid.scss */
-  .grid-auto.grid-asm {
-    -ms-flex-preferred-size: 25%;
-        flex-basis: 25%;
-    max-width: 25%;
-    width: 25%;
-  }
-}
-
-/**
- * @section Filters
- * Styles for pet filters
- */
 /**
  * @section ASM Image Styles
  * Adds height limits to images
@@ -3365,7 +3240,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
 /* line 328, src/sass/components/_overrides.scss */
-[hidden], template, .tarpit, h2.give-form-title, .js-fetch-one-pet .heading-all-dogs, .pswp__caption small {
+[hidden], template, .tarpit, h2.give-form-title, .pswp__caption small {
   display: none;
   visibility: hidden;
 }

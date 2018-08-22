@@ -900,1583 +900,875 @@ function makeArray( obj ) {
   return ImagesLoaded;
 
 }));
-var fetchShowHide = function () {
+var petListings = function () {
 
 	'use strict';
 
-	var toggle = function (elem) {
-		elem.classList.toggle('active');
-		if (elem.classList.contains('active')) {
-			elem.setAttribute('tabindex', '-1');
-			elem.focus();
+	//
+	// Variables
+	//
+
+	var app = document.querySelector('[data-asm="pet-listings"]');
+	var sessionID = 'asmPetData';
+	var original;
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * Get the value of a query string from a URL
+	 * @param  {String} field The field to get the value of
+	 * @param  {String} url   The URL to get the value from [optional]
+	 * @return {String}       The value
+	 */
+	var getQueryString = function (field, url) {
+		var href = url ? url : window.location.href;
+		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+		var string = reg.exec(href);
+		return string ? string[1] : null;
+	};
+
+	var removeQueryStrings = function () {
+		return window.location.href.split('?')[0];
+	};
+
+	var emitEvent = function (type) {
+		var event = new CustomEvent(type, {
+			bubbles: true,
+			cancelable: true
+		});
+		app.dispatchEvent(event);
+	};
+
+	var propify = function (str) {
+		return str.replace(/ /g, '-').toLowerCase();
+	};
+
+	var getSizes = function (pets) {
+		var sizes = [];
+		if (pets.find((function (pet) { return pet.size === 'Small' }))) sizes.push('Small');
+		if (pets.find((function (pet) { return pet.size === 'Medium' }))) sizes.push('Medium');
+		if (pets.find((function (pet) { return pet.size === 'Large' }))) sizes.push('Large');
+		if (pets.find((function (pet) { return pet.size === 'Very Large' }))) sizes.push('Very Large');
+		return sizes;
+	};
+
+	var getAges = function (pets) {
+		var ages = [];
+		if (pets.find((function (pet) { return pet.age === 'Baby' }))) ages.push('Baby');
+		if (pets.find((function (pet) { return pet.age === 'Young' }))) ages.push('Young');
+		if (pets.find((function (pet) { return pet.age === 'Adult' }))) ages.push('Adult');
+		if (pets.find((function (pet) { return pet.age === 'Senior' }))) ages.push('Senior');
+		return ages;
+	};
+
+	var getGenders = function (pets) {
+		var genders = [];
+		if (pets.find((function (pet) { return pet.sex === 'Male' }))) genders.push('Male');
+		if (pets.find((function (pet) { return pet.sex === 'Female' }))) genders.push('Female');
+		return genders;
+	};
+
+	var getBreeds = function (pets) {
+		var breeds = [];
+		pets.forEach((function (pet) {
+			pet.breeds.forEach((function (breed) {
+				if (breeds.indexOf(breed) === -1) {
+					breeds.push(breed);
+				}
+			}));
+		}));
+		return breeds.sort();
+	};
+
+	// change type to isBreeds
+	var createFilterLabel = function (att, val, type) {
+		var html =
+			'<label>' +
+				'<input type="checkbox" data-asm-sort-type="' + type + '" data-asm-sort-target="' + propify(att) + '_' +  propify(val) + '" checked="checked"> ' +
+				val +
+			'</label>';
+		return html;
+	};
+
+	var createFilterHTML = function (atts, heading, all) {
+		var html = '<h2>' + heading + '</h2>';
+		var attName = heading.toLowerCase();
+		var type = attName === 'breeds' ? attName : 'attribute';
+		if (all) {
+			html += createFilterLabel('toggle-all', 'Toggle All', 'toggle-all');
+		}
+		atts.forEach((function (att) {
+			html += createFilterLabel(attName, att, type);
+		}));
+		return html;
+	};
+
+	var createOptionsFilterHTML = function () {
+		var html = '<h2>Other Options</h2>';
+		html += createFilterLabel('options', 'No Dogs', 'attribute');
+		html += createFilterLabel('options', 'No Cats', 'attribute');
+		html += createFilterLabel('options', 'No Kids', 'attribute');
+		html += createFilterLabel('options', 'Special Needs', 'attribute');
+		return html;
+	};
+
+	var createFilters = function (pets) {
+
+		// Variables
+		var sizes = getSizes(pets);
+		var ages = getAges(pets);
+		var genders = getGenders(pets);
+		var breeds = getBreeds(pets);
+		var html = '';
+
+		// Create filter HTML
+		html += createFilterHTML(sizes, 'Sizes');
+		html += createFilterHTML(ages, 'Ages');
+		html += createFilterHTML(genders, 'Genders');
+		html += createFilterHTML(breeds, 'Breeds', true);
+		html += createOptionsFilterHTML();
+
+		// Add wrapper and toggle button
+		html = '<div class="asm-filters margin-bottom" id="asm-filters">' + html + '</div>';
+		html += '<div class="asm-filters-toggle"><button class="btn" data-asm-filters-toggle>Filter Results</button></div>';
+
+		return html;
+
+	};
+
+	var createGoodWithHTML = function (pet) {
+		var html = '';
+		if (pet.nodogs && pet.nocats && pet.nokids) { html = 'No Dogs/Cats/Kids'; }
+		else if (pet.nodogs && pet.nocats) { html = 'No Dogs/Cats'; }
+		else if (pet.nodogs && pet.nokids) { html = 'No Dogs/Kids'; }
+		else if (pet.nocats && pet.nokids) { html = 'No Cats/Kids'; }
+		else if (pet.nodogs) { html = 'No Dogs'; }
+		else if (pet.nocats) { html = 'No Cats'; }
+		else if (pet.nokids) { html = 'No Kids'; }
+		return html;
+	};
+
+	var getPetBreedAttributes = function (pet) {
+		var breeds = [];
+		pet.breeds.forEach((function (breed) {
+			breeds.push(propify('breeds_' + breed));
+		}));
+		return breeds.join(' ');
+	};
+
+	var getPetOptionsAttributes = function (pet) {
+		var options = [];
+		if (pet.nodogs) options.push(propify('options_' + 'No Dogs'));
+		if (pet.nocats) options.push(propify('options_' + 'No Cats'));
+		if (pet.nokids) options.push(propify('options_' + 'No Kids'));
+		if (pet.specialneeds) options.push(propify('options_' + 'Special Needs'));
+		return options.join(' ');
+	};
+
+	var getPetAttributes = function (pet) {
+		return [
+			propify('sizes_' + pet.size),
+			propify('ages_' + pet.age),
+			propify('genders_' + pet.sex),
+			getPetBreedAttributes(pet),
+			getPetOptionsAttributes(pet)
+		].join(' ');
+	};
+
+	var createListingHTML = function (pet) {
+		var goodWith = createGoodWithHTML(pet);
+		var html =
+			'<article class="grid-auto grid-asm text-center margin-bottom" data-asm-attribute="' + getPetAttributes(pet) + '">' +
+				'<header>' +
+					'<a href="?petID=' + pet.id + '">' +
+						'<figure>' +
+							'<img class="img-photo asm-img-limit-height" alt="A photo of ' + pet.name + '" src="' + (pet.images > 0 ? 'https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid=' + pet.id + '&seq=1' : '/img/adopt-missing-photo.png') + '">' +
+						'</figure>' +
+						'<h2 class="h3 no-padding-top no-margin-top no-padding-bottom no-margin-bottom">' +
+							pet.name  +
+						'</h2>' +
+					'</a>' +
+				'</header>' +
+				'<div class="text-small">' +
+					'<div>' + [pet.size, pet.age, pet.sex].join(', ') + '</div>' +
+					'<div class="text-muted">' + pet.breeds.join(', ') + '</div>' +
+					(goodWith.length > 0 ? '<div><em class="text-muted">' + goodWith + '</em></div>' : '') +
+					(pet.specialneeds ? '<div><em class="text-muted">Special Needs</em></div>' : '') +
+				'</div>' +
+			'</article>';
+		return html;
+	};
+
+	var createListings = function (pets) {
+		var html = '';
+		pets.forEach((function (pet) {
+			html += createListingHTML(pet);
+		}));
+		return html;
+	};
+
+	var renderPetListings = function (pets) {
+
+		// Create the markup
+		var filters = createFilters(pets);
+		var listings = createListings(pets);
+
+		// Render the DOM
+		var template =
+			'<h1>Our Adoptable Dogs</h1>' +
+			'<div class="row">' +
+				'<div class="grid-fourth">' +
+					filters +
+				'</div>' +
+				'<div class="margin-bottom padding-top grid-three-fourths">' +
+					'<div class="row row-start-xsmall row-wrap">' +
+						listings +
+					'</div>' +
+				'</div>' +
+			'</div>';
+		safeDOM(app, template);
+
+		// Emit event
+		emitEvent('asmAllPets');
+
+	};
+
+	var getIndividualPet = function (pets, id) {
+		id = parseInt(id, 10);
+		return pets.find((function (pet) {
+			return parseInt(pet.id, 10) === id;
+		}));
+	};
+
+	var renderNoPet = function () {
+		var template =
+			'<h1 class="no-margin-bottom">This dog is no longer available for adoption</h1>' +
+			'<p><a href="' + removeQueryStrings() + '">&larr; Back to all dogs</a></p>' +
+			'<p><img style="width:100%;" src="https://media.giphy.com/media/yoJC2oHh0Js8DpfYR2/giphy.gif"></p>' +
+			'<p>This dog is no longer available for adoption. Sorry! <a href="' + removeQueryStrings() + '">Check out other dogs we have available for adoption.</a></p>';
+		safeDOM(app, template);
+	};
+
+	var createPetImageGalleryHTML = function (pet) {
+
+		// If there are no images for this pet
+		if (pet.images < 1) return '';
+
+		// Create photos
+		var photos = '';
+		for (var i = 0; i < pet.images; i++) {
+			var url = 'https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid=' + pet.id + '&seq=' + (i + 1);
+			photos += '<a class="grid-third" data-size href="' + url + '" ><img class="img-photo asm-img-limit-height" alt="A photo of ' + pet.name + '" src="' + url + '"></a>';
+		}
+
+		// Create gallery
+		var html =
+			'<div data-photoswipe class="row row-start-xsmall row-wrap text-center margin-bottom-small">' +
+				photos +
+			'</div>' +
+			'<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">' +
+				'<div class="pswp__bg"></div>' +
+				'<div class="pswp__scroll-wrap">' +
+					'<div class="pswp__container">' +
+						'<div class="pswp__item"></div>' +
+						'<div class="pswp__item"></div>' +
+						'<div class="pswp__item"></div>' +
+					'</div>' +
+					'<div class="pswp__ui pswp__ui--hidden">' +
+						'<div class="pswp__top-bar">' +
+							'<div class="pswp__counter"></div>' +
+							'<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>' +
+							'<button class="pswp__button pswp__button--share" title="Share"></button>' +
+							'<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>' +
+							'<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>' +
+							'<div class="pswp__preloader">' +
+								'<div class="pswp__preloader__icn">' +
+								'<div class="pswp__preloader__cut">' +
+									'<div class="pswp__preloader__donut"></div>' +
+								'</div>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">' +
+							'<div class="pswp__share-tooltip"></div>' +
+						'</div>' +
+						'<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>' +
+						'<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>' +
+						'<div class="pswp__caption">' +
+							'<div class="pswp__caption__center"></div>' +
+						'</div>' +
+					'</div>' +
+				'</div>' +
+			'</div>';
+
+		return html;
+	};
+
+	var createPetHTML = function (pet) {
+		var goodWith = createGoodWithHTML(pet);
+		var html =
+			'<header>' +
+				'<h1 class="no-margin-bottom">' + pet.name + '</h1>' +
+				'<aside>' +
+					'<p><a href="' + removeQueryStrings() + '">&larr; Back to all dogs</a></p>' +
+				'</aside>' +
+			'</header>' +
+			createPetImageGalleryHTML(pet) +
+			'<div class="margin-bottom">' +
+				'<strong>Size:</strong> ' + pet.size + '<br>' +
+				'<strong>Age:</strong> ' + pet.age + '<br>' +
+				'<strong>Gender:</strong> ' + pet.sex + '<br>' +
+				'<strong>Breeds:</strong> ' + pet.breeds.join(', ') +
+				(goodWith.length > 0 ? '<div><em>' + goodWith + '</em></div>' : '') +
+				(pet.specialneeds ? '<div><em>Special Needs</em></div>' : '') +
+			'</div>' +
+			'<p><a class="btn" href="/adopt/application?pet=' + encodeURIComponent(pet.name) + '::' + pet.sheltercode + '">Fill out an adoption form</a></p>' +
+			pet.description.replace(/\n/g, '<br>');
+		return html;
+	};
+
+	var renderPetListing = function (pets, id) {
+
+		// Update the DOM
+		app.classList.remove('container-large');
+
+		// Get the dog's info
+		var pet = getIndividualPet(pets, id);
+
+		// If no matching dog is found, show error
+		if (!pet) {
+			renderNoPet();
+			return;
+		}
+
+		// Create the listing
+		safeDOM(app, createPetHTML(pet));
+
+		// Emit event
+		emitEvent('asmIndividualPet');
+
+	};
+
+	var renderError = function () {
+		safeDOM(app, original);
+	};
+
+	var run = function (pets) {
+
+		// Check if listing is for an individual dog or not
+		var petID = getQueryString('petID');
+
+		// If it's for just one dog
+		if (petID) {
+			renderPetListing(pets, petID);
+			return;
+		}
+
+		// If it's for all dogs
+		renderPetListings(pets);
+
+	};
+
+	var getPets = function () {
+
+		// If pet data saved in sessionStorage, use that
+		var saved = sessionStorage.getItem(sessionID);
+		if (saved) {
+			run(JSON.parse(saved));
+			return;
+		}
+
+		// Set up our HTTP request
+		var xhr = new XMLHttpRequest();
+
+		// Setup our listener to process compeleted requests
+		xhr.onreadystatechange = function () {
+
+			// Only run if the request is complete
+			if (xhr.readyState !== 4) return;
+
+			// Process our return data
+			if (xhr.status === 200) {
+				run(JSON.parse(xhr.responseText));
+				sessionStorage.setItem(sessionID, xhr.responseText);
+			} else {
+				renderError();
+			}
+
+		};
+
+		// Create and send a GET request
+		// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
+		// The second argument is the endpoint URL
+		xhr.open('GET', '/api/adoptable-pets.json');
+		xhr.send();
+
+	};
+
+	var loading = function () {
+		original = app.innerHTML;
+		app.innerHTML = 'Loading...';
+	};
+
+
+	//
+	// Inits
+	//
+
+	if (!app) return;
+	loading();
+	getPets();
+
+};
+var petListingsFilter = function () {
+
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var allPets = document.querySelectorAll('[data-asm-attribute]');
+	var breedFilters = document.querySelectorAll('[data-asm-sort-type="breeds"]');
+	var attributeFilters = document.querySelectorAll('[data-asm-sort-type="attribute"]');
+	var sessionID = 'asmFilterState';
+
+
+	//
+	// Methods
+	//
+
+	var hidePets = function (pets) {
+		Array.from(pets).forEach((function (pet) {
+			pet.setAttribute('hidden', 'hidden');
+		}));
+	};
+
+	var showPets = function (pets) {
+		Array.from(pets).forEach((function (pet) {
+			pet.removeAttribute('hidden');
+		}));
+	};
+
+	var filterPets = function () {
+
+		// Hide all pets
+		hidePets(allPets);
+
+		// Toggle breeds
+		Array.from(breedFilters).forEach((function (breed) {
+			var pets = document.querySelectorAll('[data-asm-attribute*=' + breed.getAttribute('data-asm-sort-target') + ']');
+			if (breed.checked === true) {
+				showPets(pets);
+			}
+		}));
+
+		// Toggle all other attributes
+		Array.from(attributeFilters).forEach((function (att) {
+			var pets = document.querySelectorAll('[data-asm-attribute*=' + att.getAttribute('data-asm-sort-target') + ']');
+			if (att.checked === false) {
+				hidePets(pets);
+			}
+		}));
+
+	};
+
+	var toggleAllCheckboxes = function (checkbox) {
+		Array.from(breedFilters).forEach((function (filter) {
+			filter.checked = checkbox.checked;
+		}));
+	};
+
+	var saveState = function (checkbox) {
+
+		// Only run if sessionStorage is supported
+		if (!window.sessionStorage) return;
+
+		// Get currently saved
+		var state = sessionStorage.getItem(sessionID);
+		state = state ? JSON.parse(state) : {};
+
+		// Update state
+		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+
+		// Save updated state
+		sessionStorage.setItem(sessionID, JSON.stringify(state));
+
+	};
+
+	var loadState = function () {
+
+		// Only run if sessionStorage is supported
+		if (!window.sessionStorage) return;
+
+		// Get currently saved
+		var state = sessionStorage.getItem(sessionID);
+		if (!state) return;
+		state = JSON.parse(state);
+
+		// Restore state
+		Object.keys(state).forEach((function (key) {
+			var filter = document.querySelector('[data-asm-sort-target="' + key + '"]');
+			if (!filter) return;
+			filter.checked = state[key];
+		}));
+
+	};
+
+	var toggleFilters = function () {
+		var filters = document.querySelector('#asm-filters');
+		if (!filters) return;
+		filters.classList.toggle('is-visible');
+		if (filters.classList.contains('is-visible')) {
+			filters.setAttribute('tabindex', '-1');
+			filters.focus();
 		}
 	};
 
 	var clickHandler = function (event) {
-		if (!event.target.closest('[data-fetch-filters-toggle]')) return;
-		var filters = document.querySelector('#fetch-filters');
-		if (!filters) return;
-		toggle(filters);
+
+		// If toggle button, toggle filters
+		if (event.target.closest('[data-asm-filters-toggle]')) {
+			toggleFilters();
+			return;
+		}
+
+		// Only run on sort filters
+		var checkbox = event.target.closest('[data-asm-sort-target]');
+		if (!checkbox) return;
+
+		// If toggle all checkbox
+		if (checkbox.getAttribute('data-asm-sort-type') === 'toggle-all') {
+			toggleAllCheckboxes(checkbox);
+		}
+
+		// Filter pet listings
+		filterPets();
+
+		// Save state
+		saveState(checkbox);
+
 	};
 
+
+	//
+	// Inits
+	//
+
+	// Add class hook
+	document.documentElement.classList.add('asm-pet-listings-filter-loaded');
+
+	// Listen for clicks
 	document.documentElement.addEventListener('click', clickHandler, false);
 
+	// Load state from session storage
+	loadState();
+
+	// Filter pet listings
+	filterPets();
+
+	console.log('running');
+
 };
-(function (root, factory) {
-	if ( typeof define === 'function' && define.amd ) {
-		define([], factory(root));
-	} else if ( typeof exports === 'object' ) {
-		module.exports = factory(root);
-	} else {
-		root.petfinderAPI = factory(root);
-	}
-})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
+/**
+ * Initialize PhotoSwipe
+ * @private
+ * @param  {String} gallerySelector Selector for the image gallery
+ */
+var initPhotoSwipeFromDOM = function(gallerySelector) {
 
-	'use strict';
+	var parseThumbnailElements = function(el) {
+		var thumbElements = el.childNodes,
+			numNodes = thumbElements.length,
+			items = [],
+			el,
+			childElements,
+			thumbnailEl,
+			size,
+			item;
 
-	//
-	// Variables
-	//
+		for(var i = 0; i < numNodes; i++) {
+			el = thumbElements[i];
 
-	var petfinderAPI = {}; // Object for public APIs
-	var supports = 'querySelector' in document && 'addEventListener' in root && 'classList' in document.createElement('_') && 'localStorage' in root && !!Array.prototype.indexOf; // Feature test
-	var app = {}; // Object for app nodes
-	var lists = {}; // Object for pet lists
-	var original = {}; // Object for original content and page title
-	var settings, eventTimeout, localAPI, localAPIid, baseUrl, total;
+			// include only element nodes
+			if(el.nodeType !== 1) {
+				continue;
+			}
 
-	// Default settings
-	var defaults = {
+			childElements = el.children;
 
-		// API Defaults
-		key: null,
-		shelter: null,
-		count: 25,
-		status: 'A',
-		offset: null,
-		expiration: 60,
-		newestFirst: true,
+			size = el.getAttribute('data-size').split('x');
 
-		// Selectors
-		selectorAppMain: '[data-petfinder="main"]',
-		selectorAppAside: '[data-petfinder="aside"]',
+			// create slide object
+			item = {
+				src: el.getAttribute('href'),
+				w: parseInt(size[0], 10),
+				h: parseInt(size[1], 10),
+				author: el.getAttribute('data-author')
+			};
 
-		// Templates
-		templates: {
-			allPets: null,
-			onePet: null,
-			asideAllPets: null,
-			asideOnePet: null,
-		},
+			item.el = el; // save link to element for getThumbBoundsFn
 
-		// Class Hooks
-		initClass: 'js-petfinder-api',
-		allClass: 'js-petfinder-api-all-pets',
-		oneClass: 'js-petfinder-api-one-pet',
+			if(childElements.length > 0) {
+				item.msrc = childElements[0].getAttribute('src'); // thumbnail url
+				if(childElements.length > 1) {
+					item.title = childElements[1].innerHTML; // caption (contents of figure)
+				}
+			}
 
-		// Miscellaneous
-		titlePrefix: '{{name}} | ',
-		loading: 'Fetching the latest pet info...',
-		noPet: 'Sorry, but this pet is no longer available. <a data-petfinder-async href="{{url.all}}">View available pets.</a>',
+			var mediumSrc = el.getAttribute('data-med');
+			if(mediumSrc) {
+				size = el.getAttribute('data-med-size').split('x');
+				// "medium-sized" image
+				item.m = {
+					src: mediumSrc,
+					w: parseInt(size[0], 10),
+					h: parseInt(size[1], 10)
+				};
+			}
 
+			// original image
+			item.o = {
+				src: item.src,
+				w: item.w,
+				h: item.h
+			};
 
-		// Lists & Checkboxes
-		classPrefix: 'pf-',
-		toggleAll: 'Select/Unselect All',
+			items.push(item);
+		}
 
-		// Pet photos
-		noImage: '',
-
-		// Animal Text
-		animalUnknown: 'Not Known',
-
-		// Breeds Text
-		breedDelimiter: ', ',
-
-		// Size Text
-		sizeUnknown: 'Not Known',
-		sizeS: 'Small',
-		sizeM: 'Medium',
-		sizeL: 'Large',
-		sizeXL: 'Extra Large',
-
-		// Age Text
-		ageUnknown: 'Not Known',
-		ageBaby: 'Baby',
-		ageYoung: 'Young',
-		ageAdult: 'Adult',
-		ageSenior: 'Senior',
-
-		// Gender Text
-		genderUnknown: 'Not Known',
-		genderM: 'Male',
-		genderF: 'Female',
-
-		// Options Text
-		optionsSpecialNeeds: 'Special Needs',
-		optionsNoDogs: 'No Dogs',
-		optionsNoCats: 'No Cats',
-		optionsNoKids: 'No Kids',
-		optionsNoClaws: 'No Claws',
-		optionsHasShot: 'Has hots',
-		optionsHousebroken: 'Housebroken',
-		optionsAltered: 'Spayed/Neutered',
-
-		// Multi-Option Text
-		optionsNoDogsCatsKids: 'No Dogs/Cats/Kids',
-		optionsNoDogsCats: 'No Dogs/Cats',
-		optionsNoDogsKids: 'No Dogs/Kids',
-		optionsNoCatsKids: 'No Cats/Kids',
-
-		// Contact Info Missing Text
-		contactName: '',
-		contactEmail: '',
-		contactPhone: '',
-		contactAddress1: '',
-		contactAddress2: '',
-		contactCity: '',
-		contactState: '',
-		contactZip: '',
-		contactFax: '',
-
-		// Callbacks
-		callback: function () {}
-
+		return items;
 	};
 
+	// find nearest parent element
+	var closest = function closest(el, fn) {
+		return el && (fn(el) ? el : closest(el.parentNode, fn));
+	};
 
-	//
-	// Methods
-	//
+	var onThumbnailsClick = function(e) {
+		e = e || window.event;
+		e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
-	/**
-	 * A simple forEach() implementation for Arrays, Objects and NodeLists.
-	 * @private
-	 * @author Todd Motto
-	 * @link   https://github.com/toddmotto/foreach
-	 * @param {Array|Object|NodeList} collection Collection of items to iterate
-	 * @param {Function}              callback   Callback function for each iteration
-	 * @param {Array|Object|NodeList} scope      Object/NodeList/Array that forEach is iterating over (aka `this`)
-	 */
-	var forEach = function ( collection, callback, scope ) {
-		if ( Object.prototype.toString.call( collection ) === '[object Object]' ) {
-			for ( var prop in collection ) {
-				if ( Object.prototype.hasOwnProperty.call( collection, prop ) ) {
-					callback.call( scope, collection[prop], prop, collection );
+		var eTarget = e.target || e.srcElement;
+
+		var clickedListItem = closest(eTarget, (function(el) {
+			return el.tagName === 'A';
+		}));
+
+		if(!clickedListItem) {
+			return;
+		}
+
+		var clickedGallery = clickedListItem.parentNode;
+
+		var childNodes = clickedListItem.parentNode.childNodes,
+			numChildNodes = childNodes.length,
+			nodeIndex = 0,
+			index;
+
+		for (var i = 0; i < numChildNodes; i++) {
+			if(childNodes[i].nodeType !== 1) {
+				continue;
+			}
+
+			if(childNodes[i] === clickedListItem) {
+				index = nodeIndex;
+				break;
+			}
+			nodeIndex++;
+		}
+
+		if(index >= 0) {
+			openPhotoSwipe(index, clickedGallery);
+		}
+		return false;
+	};
+
+	var photoswipeParseHash = function() {
+		var hash = window.location.hash.substring(1),
+		params = {};
+
+		if(hash.length < 5) { // pid=1
+			return params;
+		}
+
+		var vars = hash.split('&');
+		for (var i = 0; i < vars.length; i++) {
+			if(!vars[i]) {
+				continue;
+			}
+			var pair = vars[i].split('=');
+			if(pair.length < 2) {
+				continue;
+			}
+			params[pair[0]] = pair[1];
+		}
+
+		if(params.gid) {
+			params.gid = parseInt(params.gid, 10);
+		}
+
+		return params;
+	};
+
+	var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+		var pswpElement = document.querySelectorAll('.pswp')[0],
+			gallery,
+			options,
+			items;
+
+		items = parseThumbnailElements(galleryElement);
+
+		// define options (if needed)
+		options = {
+
+			galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+			getThumbBoundsFn: function(index) {
+				// See Options->getThumbBoundsFn section of docs for more info
+				var thumbnail = items[index].el.children[0],
+					pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+					rect = thumbnail.getBoundingClientRect();
+
+				return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+			},
+
+			addCaptionHTMLFn: function(item, captionEl, isFake) {
+				if(!item.title) {
+					captionEl.children[0].innerText = '';
+					return false;
 				}
+				captionEl.children[0].innerHTML = item.title +  '<br/><small>Photo: ' + item.author + '</small>';
+				return true;
+			}
+
+		};
+
+
+		if(fromURL) {
+			if(options.galleryPIDs) {
+				// parse real index when custom PIDs are used
+				// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+				for(var j = 0; j < items.length; j++) {
+					if(items[j].pid == index) {
+						options.index = j;
+						break;
+					}
+				}
+			} else {
+				options.index = parseInt(index, 10) - 1;
 			}
 		} else {
-			for ( var i = 0, len = collection.length; i < len; i++ ) {
-				callback.call( scope, collection[i], i, collection );
-			}
-		}
-	};
-
-	/**
-	 * Merge two or more objects. Returns a new object.
-	 * @private
-	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
-	 */
-	var extend = function () {
-
-		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
-
-		// Check if a deep merge
-		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-			deep = arguments[0];
-			i++;
+			options.index = parseInt(index, 10);
 		}
 
-		// Merge the object into the extended object
-		var merge = function (obj) {
-			for ( var prop in obj ) {
-				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-					// If deep merge and property is an object, merge properties
-					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-						extended[prop] = extend( true, extended[prop], obj[prop] );
-					} else {
-						extended[prop] = obj[prop];
-					}
+		// exit if index not found
+		if(isNaN(options.index)) {
+			return;
+		}
+
+
+
+		var radios = document.getElementsByName('gallery-style');
+		for (var i = 0, length = radios.length; i < length; i++) {
+			if (radios[i].checked) {
+				if(radios[i].id == 'radio-all-controls') {
+
+				} else if(radios[i].id == 'radio-minimal-black') {
+					options.mainClass = 'pswp--minimal--dark';
+					options.barsSize = {top:0,bottom:0};
+					options.captionEl = false;
+					options.fullscreenEl = false;
+					options.shareEl = false;
+					options.bgOpacity = 0.85;
+					options.tapToClose = true;
+					options.tapToToggleControls = false;
 				}
-			}
-		};
-
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
-		}
-
-		return extended;
-
-	};
-
-	/**
-	 * Get the closest matching element up the DOM tree
-	 * @private
-	 * @param {Element} elem Starting element
-	 * @param {String} selector Selector to match against (class, ID, or data attribute)
-	 * @return {Element} Returns null if no match found
-	 */
-	var getClosest = function ( elem, selector ) {
-
-		// Variables
-		var firstChar = selector.charAt(0);
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
+				break;
 			}
 		}
 
-		// Get closest match
-		for ( ; elem && elem !== document; elem = elem.parentNode ) {
+		if(disableAnimation) {
+			options.showAnimationDuration = 0;
+		}
 
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( elem.classList.contains( selector.substr(1) ) ) {
-					return elem;
+		// Pass data to PhotoSwipe and initialize it
+		gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+		// see: http://photoswipe.com/documentation/responsive-images.html
+		var realViewportWidth,
+			useLargeImages = false,
+			firstResize = true,
+			imageSrcWillChange;
+
+		gallery.listen('beforeResize', (function() {
+
+			var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+			dpiRatio = Math.min(dpiRatio, 2.5);
+			realViewportWidth = gallery.viewportSize.x * dpiRatio;
+
+
+			if(realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
+				if(!useLargeImages) {
+					useLargeImages = true;
+					imageSrcWillChange = true;
+				}
+
+			} else {
+				if(useLargeImages) {
+					useLargeImages = false;
+					imageSrcWillChange = true;
 				}
 			}
 
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
+			if(imageSrcWillChange && !firstResize) {
+				gallery.invalidateCurrItems();
 			}
 
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
+			if(firstResize) {
+				firstResize = false;
 			}
 
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
+			imageSrcWillChange = false;
 
-		}
+		}));
 
-		return null;
-
-	};
-
-	/**
-	 * Update the document title
-	 * @private
-	 * @param  {string} name Name of current pet
-	 */
-	var updateTitle = function ( name ) {
-		var title = name ? settings.titlePrefix + original.title : original.title; // Set title
-		title = title.replace( /\{\{name\}\}/, name ); // Replace {{name}} placeholder with pet name
-		document.title = title; // Update title
-	};
-
-	/**
-	 * Get pet attribute and convert into human-readable format
-	 * @private
-	 * @param  {Object} pet   The pet to get an option for
-	 * @param  {String} type  Type of value (size, age, etc.)
-	 * @param  {String} start Default value
-	 * @return {String}       Converted value
-	 */
-	var getPetAttribute = function ( pet, type, start ) {
-
-		// Set default value
-		var attribute = start;
-
-		/**
-		 * Check set of options for the attribute
-		 * @private
-		 * @param  {String} option Option to look for
-		 * @param  {String} value  Value to use if it exists
-		 */
-		var getPetOption = function ( option, value ) {
-			if ( !pet.options.option ) return;
-			forEach(pet.options.option, (function (opt) {
-				if ( opt.$t === option ) {
-					attribute = value;
-				}
-			}));
-		};
-
-		// Sanitize description and add links
-		if ( type === 'description' ) {
-			attribute = sanitizeDescription( pet.description.$t );
-			attribute = linkify( attribute );
-			attribute = '<div style="white-space: pre-wrap;">' + attribute + '</div>';
-		}
-
-		// Generate string of breeds, separated by a delimiter
-		if ( type === 'breeds' ) {
-			if ( Object.prototype.toString.call( pet.breeds.breed ) === '[object Object]' ) {
-				attribute = pet.breeds.breed.$t;
-				return attribute;
-			}
-
-			forEach(pet.breeds.breed, (function (breed, index) {
-				attribute += index === 0 ? '' : settings.breedDelimiter;
-				attribute += breed.$t;
-			}));
-		}
-
-		// Translate pet size into human-readable format
-		if ( type === 'size' ) {
-			if ( pet.size.$t === 'S' ) attribute = settings.sizeS;
-			if ( pet.size.$t === 'M' ) attribute = settings.sizeM;
-			if ( pet.size.$t === 'L' ) attribute = settings.sizeL;
-			if ( pet.size.$t === 'XL' ) attribute = settings.sizeXL;
-		}
-
-		// Translate pet age into preferred name
-		if ( type === 'age' ) {
-			if ( pet.age.$t === 'Baby' ) attribute = settings.ageBaby;
-			if ( pet.age.$t === 'Young' ) attribute = settings.ageYoung;
-			if ( pet.age.$t === 'Adult' ) attribute = settings.ageAdult;
-			if ( pet.age.$t === 'Senior' ) attribute = settings.ageSenior;
-		}
-
-		// Translate pet gender into human-readable format
-		if ( type === 'gender' ) {
-			if ( pet.sex.$t === 'M' ) attribute = settings.genderM;
-			if ( pet.sex.$t === 'F' ) attribute = settings.genderF;
-		}
-
-		// Translate animals into human-readable form
-		if ( type === 'animal' ) {
-			attribute = pet.animal.$t === 'unknown' ? settings.animalUnknown : pet.animal.$t;
-		}
-
-		// Generate a string of options
-		if ( type === 'multiOptions' ) {
-			var noCats, noDogs, noKids;
-			if ( !pet.options.option ) return attribute;
-			forEach(pet.options.option, (function (opt) {
-				if ( opt.$t === 'noCats' ) { noCats = true; }
-				if ( opt.$t === 'noDogs' ) { noDogs = true; }
-				if ( opt.$t === 'noKids' ) { noKids = true; }
-			}));
-
-			// Create content for pet options section
-			if ( noCats === true && noDogs === true && noKids === true ) { attribute = settings.optionsNoDogsCatsKids; }
-			else if ( noCats === true && noDogs === true ) { attribute = settings.optionsNoDogsCats; }
-			else if ( noDogs === true && noKids === true ) { attribute = settings.optionsNoDogsKids; }
-			else if ( noCats === true && noKids === true ) { attribute = settings.optionsNoCatsKids; }
-			else if ( noDogs === true ) { attribute = settings.optionsNoDogs; }
-			else if ( noCats === true ) { attribute = settings.optionsNoCats; }
-			else if ( noKids === true ) { attribute = settings.optionsNoKids; }
-		}
-		if ( type === 'specialNeeds' ) { getPetOption( 'specialNeeds', settings.optionsSpecialNeeds ); }
-		if ( type === 'noDogs' ) { getPetOption( 'noDogs', settings.optionsNoDogs ); }
-		if ( type === 'noCats' ) { getPetOption( 'noCats', settings.optionsNoCats ); }
-		if ( type === 'noKids' ) { getPetOption( 'noKids', settings.optionsNoKids ); }
-		if ( type === 'noClaws' ) { getPetOption( 'noClaws', settings.optionsNoClaws ); }
-		if ( type === 'hasShot' ) { getPetOption( 'hasShots', settings.optionsHasShots ); }
-		if ( type === 'housebroken' ) { getPetOption( 'housebroken', settings.optionsHousebroken ); }
-		if ( type === 'altered' ) { getPetOption( 'altered', settings.optionsAltered ); }
-
-		return attribute;
-
-	};
-
-	/**
-	 * Get photo of pet
-	 * @param  {Object} pet  Pet to get photo of
-	 * @param  {String} size Size of the photo to get
-	 * @param  {Number} num  Which photo to get
-	 * @return {String}      URL of the photo
-	 */
-	var getPetPhoto = function ( pet, size, num ) {
-
-		// If pet has no photos, end method
-		if ( !pet.media || !pet.media.photos || !pet.media.photos.photo || pet.media.photos.photo.count === 0 ) return '';
-
-		// Variables
-		var image = settings.noImage;
-		var quality;
-		if ( size === 'large' ) { quality = 'x'; }
-		if ( size === 'medium' ) { quality = 'pn'; }
-		if ( size === 'thumbSmall' ) { quality = 't'; }
-		if ( size === 'thumbMedium' ) { quality = 'pnt'; }
-		if ( size === 'thumbLarge' ) { quality = 'fpm'; }
-
-		// Loop through available photos until finding a match
-		forEach(pet.media.photos.photo, (function (photo) {
-			if ( photo['@size'] === quality && photo['@id'] === num ) {
-				image = photo.$t;
-				return;
+		gallery.listen('gettingData', (function(index, item) {
+			if(useLargeImages || !('m' in item)) {
+				item.src = item.o.src;
+				item.w = item.o.w;
+				item.h = item.o.h;
+			} else {
+				item.src = item.m.src;
+				item.w = item.m.w;
+				item.h = item.m.h;
 			}
 		}));
 
-		return image;
-
+		gallery.init();
 	};
 
-	/**
-	 * Get contact info for a pet
-	 * @param  {Object} pet  The pet
-	 * @param  {String} type Type of contact info to get
-	 * @return {String}      The contact info
-	 */
-	var getPetContact = function ( pet, type ) {
+	var galleryElements = document.querySelector(gallerySelector);
+	if (galleryElements) {
+		imagesLoaded(galleryElements, (function () {
 
-		// Default info value
-		var info = '';
-
-		// Set info based on type
-		if ( type === 'name' ) { info = pet.contact.name && pet.contact.name.$t ? pet.contact.name.$t : settings.contactName; }
-		if ( type === 'email' ) { info = pet.contact.email && pet.contact.email.$t ? pet.contact.email.$t : settings.contactEmail; }
-		if ( type === 'phone' ) { info = pet.contact.phone && pet.contact.phone.$t ? pet.contact.phone.$t : settings.contactPhone; }
-		if ( type === 'address1' ) { info = pet.contact.address1 && pet.contact.address1.$t ? pet.contact.address1.$t : settings.contactAddress1; }
-		if ( type === 'address2' ) { info = pet.contact.address2 && pet.contact.address2.$t ? pet.contact.address2.$t : settings.contactAddress2; }
-		if ( type === 'city' ) { info = pet.contact.city && pet.contact.city.$t ? pet.contact.city.$t : settings.contactCity; }
-		if ( type === 'state' ) { info = pet.contact.state && pet.contact.state.$t ? pet.contact.state.$t : settings.contactState; }
-		if ( type === 'zip' ) { info = pet.contact.zip && pet.contact.zip.$t ? pet.contact.zip.$t : settings.contactZip; }
-		if ( type === 'fax' ) { info = pet.contact.fax && pet.contact.fax.$t ? pet.contact.fax.$t : settings.contactFax; }
-
-		return info;
-
-	};
-
-	/**
-	 * Convert strings to links
-	 * @private
-	 * @param  {String} inputText The text to add links to
-	 * @return {String}          Linkified text
-	 * @author Steven Miyakawa
-	 * @link   https://gist.github.com/SamSamskies/61604d534fbe89ee9cce
-	 */
-	var linkify = function ( inputText ) {
-
-		if ( !inputText ) return;
-
-		var replacedText, replacePattern1, replacePattern2, replacePattern3;
-
-		//URLs starting with http://, https://, or ftp://
-		replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-		replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
-
-		//URLs starting with "www." (without // before it, or it'd re-link the ones done above).
-		replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-		replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
-
-		//Change email addresses to mailto:: links.
-		replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-		replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
-
-		return replacedText;
-
-	};
-
-	/**
-	 * Remove unwanted text from pet descriptions
-	 * @private
-	 * @param  {String} text The text to sanitize
-	 * @return {String}      Sanitized text
-	 */
-	var sanitizeDescription = function ( text ) {
-		if ( !text || text === '' ) return; // If no text is supplied, end method
-		return text
-			.replace( /<p><\/p>/g, '' )
-			.replace( /<p> <\/p>/g, '' )
-			.replace( /<p>&nbsp;<\/p>/g, '' )
-			.replace( /&nbsp;/g, '' )
-			.replace( /<span>/g, '' )
-			.replace( /<\/span>/g, '' )
-			.replace( /<font>/g, '' )
-			.replace( /<\/font>/g, '' );
-	};
-
-	/**
-	 * Remove spaces from string
-	 * @private
-	 * @param  {String} text String to condense
-	 * @return {String}      Condensed string
-	 */
-	var condenseString = function ( text, prefix ) {
-		if ( !text || text === '' ) return; // If no text is supplied, end method
-		if ( prefix ) { text = settings.classPrefix + text; } // If a prefix is set, add it
-		return text
-			.replace( /\(/g, '' )
-			.replace( /\)/g, '' )
-			.replace( /\&/g, '-' )
-			.replace( /\//g, '-' )
-			.replace( / /g, '-' )
-			.toLowerCase();
-	};
-
-	/**
-	 * Remove spaces from array elements and combine into a string
-	 * @private
-	 * @param  {Array} arr      The array of elements
-	 * @param  {Boolean} prefix If true, add prefix to each string
-	 * @return {String}         Combined, condensed array values
-	 */
-	var condenseArray = function ( arr, prefix ) {
-		var text = '';
-		forEach(arr, (function (value) {
-			text += ' ' + condenseString( value.$t, prefix );
-		}));
-		return text;
-	};
-
-	var getBreeds = function ( pet ) {
-
-		if ( Object.prototype.toString.call( pet.breeds.breed ) === '[object Object]' ) {
-			return ' ' + condenseString( pet.breeds.breed.$t, true );
-		}
-
-		var breeds = '';
-		forEach(pet.breeds.breed, (function (breed, index) {
-			breeds += ' ' + condenseString( breed.$t, true );
-		}));
-		return breeds;
-
-	};
-
-	/**
-	 * Generate classes for all pet attributes
-	 * @private
-	 * @param  {Object} pet Pet to generate classes for
-	 * @return {String}     Pet classes
-	 */
-	var getPetClasses = function ( pet ) {
-		return [
-			settings.classPrefix + 'pet',
-			condenseString( getPetAttribute( pet, 'age', settings.ageUnknown ), true ),
-			condenseString( pet.animal.$t, true ),
-			getBreeds( pet ),
-			condenseString( getPetAttribute( pet, 'specialNeeds', '' ), true ),
-			condenseString( getPetAttribute( pet, 'noDogs', '' ), true ),
-			condenseString( getPetAttribute( pet, 'noCats', '' ), true ),
-			condenseString( getPetAttribute( pet, 'noKids', '' ), true ),
-			condenseString( getPetAttribute( pet, 'noClaws', '' ), true ),
-			condenseString( getPetAttribute( pet, 'hasShots', '' ), true ),
-			condenseString( getPetAttribute( pet, 'housebroken', '' ), true ),
-			condenseString( getPetAttribute( pet, 'altered', '' ), true ),
-			condenseString( getPetAttribute( pet, 'gender', settings.genderUnknown ), true ),
-			condenseString( getPetAttribute( pet, 'size', settings.sizeUnknown ), true )
-		].join( ' ' );
-	};
-
-	/**
-	 * Create sorted lists of attributes based on available pets
-	 * @private
-	 * @param  {String} type  Characteristic to create a list for
-	 * @param  {String} start Default value of attribute
-	 * @return {Array}        Array of available attributes
-	 */
-	var createList = function ( type, start ) {
-
-		// If list already cached, use that
-		if ( lists[type] ) return lists[type];
-
-		// Variables
-		var list = [];
-		var listTemp = [];
-
-		// Loop through pet attributes and push unique attributes to an array
-		forEach(localAPI.pets, (function ( pet ) {
-
-			// Get attribute in human-readable form
-			var attribute = getPetAttribute( pet, type, start );
-
-			// If type is breeds, split by delimiter and add to array if not already there
-			if ( type === 'breeds' ) {
-				var breeds = attribute.split( settings.breedDelimiter );
-				forEach(breeds, (function ( breed ) {
-					if ( list.indexOf( breed ) === -1 ) {
-						list.push( breed );
-					}
-				}));
-				return;
+			// Add image sizes
+			var sizes = galleryElements.querySelectorAll('[data-size]');
+			for (var i = 0, len = sizes.length; i < len; i++) {
+				var img = sizes[i].querySelector('img');
+				if (!img) continue;
+				sizes[i].setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
 			}
 
-			// Otherwise, add to array if not already there
-			if ( list.indexOf( attribute ) === -1 ) {
-				list.push( attribute );
-			}
+			galleryElements.setAttribute('data-pswp-uid', 0);
+			galleryElements.onclick = onThumbnailsClick;
+
 		}));
-
-		// Sort list alphabetically
-		list.sort();
-
-		// If creating list of sizes, sort smallest to largest
-		if ( type === 'size' ) {
-			if ( list.indexOf( settings.sizeS ) !== -1 ) listTemp.push( settings.sizeS );
-			if ( list.indexOf( settings.sizeM ) !== -1 ) listTemp.push( settings.sizeM );
-			if ( list.indexOf( settings.sizeL ) !== -1 ) listTemp.push( settings.sizeL );
-			if ( list.indexOf( settings.sizeXL ) !== -1 ) listTemp.push( settings.sizeXL );
-			list = listTemp;
-		}
-
-		// If creating a list of ages, sort youngest to oldest
-		if ( type === 'age' ) {
-			if ( list.indexOf( settings.ageBaby ) !== -1 ) listTemp.push( settings.ageBaby );
-			if ( list.indexOf( settings.ageYoung ) !== -1 ) listTemp.push( settings.ageYoung );
-			if ( list.indexOf( settings.ageAdult ) !== -1 ) listTemp.push( settings.ageAdult );
-			if ( list.indexOf( settings.ageSenior ) !== -1 ) listTemp.push( settings.ageSenior );
-			list = listTemp;
-		}
-
-		// Cache list for reuse later
-		lists[type] = list;
-
-		return list;
-	};
-
-	/**
-	 * Create a collection of list items for a pet attribute
-	 * @private
-	 * @param  {String} type  Type of attribute to create list items for
-	 * @param  {String} start Default value of attribute
-	 * @return {String}       A collection of list items
-	 */
-	var createListItems = function ( type, start ) {
-
-		// Variables
-		var markup = '';
-		var listItems = createList( type, start );
-
-		// Create a list item for each attribute
-		forEach(listItems, (function (item) {
-			markup +=
-				'<li>' + item +'</li>';
-		}));
-
-		return markup;
-	};
-
-	/**
-	 * Create checkboxes for a pet attribute
-	 * @private
-	 * @param  {String} type    Type of attribute to create list items for
-	 * @param  {String} start   Default value of attribute
-	 * @param  {Boolean} toggle If true, add select/unselect all toggle checkbox
-	 * @return {String}         Checkboxes
-	 */
-	var createCheckboxes = function ( type, start, toggle ) {
-
-		// Variables
-		var markup = '';
-		var toggleAll = '';
-		var sort = type === 'breeds' ? 'breeds' : 'attributes';
-		var listItems = createList( type, start );
-
-		// For each attribute, create a checkbox
-		forEach(listItems, (function (item) {
-			var target = condenseString( item, true );
-			markup +=
-				'<label>' +
-					'<input type="checkbox" data-petfinder-sort="' + sort + '" data-petfinder-sort-type="' + type + '" data-petfinder-sort-target=".' + target + '" checked> ' +
-					item +
-				'</label>';
-		}));
-
-		// Add select/unselect all toggle if enabled
-		if ( toggle ) {
-			toggleAll =
-				'<label>' +
-					'<input type="checkbox" data-petfinder-sort="toggle" data-petfinder-sort-target="[data-petfinder-sort-type=' + type + ']" checked> ' +
-					settings.toggleAll +
-				'</label>';
-		}
-
-		return toggleAll + markup;
-
-	};
-
-	/**
-	 * Replace template placeholders with content
-	 * @private
-	 * @param  {Object} pet      The pet to generate markup for
-	 * @param  {String} template The template file to use when generating markup
-	 * @return {String}          The markup
-	 */
-	var createTemplateMarkup = function ( pet, template, index ) {
-		if ( pet ) {
-			return template
-				.replace( /\{\{name\}\}/g, pet.name.$t )
-				.replace( /\{\{id\}\}/g, pet.id.$t )
-				.replace( /\{\{animal\}\}/g, pet.animal.$t )
-				.replace( /\{\{age\}\}/g, getPetAttribute( pet, 'age', settings.ageUnknown ) )
-				.replace( /\{\{gender\}\}/g, getPetAttribute( pet, 'gender', settings.genderUnknown ))
-				.replace( /\{\{size\}\}/g, getPetAttribute( pet, 'size', settings.sizeUnknown ) )
-				.replace( /\{\{breeds\}\}/g, getPetAttribute( pet, 'breeds', '' ) )
-				.replace( /\{\{description\}\}/g, getPetAttribute( pet, 'description', '' ) )
-				.replace( /\{\{photo.1.large\}\}/g, getPetPhoto( pet, 'large', '1' ) )
-				.replace( /\{\{photo.2.large\}\}/g, getPetPhoto( pet, 'large', '2' ) )
-				.replace( /\{\{photo.3.large\}\}/g, getPetPhoto( pet, 'large', '3' ) )
-				.replace( /\{\{photo.1.medium\}\}/g, getPetPhoto( pet, 'medium', '1' ) )
-				.replace( /\{\{photo.2.medium\}\}/g, getPetPhoto( pet, 'medium', '2' ) )
-				.replace( /\{\{photo.3.medium\}\}/g, getPetPhoto( pet, 'medium', '3' ) )
-				.replace( /\{\{photo.1.thumbnail.small\}\}/g, getPetPhoto( pet, 'thumbSmall', '1' ) )
-				.replace( /\{\{photo.2.thumbnail.small\}\}/g, getPetPhoto( pet, 'thumbSmall', '2' ) )
-				.replace( /\{\{photo.3.thumbnail.small\}\}/g, getPetPhoto( pet, 'thumbSmall', '3' ) )
-				.replace( /\{\{photo.1.thumbnail.medium\}\}/g, getPetPhoto( pet, 'thumbMedium', '1' ) )
-				.replace( /\{\{photo.2.thumbnail.medium\}\}/g, getPetPhoto( pet, 'thumbMedium', '2' ) )
-				.replace( /\{\{photo.3.thumbnail.medium\}\}/g, getPetPhoto( pet, 'thumbMedium', '3' ) )
-				.replace( /\{\{photo.1.thumbnail.large\}\}/g, getPetPhoto( pet, 'thumbLarge', '1' ) )
-				.replace( /\{\{photo.2.thumbnail.large\}\}/g, getPetPhoto( pet, 'thumbLarge', '2' ) )
-				.replace( /\{\{photo.3.thumbnail.large\}\}/g, getPetPhoto( pet, 'thumbLarge', '3' ) )
-				.replace( /\{\{options.multi\}\}/g, getPetAttribute( pet, 'multiOptions', '' ) )
-				.replace( /\{\{options.specialNeeds\}\}/g, getPetAttribute( pet, 'specialNeeds', '' ) )
-				.replace( /\{\{options.noDogs\}\}/g, getPetAttribute( pet, 'noDogs', '' ) )
-				.replace( /\{\{options.noCats\}\}/g, getPetAttribute( pet, 'noCats', '' ) )
-				.replace( /\{\{options.noKids\}\}/g, getPetAttribute( pet, 'noKids', '' ) )
-				.replace( /\{\{options.noClaws\}\}/g, getPetAttribute( pet, 'noClaws', '' ) )
-				.replace( /\{\{options.hasShots\}\}/g, getPetAttribute( pet, 'hasShots', '' ) )
-				.replace( /\{\{options.housebroken\}\}/g, getPetAttribute( pet, 'housebroken', '' ) )
-				.replace( /\{\{options.altered\}\}/g, getPetAttribute( pet, 'altered', '' ) )
-				.replace( /\{\{contact.name\}\}/g, getPetContact( pet, 'name' ) )
-				.replace( /\{\{contact.email\}\}/g, getPetContact( pet, 'email' ) )
-				.replace( /\{\{contact.phone\}\}/g, getPetContact( pet, 'phone' ) )
-				.replace( /\{\{contact.address1\}\}/g, getPetContact( pet, 'address1' ) )
-				.replace( /\{\{contact.address2\}\}/g, getPetContact( pet, 'address2' ) )
-				.replace( /\{\{contact.city\}\}/g, getPetContact( pet, 'city' ) )
-				.replace( /\{\{contact.state\}\}/g, getPetContact( pet, 'state' ) )
-				.replace( /\{\{contact.zip\}\}/g, getPetContact( pet, 'zip' ) )
-				.replace( /\{\{contact.fax\}\}/g, getPetContact( pet, 'fax' ) )
-				.replace( /\{\{url.all\}\}/g, baseUrl )
-				.replace( /\{\{url.pet\}\}/g, baseUrl + '?petID=' + pet.id.$t )
-				.replace( /\{\{url.petfinder\}\}/g, 'https://www.petfinder.com/petdetail/' + pet.id.$t )
-				.replace( /\{\{classes\}\}/g, getPetClasses( pet ) )
-				.replace( /\{\{number\}\}/g, index )
-				.replace( /\{\{total\}\}/g, total );
-		}
-
-		return template
-			.replace( /\{\{list.ages\}\}/, createListItems( 'age', settings.ageUnknown ) )
-			.replace( /\{\{list.animals\}\}/, createListItems( 'animal', settings.animalUnknown ) )
-			.replace( /\{\{list.breeds\}\}/, createListItems( 'breeds', '', 'breed' ) )
-			.replace( /\{\{list.options\}\}/, createListItems( 'options', '', 'option' ) )
-			.replace( /\{\{list.genders\}\}/, createListItems( 'sex', settings.genderUnknown ) )
-			.replace( /\{\{list.sizes\}\}/, createListItems( 'size', settings.sizeUnknown ) )
-			.replace( /\{\{checkbox.ages\}\}/, createCheckboxes( 'age', settings.ageUnknown ) )
-			.replace( /\{\{checkbox.animals\}\}/, createCheckboxes( 'animal', settings.animalUnknown ) )
-			.replace( /\{\{checkbox.breeds\}\}/, createCheckboxes( 'breeds', '' ) )
-			.replace( /\{\{checkbox.options\}\}/, createCheckboxes( 'options', '' ) )
-			.replace( /\{\{checkbox.genders\}\}/, createCheckboxes( 'gender', settings.genderUnknown ) )
-			.replace( /\{\{checkbox.sizes\}\}/, createCheckboxes( 'size', settings.sizeUnknown ) )
-			.replace( /\{\{checkbox.ages.toggle\}\}/, createCheckboxes( 'age', settings.ageUnknown, true ) )
-			.replace( /\{\{checkbox.animals.toggle\}\}/, createCheckboxes( 'animal', settings.animalUnknown, true ) )
-			.replace( /\{\{checkbox.breeds.toggle\}\}/, createCheckboxes( 'breeds', '', true ) )
-			.replace( /\{\{checkbox.options.toggle\}\}/, createCheckboxes( 'options', '', true ) )
-			.replace( /\{\{checkbox.genders.toggle\}\}/, createCheckboxes( 'gender', settings.genderUnknown, true ) )
-			.replace( /\{\{checkbox.sizes.toggle\}\}/, createCheckboxes( 'size', settings.sizeUnknown, true ) )
-			.replace( /\{\{total\}\}/g, total );
-	};
-
-	/**
-	 * Get pet data by ID
-	 * @private
-	 * @param  {String} petID The pet's ID
-	 * @return {Object}       The pet
-	 */
-	var getPetByID = function ( petID ) {
-		var petData = {};
-		forEach(localAPI.pets, (function (pet, index) {
-			if ( pet.id.$t === petID ) {
-				petData.pet = pet;
-				petData.number = index.toString();
-			}
-		}));
-		return petData;
-	};
-
-	/**
-	 * Render aside template in the DOM
-	 * @private
-	 * @param  {String} template Template for aside content
-	 */
-	var showAside = function ( template ) {
-
-		// If no aside container exists, end method
-		if ( !app.aside ) return;
-
-		// Generate markup and add it to the container
-		var markup = template ? createTemplateMarkup( null, template ) : '';
-		app.aside.innerHTML = markup;
-
-	};
-
-	/**
-	 * Render all pets template in the DOM
-	 * @private
-	 */
-	var showAllPets = function () {
-
-		// Create markup for each pet
-		var markup = '';
-		forEach(localAPI.pets, (function (pet, index) {
-			markup += createTemplateMarkup( pet, settings.templates.allPets, index );
-		}));
-
-		// Add markup to the DOM
-		app.main.innerHTML = markup;
-
-		// Update the page title
-		updateTitle();
-
-		// Update class hooks on the <html> element
-		document.documentElement.classList.add( settings.allClass );
-		document.documentElement.classList.remove( settings.oneClass );
-
-	};
-
-	/**
-	 * Render one pet template in the DOM
-	 * @private
-	 * @param {String} petID The ID of the pet to display
-	 */
-	var showOnePet = function ( petID ) {
-
-		// Get the pet's API data
-		var petData = getPetByID( petID );
-
-		// If no pet is a match or no template exists, show error message
-		if ( !petData.pet || !petData.number ) {
-			app.main.innerHTML = settings.noPet.replace( /\{\{url.all\}\}/, baseUrl );
-			return;
-		}
-
-		// Create markup for the pet
-		var markup = createTemplateMarkup( petData.pet, settings.templates.onePet, petData.number );
-
-		// Add markup to the DOM
-		app.main.innerHTML = markup;
-
-		// Update the page title
-		updateTitle( petData.pet.name.$t );
-
-		// Update class hooks on the <html> element
-		document.documentElement.classList.add( settings.oneClass );
-		document.documentElement.classList.remove( settings.allClass );
-
-	};
-
-	/**
-	 * Render loading icon and text while fetching data
-	 * @private
-	 */
-	var showLoading = function () {
-		if ( settings.loading ) {
-			app.main.innerHTML = settings.loading;
-		}
-	};
-
-	/**
-	 * Render content from the petfinder API
-	 * @private
-	 * @param  {Object} pet   The pet to generate content for. If null, generate content for all pets.
-	 * @param  {Boolean} push If true, update URL after generating content
-	 */
-	var run = function ( pet, push ) {
-
-		// If a "one pet" page, generate content for pet and update URL
-		if ( pet ) {
-			showOnePet( pet[1] );
-			showAside( settings.templates.asideOnePet );
-			settings.callback(); // Run callback after content is rendered
-			return;
-		}
-
-		// Generate content for all pets and update URL
-		showAllPets();
-		showAside( settings.templates.asideAllPets );
-
-		// Run callback after content is rendered
-		settings.callback();
-
-	};
-
-	/**
-	 * Generate initial content after API is loaded
-	 * @private
-	 */
-	var setup = function () {
-
-		// If no API data is available, reset DOM to original state and log error
-		if ( !localAPI ) {
-			app.main.innerHTML = original.content;
-			console.log( 'Unable to retrieve Petfinder data from the API or localStorage.' );
-			return;
-		}
-
-		// If enabled, show newest pets first
-		if ( settings.newestFirst ) {
-			localAPI.pets.reverse();
-		}
-
-
-		// Get count of pets
-		total = localAPI.pets.length;
-
-		// Determine if its a "one pet" or "all pets" page
-		var pet = /[\\?&]petID=([^&#]*)/i.exec(root.location.href);
-
-		// Render content in the DOM
-		run( pet );
-
-	};
-
-	/**
-	 * Destroy the current initialization.
-	 * @public
-	 */
-	petfinderAPI.destroy = function () {
-
-		// If plugin isn't already initialized, end method
-		if ( !settings ) return;
-
-		// Remove class hooks
-		document.documentElement.classList.remove( settings.initClass );
-		document.documentElement.classList.remove( settings.allClass );
-		document.documentElement.classList.remove( settings.oneClass );
-
-		// Reset content and page title
-		if ( app.main && original.content ) { app.main.innerHTML = original.content; }
-		if ( app.aside ) { app.aside.innerHTML = ''; }
-		if ( original.title ) { document.title = original.title; }
-
-		// Remove event listeners
-		// document.removeEventListener('click', eventHandler, false);
-
-		// Reset variables
-		app = {};
-		lists = {};
-		original = {};
-		settings = null;
-		eventTimeout = null;
-		localAPI = null;
-		localAPIid = null;
-		baseUrl = null;
-		total = null;
-
-	};
-
-	/**
-	 * Create Petfinder API request URL with callback
-	 * @private
-	 * @param  {string} callback Name of the callback function to run on load
-	 * @return {string}          The API request URL
-	 */
-	var createRequestURL = function ( callback ) {
-
-		// Setup basic request in JSON format
-		var url = '//api.petfinder.com/shelter.getPets?format=json';
-		var options = '';
-
-		// Add options
-		options += '&key=' + settings.key; // API Key
-		options += '&id=' + settings.shelter; // Shelter ID
-		options += '&count=' + parseInt(settings.count, 10); // Number of pets to retrieve
-		options += '&status=' + settings.status; // Status (adoptable, pending, etc.)
-		options += '&output=full'; // Output
-
-		// If offset defined, add it to options
-		if ( settings.offset ) {
-			options += '&offset=' + parseInt(settings.offset, 10);
-		}
-
-		// If a callback is defined, add it to options
-		if ( callback ) {
-			options += '&callback=' + callback;
-		}
-
-		return url + options;
-
-	};
-
-	/**
-	 * Get JSONP data for cross-domain AJAX requests
-	 * @private
-	 * @link http://cameronspear.com/blog/exactly-what-is-jsonp/
-	 * @param  {string} url The URL of the JSON request
-	 */
-	var getJSONP = function ( url ) {
-
-		// Create script with url
-		var ref = window.document.getElementsByTagName( 'script' )[ 0 ];
-		var script = window.document.createElement( 'script' );
-		script.src = url;
-
-		// Insert script tag into the DOM (append to <head>)
-		ref.parentNode.insertBefore( script, ref );
-
-		// After the script is loaded (and executed), remove it
-		script.onload = function () {
-			this.remove();
-		};
-
-	};
-
-	/**
-	 * Save remote API data to localStorage and set variable for use
-	 * @public
-	 * @param {Object} data API data object from Petfinder
-	 */
-	petfinderAPI.setAPIData = function ( data ) {
-
-		// If Petfinder API produces an error, return and fallback to localStorage
-		if ( data.petfinder.header.status.code.$t !== '100' ) {
-			console.log( 'Unable to get data from Petfinder. Using expired localStorage data instead.' );
-			setup();
-			return;
-		}
-
-		// Save API Data to localStorage with expiration date
-		var expirationMS = parseInt( settings.expiration, 10 ) * 60 * 1000;
-		localAPI = {
-			pets: data.petfinder.pets.pet,
-			timestamp: new Date().getTime() + expirationMS
-		};
-		localStorage.setItem( localAPIid, JSON.stringify(localAPI) );
-
-		// Run initial setup
-		setup();
-
-	};
-
-	/**
-	 * Get API data from localStorage
-	 * @private
-	 */
-	var getAPIData = function () {
-
-		// Get API data from localStorage
-		localAPI = JSON.parse( localStorage.getItem( localAPIid ) );
-
-		// If local data exists and hasn't expired, use it
-		if ( localAPI ) {
-			if ( new Date().getTime() < localAPI.timestamp ) {
-				setup();
-				return;
-			}
-		}
-
-		// If local data doesn't exist or has expired, get fresh data from Petfinder
-		var url = createRequestURL( 'petfinderAPI.setAPIData' );
-		getJSONP( url );
-
-	};
-
-	/**
-	 * Initialize Plugin
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	petfinderAPI.init = function ( options ) {
-
-		// Feature test
-		if ( !supports ) return;
-
-		// Destroy any existing initializations
-		petfinderAPI.destroy();
-
-		// Merge user options with defaults
-		settings = extend( true, defaults, options || {} );
-
-		// If API key or shelter ID are not provided, end init and log error
-		if ( !settings.key || !settings.shelter ) {
-			console.log( 'You must provide a Petfinder API key and shelter ID to use petfinderAPI4everybody.js' );
-			return;
-		}
-
-		// If template for all pets not provided, end init and log error
-		if ( !settings.templates.allPets ) {
-			console.log( 'You must provide a template for all pets to use petfinderAPI4everybody.js' );
-			return;
-		}
-
-		// Add class to HTML element to activate conditional CSS
-		document.documentElement.classList.add( settings.initClass );
-
-		// Get containers
-		app.main = document.querySelector( settings.selectorAppMain );
-		app.aside = document.querySelector( settings.selectorAppAside );
-		if ( !app.main ) return;
-
-		// Variables
-		localAPIid = [ settings.key, settings.shelter, settings.count, settings.status, settings.offset ].join('');
-		original.content = app.main.innerHTML;
-		original.title = document.title;
-		baseUrl = [root.location.protocol, '//', root.location.host, root.location.pathname].join('');
-
-		// Show loading icon and fetch Petfinder API data
-		showLoading();
-		getAPIData();
-
-	};
-
-
-	//
-	// Public APIs
-	//
-
-	return petfinderAPI;
-
-}));
-(function (root, factory) {
-	if ( typeof define === 'function' && define.amd ) {
-		define([], factory(root));
-	} else if ( typeof exports === 'object' ) {
-		module.exports = factory(root);
-	} else {
-		root.petfinderSort = factory(root);
 	}
-})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
-
-	'use strict';
-
-	//
-	// Variables
-	//
-
-	var petfinderSort = {}; // Object for public APIs
-	var supports = 'querySelector' in document && 'addEventListener' in root && 'classList' in document.createElement('_'); // Feature test
-	var sessionID = 'petfinderSortStates'; // sessionStorage ID
-	var settings, eventTimeout, states, pets, sortBreeds, sortAttributes, sortToggles, hideAll;
-
-	// Default settings
-	var defaults = {
-		initClass: 'js-petfinder-sort',
-		callback: function () {}
-	};
-
-
-	//
-	// Methods
-	//
-
-	/**
-	 * A simple forEach() implementation for Arrays, Objects and NodeLists.
-	 * @private
-	 * @author Todd Motto
-	 * @link   https://github.com/toddmotto/foreach
-	 * @param {Array|Object|NodeList} collection Collection of items to iterate
-	 * @param {Function}              callback   Callback function for each iteration
-	 * @param {Array|Object|NodeList} scope      Object/NodeList/Array that forEach is iterating over (aka `this`)
-	 */
-	var forEach = function ( collection, callback, scope ) {
-		if ( Object.prototype.toString.call( collection ) === '[object Object]' ) {
-			for ( var prop in collection ) {
-				if ( Object.prototype.hasOwnProperty.call( collection, prop ) ) {
-					callback.call( scope, collection[prop], prop, collection );
-				}
-			}
-		} else {
-			for ( var i = 0, len = collection.length; i < len; i++ ) {
-				callback.call( scope, collection[i], i, collection );
-			}
-		}
-	};
-
-	/**
-	 * Merge two or more objects. Returns a new object.
-	 * @private
-	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
-	 */
-	var extend = function () {
-
-		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
-
-		// Check if a deep merge
-		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-			deep = arguments[0];
-			i++;
-		}
-
-		// Merge the object into the extended object
-		var merge = function (obj) {
-			for ( var prop in obj ) {
-				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-					// If deep merge and property is an object, merge properties
-					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-						extended[prop] = extend( true, extended[prop], obj[prop] );
-					} else {
-						extended[prop] = obj[prop];
-					}
-				}
-			}
-		};
-
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
-		}
-
-		return extended;
-
-	};
-
-	/**
-	 * Get the closest matching element up the DOM tree.
-	 * @private
-	 * @param  {Element} elem     Starting element
-	 * @param  {String}  selector Selector to match against (class, ID, data attribute, or tag)
-	 * @return {Boolean|Element}  Returns null if not match found
-	 */
-	var getClosest = function ( elem, selector ) {
-
-		// Variables
-		var firstChar = selector.charAt(0);
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
-		}
-
-		// Get closest match
-		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( elem.classList.contains( selector.substr(1) ) ) {
-					return elem;
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
-		}
-
-		return null;
-
-	};
-
-	/**
-	 * Save the current state of a checkbox
-	 * @private
-	 * @param  {Node} checkbox The checkbox
-	 */
-	var saveCheckedState = function ( checkbox ) {
-
-		// If sessionStorage isn't supported, end method
-		if ( !root.sessionStorage ) return;
-
-		// Get checkbox target
-		var name = checkbox.getAttribute( 'data-petfinder-sort-target' );
-
-		// If checkbox isn't checked, save state in sessionStorage
-		if ( checkbox.checked === false ) {
-			states[name] = 'unchecked';
-			sessionStorage.setItem( sessionID, JSON.stringify(states) );
-			settings.callback( checkbox ); // Callback
-			return;
-		}
-
-		// If checkbox is checked, remove state from sessionStorage
-		delete states[name];
-		sessionStorage.setItem( sessionID, JSON.stringify(states) );
-		settings.callback( checkbox ); // Callback
-
-	};
-
-	/**
-	 * Set checkbox state based on sessionStorage data
-	 * @private
-	 * @param  {Node} checkbox The checkbox
-	 */
-	var setCheckedState = function ( checkbox ) {
-
-		// If sessionStorage isn't supported, end method
-		if ( !root.sessionStorage ) return;
-
-		// Get checkbox target and sessionStorage data
-		var name = checkbox.getAttribute( 'data-petfinder-sort-target' );
-
-		// If checkbox is in sessionStorage, update it's state
-		if ( states && states[name] && states[name] === 'unchecked' ) {
-			checkbox.checked = false;
-		}
-
-	};
-
-	/**
-	 * Get state of all checkboxes
-	 * @private
-	 */
-	var getCheckedStates = function () {
-		forEach(sortBreeds, (function (checkbox) { setCheckedState( checkbox ); }));
-		forEach(sortAttributes, (function (checkbox) { setCheckedState( checkbox ); }));
-		forEach(sortToggles, (function (checkbox) { setCheckedState( checkbox ); }));
-	};
-
-	/**
-	 * Show or hide a node in the DOM
-	 * @private
-	 * @param  {Node}    elem  The node to show or hide
-	 * @param  {Boolean} hide  If true, hide node. Otherwise show.
-	 */
-	var toggleVisibility = function ( elem, hide ) {
-		if ( hide ) {
-			elem.style.display = 'none';
-			elem.style.visibility = 'hidden';
-			return;
-		}
-		elem.style.display = '';
-		elem.style.visibility = '';
-	};
-
-	/**
-	 * Toggle all checkboxes in a category
-	 * @private
-	 * @param  {Node} checkbox The checkbox
-	 */
-	var toggleAll = function ( checkbox ) {
-
-		// Get checkbox targets
-		var targets = document.querySelectorAll( checkbox.getAttribute( 'data-petfinder-sort-target' ) );
-
-		// If checkbox is checked, select all checkboxes
-		if ( checkbox.checked === true ) {
-			forEach(targets, (function (target) {
-				target.checked = true;
-				saveCheckedState( target );
-			}));
-			return;
-		}
-
-		// If checkbox is unchecked, unselect all checkboxes
-		forEach(targets, (function (target) {
-			target.checked = false;
-			saveCheckedState( target );
-		}));
-
-	};
-
-	/**
-	 * Sort pets based on checkbox selections
-	 * @private
-	 */
-	var sortPets = function () {
-
-		// Hide or show all pets
-		forEach(pets, (function (pet) {
-
-			// If breed sorting is available, hide all pets by default
-			if ( hideAll ) {
-				toggleVisibility( pet, true );
-				return;
-			}
-
-			// Otherwise, show all pets by default
-			toggleVisibility( pet );
-
-		}));
-
-		// If breed is checked, show matching pets
-		forEach(sortBreeds, (function (checkbox) {
-			if ( checkbox.checked === true ) {
-				var targets = document.querySelectorAll( checkbox.getAttribute( 'data-petfinder-sort-target' ) );
-				forEach(targets, (function (target) {
-					toggleVisibility( target );
-				}));
-			}
-		}));
-
-		// If checkbox is unchecked, hide matching pets
-		forEach(sortAttributes, (function (checkbox) {
-			if ( checkbox.checked === false ) {
-				var targets = document.querySelectorAll( checkbox.getAttribute( 'data-petfinder-sort-target' ) );
-				forEach(targets, (function (target) {
-					toggleVisibility( target, true );
-				}));
-			}
-		}));
-
-	};
-
-	/**
-	 * Show all pets and check all checkboxes
-	 * @private
-	 */
-	var resetPets = function () {
-
-		// Show all pets
-		forEach(pets, (function (pet) {
-			toggleVisibility( pet );
-		}));
-
-		// Check all breed checkboxes
-		forEach(sortBreeds, (function (checkbox) {
-			checkbox.checked = true;
-		}));
-
-		// Check all attribute checkboxes
-		forEach(sortAttributes, (function (checkbox) {
-			checkbox.checked = true;
-		}));
-
-		// Check all toggle checkboxes
-		forEach(sortToggles, (function (checkbox) {
-			checkbox.checked = true;
-		}));
-
-	};
-
-	/**
-	 * Handle click events
-	 * @private
-	 * @param {Event} event The click event
-	 */
-	var eventHandler = function (event) {
-
-		// Get clicked object
-		var toggle = event.target;
-		var checkbox = getClosest(toggle, '[data-petfinder-sort]');
-
-		// If a sort checkbox, sort pets
-		if ( checkbox ) {
-
-			// Save checkbox state
-			saveCheckedState( checkbox );
-
-			// If a toggle checkbox, toggle all
-			if ( checkbox.getAttribute( 'data-petfinder-sort' )  === 'toggle' ) {
-				toggleAll( checkbox );
-			}
-
-			// Sort pets
-			sortPets();
-
-		}
-
-	};
-
-	/**
-	 * Destroy the current initialization.
-	 * @public
-	 */
-	petfinderSort.destroy = function () {
-
-		// If plugin isn't already initialized, stop
-		if ( !settings ) return;
-
-		// Remove init class for conditional CSS
-		document.documentElement.classList.remove( settings.initClass );
-
-		resetPets();
-
-		// Remove event listeners
-		document.removeEventListener('click', eventHandler, false);
-
-		// Reset variables
-		states = null;
-		settings = null;
-		eventTimeout = null;
-		pets = null;
-		sortBreeds = null;
-		sortAttributes = null;
-		sortToggles = null;
-		hideAll = null;
-
-	};
-
-	/**
-	 * Initialize Plugin
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	petfinderSort.init = function ( options ) {
-
-		// feature test
-		if ( !supports ) return;
-
-		// Destroy any existing initializations
-		petfinderSort.destroy();
-
-		// Variables
-		settings = extend( true, defaults, options || {} ); // Merge user options with defaults
-		pets = document.querySelectorAll( '.pf-pet' );
-		sortBreeds = document.querySelectorAll( '[data-petfinder-sort="breeds"]' );
-		sortAttributes = document.querySelectorAll( '[data-petfinder-sort="attributes"]' );
-		sortToggles = document.querySelectorAll( '[data-petfinder-sort="toggle"]' );
-		hideAll = sortBreeds.length === 0 ? false : true;
-		if ( root.sessionStorage ) {
-			states = sessionStorage.getItem( sessionID ) ? JSON.parse( sessionStorage.getItem( sessionID ) ) : {};
-		}
-		states = root.sessionStorage ? JSON.parse( sessionStorage.getItem( sessionID ) ) || {} : {};
-
-		// Add class to HTML element to activate conditional CSS
-		document.documentElement.classList.add( settings.initClass );
-
-		// On page load, set checkbox states and run sort
-		getCheckedStates();
-		sortPets();
-
-		// Listen for click events
-		document.addEventListener('click', eventHandler, false);
-
-	};
-
-
-	//
-	// Public APIs
-	//
-
-	return petfinderSort;
-
-}));
+};
 /*! PhotoSwipe Default UI - 4.1.1 - 2015-12-24
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
@@ -7056,123 +6348,9 @@ _registerModule('History', {
 	framework.extend(self, publicMethods); };
 	return PhotoSwipe;
 }));
-(function (root, factory) {
-	if ( typeof define === 'function' && define.amd ) {
-		define([], factory(root));
-	} else if ( typeof exports === 'object' ) {
-		module.exports = factory(root);
-	} else {
-		root.fetch = factory(root);
-	}
-})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
+var safeDOM = function (app, template) {
 
 	'use strict';
-
-	//
-	// Variables
-	//
-
-	var fetch = {}; // Object for public APIs
-	var supports = 'querySelector' in document && 'classList' in document.createElement('_'); // Feature test
-	var settings;
-
-	// Default settings
-	var defaults = {
-
-		// API Defaults
-		key: null,
-		shelter: null,
-		count: 25,
-
-		// Template info
-		allPetsTitle: 'Our Pets',
-		allPetsText: '',
-		adoptionFormLink: null,
-		adoptionFormText: 'Fill out an adoption form',
-		adoptionFormClass: '',
-		showFilters: true,
-		filterAnimals: true,
-		filterSizes: true,
-		filterAges: true,
-		filterGenders: true,
-		filterBreeds: true,
-		filtersToggleClass: '',
-		hasSidebar: false,
-
-		// Selectors
-		selectorContent: '#fetch-container',
-		selectorAppMain: '[data-petfinder="main"]',
-		selectorAppAside: '[data-petfinder="aside"]',
-
-		// Class Hooks
-		initClass: 'js-fetch',
-		allClass: 'js-fetch-all-pets',
-		oneClass: 'js-fetch-one-pet',
-		hasSidebarClass: 'js-fetch-has-sidebar',
-
-		// Miscellaneous
-		titlePrefix: '{{name}} | ',
-		loading: 'Fetching the latest pet info...',
-		noPet: '<div>Sorry, but this pet is no longer available. <a href="{{url.all}}">View available pets.</a></div>',
-
-		// Pet photos
-		noImage: '',
-
-		// Animal Text
-		animalUnknown: 'Not Known',
-
-		// Breeds Text
-		breedDelimiter: ', ',
-
-		// Size Text
-		sizeUnknown: 'Not Known',
-		sizeS: 'Small',
-		sizeM: 'Medium',
-		sizeL: 'Large',
-		sizeXL: 'Extra Large',
-
-		// Age Text
-		ageUnknown: 'Not Known',
-		ageBaby: 'Baby',
-		ageYoung: 'Young',
-		ageAdult: 'Adult',
-		ageSenior: 'Senior',
-
-		// Gender Text
-		genderUnknown: 'Not Known',
-		genderM: 'Male',
-		genderF: 'Female',
-
-		// Options Text
-		optionsSpecialNeeds: 'Special Needs',
-		optionsNoDogs: 'No Dogs',
-		optionsNoCats: 'No Cats',
-		optionsNoKids: 'No Kids',
-		optionsNoClaws: 'No Claws',
-		optionsHasShot: 'Has hots',
-		optionsHousebroken: 'Housebroken',
-		optionsAltered: 'Spayed/Neutered',
-
-		// Multi-Option Text
-		optionsNoDogsCatsKids: 'No Dogs/Cats/Kids',
-		optionsNoDogsCats: 'No Dogs/Cats',
-		optionsNoDogsKids: 'No Dogs/Kids',
-		optionsNoCatsKids: 'No Cats/Kids',
-
-		// Callbacks
-		callback: function () {
-			renderGrid();
-			renderHeader();
-			renderOptions();
-			renderPhotoSwipe();
-			initPhotoSwipeFromDOM( '[data-photoswipe]' );
-			petfinderSort.init({
-				initClass: 'js-fetch-sort'
-			});
-			fetchShowHide();
-		},
-
-	};
 
 
 	//
@@ -7180,630 +6358,126 @@ _registerModule('History', {
 	//
 
 	/**
-	 * Merge two or more objects. Returns a new object.
-	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
+	 * Add attributes to an element
+	 * @param {Node}  elem The element
+	 * @param {Array} atts The attributes to add
 	 */
-	var extend = function () {
-
-		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
-
-		// Check if a deep merge
-		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-			deep = arguments[0];
-			i++;
-		}
-
-		// Merge the object into the extended object
-		var merge = function (obj) {
-			for ( var prop in obj ) {
-				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-					// If deep merge and property is an object, merge properties
-					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-						extended[prop] = extend( true, extended[prop], obj[prop] );
-					} else {
-						extended[prop] = obj[prop];
-					}
-				}
-			}
-		};
-
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
-		}
-
-		return extended;
-
-	};
-
-	/**
-	 * Create layout templates
-	 * @private
-	 * @return {Object} The templates
-	 */
-	var createTemplates = function () {
-
-		var templates = {
-			allPets:
-				'<article class="grid-auto grid-fetch text-center {{classes}}">' +
-					'<header>' +
-						'<a href="{{url.pet}}">' +
-							'<figure><img class="img-photo fetch-img-limit-height" src="{{photo.1.medium}}"></figure>' +
-							'<h2 class="fetch-all-pets-heading no-padding-top no-margin-top no-padding-bottom no-margin-bottom">{{name}}</h2>' +
-						'</a>' +
-					'</header>' +
-					'<aside class="text-small">' +
-						'<p>' +
-							'{{size}}, {{age}}, {{gender}}<br>' +
-							'<span class="text-muted">{{breeds}}</span>' +
-							'<span class="text-muted" data-fetch-options-multi="{{options.multi}}"></span>' +
-							'<span class="text-muted" data-fetch-options-special-needs="{{options.specialNeeds}}"></span>' +
-						'</p>' +
-					'</aside>' +
-				'</article>',
-			onePet:
-				'<article>' +
-					'<header>' +
-						'<h1 class="no-margin-bottom no-padding-bottom">{{name}}</h1>' +
-						'<aside><p><a href="{{url.all}}">&larr; Back to All Pets</a></p></aside>' +
-					'</header>' +
-					'<div data-fetch-images="{{name}}" data-fetch-img-1="{{photo.1.large}}" data-fetch-img-2="{{photo.2.large}}" data-fetch-img-3="{{photo.3.large}}"></div>' +
-					'<p data-fetch-options-multi="{{options.multi}}" data-fetch-options-special-needs="{{options.specialNeeds}}">' +
-						'<strong>Size:</strong> {{size}}' +
-						'<br><strong>Age:</strong> {{age}}' +
-						'<br><strong>Gender:</strong> {{gender}}' +
-						'<br><strong>Breeds:</strong> {{breeds}}' +
-					'</p>' +
-					( settings.adoptionFormLink ? '<p><a class="' + settings.adoptionFormClass + '" href="' + settings.adoptionFormLink + '">' + settings.adoptionFormText + '</a></p>' : '' ) +
-					'<div>{{description}}</div>' +
-				'</article>',
-			asideAllPets:
-				'<div class="fetch-filters" id="fetch-filters">' +
-					( settings.showFilters && settings.filterAnimals ? '<div><h2>Animals</h2>{{checkbox.animals}}</div>' : '' ) +
-					( settings.showFilters && settings.filterSizes ? '<div><h2>Size</h2>{{checkbox.sizes}}</div>' : '' ) +
-					( settings.showFilters && settings.filterAges ? '<div><h2>Age</h2>{{checkbox.ages}}</div>' : '' ) +
-					( settings.showFilters && settings.filterGenders ? '<div><h2>Gender</h2>{{checkbox.genders}}</div>' : '' ) +
-					( settings.showFilters && settings.filterBreeds ? '<div><h2>Breeds</h2>{{checkbox.breeds.toggle}}</div>' : '' ) +
-				'</div>' +
-				( settings.showFilters ? '<p class="fetch-filters-toggle"><button class="' + settings.filtersToggleClass + '" data-fetch-filters-toggle>Filter Results</button></p>' : '' ),
-		};
-
-		return templates;
-
-	};
-
-	/**
-	 * Render the basic layout
-	 * @private
-	 */
-	var renderLayout = function () {
-
-		// Get content
-		var content = document.querySelector( settings.selectorContent );
-		if ( !content ) return;
-
-		// Add grid wrapper
-		content.innerHTML =
-			'<div class="margin-bottom" data-petfinder="aside"></div>' +
-			'<div class="margin-bottom" data-petfinder="main">' +
-				content.innerHTML +
-			'</div>';
-
-		// Add powered by
-		var poweredBy = document.createElement('p');
-		poweredBy.id = 'fetch-powered-by';
-		poweredBy.innerHTML = '<em>Powered by <a rel="nofollow" href="https://www.petfinder.com/">Petfinder</a> using the <a href="http://fetch.gomakethings.com">Fetch plugin</a>.</em>';
-		content.parentNode.insertBefore(poweredBy, content.nextSibling);
-
-	};
-
-	/**
-	 * @todo Render the markup for the grid
-	 * @private
-	 */
-	var renderGrid = function () {
-
-		// Variables
-		var content = document.querySelector( settings.selectorContent );
-		var main = content.querySelector( settings.selectorAppMain );
-		var aside = content.querySelector( settings.selectorAppAside );
-
-		// Sanity check
-		if ( !main || !aside ) return;
-
-		// If is the "All Pets" page
-		if ( document.documentElement.classList.contains( settings.allClass ) ) {
-
-			// Add row to main content
-			main.innerHTML = '<div class="row row-wrap">' + main.innerHTML + '</div>';
-
-			// Don't reduce content size if page has no filters or a sidebar
-			if ( !settings.showFilters || settings.hasSidebar ) return;
-
-			// Add grid structure
-			content.classList.add( 'row' );
-			main.classList.add( 'grid-three-fourths' );
-			aside.classList.add( 'grid-fourth' );
-
-			return;
-
-		}
-
-		// If is an individual pet profile
-		if ( settings.hasSidebar ) return; // Don't reduce content size if page has a sidebar
-		content.classList.add( 'container' );
-		content.classList.add( 'float-center' );
-
-	};
-
-	/**
-	 * Render the header content on the "All Pets" page
-	 * @private
-	 */
-	var renderHeader = function () {
-
-		// Only run on "All Pets" page
-		if ( !document.documentElement.classList.contains( settings.allClass ) ) return;
-
-		// Get container
-		var pets = document.querySelector( settings.selectorAppMain );
-		if ( !pets ) return;
-
-		// Render header
-		pets.innerHTML = (settings.allPetsTitle || settings.allPetsText ? '<header><h1>' + settings.allPetsTitle + '</h1><div class="margin-bottom">' + settings.allPetsText + '</div></header>' : '') + pets.innerHTML;
-
-	};
-
-	/**
-	 * Get pet options from data attributes and render markup
-	 * @private
-	 */
-	var renderOptions = function () {
-
-		// Get DOM elements
-		var options = document.querySelectorAll( '[data-fetch-options-multi]' );
-		var specialNeeds = document.querySelectorAll( '[data-fetch-options-special-needs]' );
-		var i, len, option, need;
-
-		// Options
-		for ( i = 0, len = options.length; i < len; i ++ ) {
-			option = options[i].getAttribute( 'data-fetch-options-multi' );
-			if ( !option ) continue;
-			options[i].innerHTML += '<br><em class="fetch-text-muted1">' + option + '</em>';
-		}
-
-		// Special needs
-		for ( i = 0, len = specialNeeds.length; i < len; i ++ ) {
-			need = specialNeeds[i].getAttribute( 'data-fetch-options-special-needs' );
-			if ( !need ) continue;
-			specialNeeds[i].innerHTML += '<br><em class="text-muted">' + need + '</em>';
-		}
-
-	};
-
-	/**
-	 * Extra images from data attributes and render PhotoSwipe markup
-	 * @private
-	 */
-	var renderPhotoSwipe = function () {
-
-		// Only run on individual pet profiles
-		if ( !document.documentElement.classList.contains( settings.oneClass ) ) return;
-
-		// Get image container
-		var images = document.querySelector( '[data-fetch-images]' );
-		if ( !images ) return;
-
-		// Get images
-		var name = images.getAttribute( 'data-fetch-images' );
-		var img1 = images.getAttribute( 'data-fetch-img-1' );
-		var img2 = images.getAttribute( 'data-fetch-img-2' );
-		var img3 = images.getAttribute( 'data-fetch-img-3' );
-
-		var gallery =
-			'<div data-photoswipe data-pswp-uid="0" class="row row-start-xsmall text-center margin-bottom-small">' +
-				( img1 ? '<a class="grid-third" data-size href="' + img1 + '" ><img class="img-photo fetch-img-limit-height" alt="A photo of ' + name + '" src="' + img1 + '"></a>' : '' ) +
-				( img2 ? '<a class="grid-third" data-size href="' + img2 + '" ><img class="img-photo fetch-img-limit-height" alt="A photo of ' + name + '" src="' + img2 + '"></a>' : '' ) +
-				( img3 ? '<a class="grid-third" data-size href="' + img3 + '" ><img class="img-photo fetch-img-limit-height" alt="A photo of ' + name + '" src="' + img3 + '"></a>' : '' ) +
-			'</div>' +
-			'<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">' +
-				'<div class="pswp__bg"></div>' +
-				'<div class="pswp__scroll-wrap">' +
-					'<div class="pswp__container">' +
-						'<div class="pswp__item"></div>' +
-						'<div class="pswp__item"></div>' +
-						'<div class="pswp__item"></div>' +
-					'</div>' +
-					'<div class="pswp__ui pswp__ui--hidden">' +
-						'<div class="pswp__top-bar">' +
-							'<div class="pswp__counter"></div>' +
-							'<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>' +
-							'<button class="pswp__button pswp__button--share" title="Share"></button>' +
-							'<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>' +
-							'<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>' +
-							'<div class="pswp__preloader">' +
-								'<div class="pswp__preloader__icn">' +
-								'<div class="pswp__preloader__cut">' +
-									'<div class="pswp__preloader__donut"></div>' +
-								'</div>' +
-								'</div>' +
-							'</div>' +
-						'</div>' +
-						'<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">' +
-							'<div class="pswp__share-tooltip"></div>' +
-						'</div>' +
-						'<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>' +
-						'<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>' +
-						'<div class="pswp__caption">' +
-							'<div class="pswp__caption__center"></div>' +
-						'</div>' +
-					'</div>' +
-				'</div>' +
-			'</div>';
-
-		images.innerHTML = gallery;
-
-		imagesLoaded(images, (function () {
-			var sizes = images.querySelectorAll( '[data-size]' );
-			for ( var i = 0, len = sizes.length; i < len; i++ ) {
-				var img = sizes[i].querySelector( 'img' );
-				if ( !img ) continue;
-				sizes[i].setAttribute( 'data-size', img.naturalWidth + 'x' + img.naturalHeight );
+	var addAttributes = function (elem, atts) {
+		atts.forEach((function (attribute) {
+			// If the attribute is a class, use className
+			// Else if it starts with `data-`, use setAttribute()
+			// Otherwise, set is as a property of the element
+			if (attribute.att === 'class') {
+				elem.className = attribute.value;
+			} else if (attribute.att.slice(0, 5) === 'data-') {
+				elem.setAttribute(attribute.att, attribute.value || '');
+			} else {
+				elem[attribute.att] = attribute.value || '';
 			}
 		}));
-
 	};
 
 	/**
-	 * Initialize PhotoSwipe
-	 * @private
-	 * @param  {String} gallerySelector Selector for the image gallery
+	 * Create an array of the attributes on an element
+	 * @param  {NamedNodeMap} attributes The attributes on an element
+	 * @return {Array}                   The attributes on an element as an array of key/value pairs
 	 */
-	var initPhotoSwipeFromDOM = function(gallerySelector) {
-
-		var parseThumbnailElements = function(el) {
-			var thumbElements = el.childNodes,
-				numNodes = thumbElements.length,
-				items = [],
-				el,
-				childElements,
-				thumbnailEl,
-				size,
-				item;
-
-			for(var i = 0; i < numNodes; i++) {
-				el = thumbElements[i];
-
-				// include only element nodes
-				if(el.nodeType !== 1) {
-					continue;
-				}
-
-				childElements = el.children;
-
-				size = el.getAttribute('data-size').split('x');
-
-				// create slide object
-				item = {
-					src: el.getAttribute('href'),
-					w: parseInt(size[0], 10),
-					h: parseInt(size[1], 10),
-					author: el.getAttribute('data-author')
-				};
-
-				item.el = el; // save link to element for getThumbBoundsFn
-
-				if(childElements.length > 0) {
-					item.msrc = childElements[0].getAttribute('src'); // thumbnail url
-					if(childElements.length > 1) {
-						item.title = childElements[1].innerHTML; // caption (contents of figure)
-					}
-				}
-
-				var mediumSrc = el.getAttribute('data-med');
-				if(mediumSrc) {
-					size = el.getAttribute('data-med-size').split('x');
-					// "medium-sized" image
-					item.m = {
-						src: mediumSrc,
-						w: parseInt(size[0], 10),
-						h: parseInt(size[1], 10)
-					};
-				}
-
-				// original image
-				item.o = {
-					src: item.src,
-					w: item.w,
-					h: item.h
-				};
-
-				items.push(item);
-			}
-
-			return items;
-		};
-
-		// find nearest parent element
-		var closest = function closest(el, fn) {
-			return el && ( fn(el) ? el : closest(el.parentNode, fn) );
-		};
-
-		var onThumbnailsClick = function(e) {
-			e = e || window.event;
-			e.preventDefault ? e.preventDefault() : e.returnValue = false;
-
-			var eTarget = e.target || e.srcElement;
-
-			var clickedListItem = closest(eTarget, (function(el) {
-				return el.tagName === 'A';
-			}));
-
-			if(!clickedListItem) {
-				return;
-			}
-
-			var clickedGallery = clickedListItem.parentNode;
-
-			var childNodes = clickedListItem.parentNode.childNodes,
-				numChildNodes = childNodes.length,
-				nodeIndex = 0,
-				index;
-
-			for (var i = 0; i < numChildNodes; i++) {
-				if(childNodes[i].nodeType !== 1) {
-					continue;
-				}
-
-				if(childNodes[i] === clickedListItem) {
-					index = nodeIndex;
-					break;
-				}
-				nodeIndex++;
-			}
-
-			if(index >= 0) {
-				openPhotoSwipe( index, clickedGallery );
-			}
-			return false;
-		};
-
-		var photoswipeParseHash = function() {
-			var hash = window.location.hash.substring(1),
-			params = {};
-
-			if(hash.length < 5) { // pid=1
-				return params;
-			}
-
-			var vars = hash.split('&');
-			for (var i = 0; i < vars.length; i++) {
-				if(!vars[i]) {
-					continue;
-				}
-				var pair = vars[i].split('=');
-				if(pair.length < 2) {
-					continue;
-				}
-				params[pair[0]] = pair[1];
-			}
-
-			if(params.gid) {
-				params.gid = parseInt(params.gid, 10);
-			}
-
-			return params;
-		};
-
-		var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-			var pswpElement = document.querySelectorAll('.pswp')[0],
-				gallery,
-				options,
-				items;
-
-			items = parseThumbnailElements(galleryElement);
-
-			// define options (if needed)
-			options = {
-
-				galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-				getThumbBoundsFn: function(index) {
-					// See Options->getThumbBoundsFn section of docs for more info
-					var thumbnail = items[index].el.children[0],
-						pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-						rect = thumbnail.getBoundingClientRect();
-
-					return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-				},
-
-				addCaptionHTMLFn: function(item, captionEl, isFake) {
-					if(!item.title) {
-						captionEl.children[0].innerText = '';
-						return false;
-					}
-					captionEl.children[0].innerHTML = item.title +  '<br/><small>Photo: ' + item.author + '</small>';
-					return true;
-				}
-
+	var getAttributes = function (attributes) {
+		return Array.from(attributes).map((function (attribute) {
+			return {
+				att: attribute.name,
+				value: attribute.value
 			};
-
-
-			if(fromURL) {
-				if(options.galleryPIDs) {
-					// parse real index when custom PIDs are used
-					// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-					for(var j = 0; j < items.length; j++) {
-						if(items[j].pid == index) {
-							options.index = j;
-							break;
-						}
-					}
-				} else {
-					options.index = parseInt(index, 10) - 1;
-				}
-			} else {
-				options.index = parseInt(index, 10);
-			}
-
-			// exit if index not found
-			if( isNaN(options.index) ) {
-				return;
-			}
-
-
-
-			var radios = document.getElementsByName('gallery-style');
-			for (var i = 0, length = radios.length; i < length; i++) {
-				if (radios[i].checked) {
-					if(radios[i].id == 'radio-all-controls') {
-
-					} else if(radios[i].id == 'radio-minimal-black') {
-						options.mainClass = 'pswp--minimal--dark';
-						options.barsSize = {top:0,bottom:0};
-						options.captionEl = false;
-						options.fullscreenEl = false;
-						options.shareEl = false;
-						options.bgOpacity = 0.85;
-						options.tapToClose = true;
-						options.tapToToggleControls = false;
-					}
-					break;
-				}
-			}
-
-			if(disableAnimation) {
-				options.showAnimationDuration = 0;
-			}
-
-			// Pass data to PhotoSwipe and initialize it
-			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-
-			// see: http://photoswipe.com/documentation/responsive-images.html
-			var realViewportWidth,
-				useLargeImages = false,
-				firstResize = true,
-				imageSrcWillChange;
-
-			gallery.listen('beforeResize', (function() {
-
-				var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
-				dpiRatio = Math.min(dpiRatio, 2.5);
-				realViewportWidth = gallery.viewportSize.x * dpiRatio;
-
-
-				if(realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200 ) {
-					if(!useLargeImages) {
-						useLargeImages = true;
-						imageSrcWillChange = true;
-					}
-
-				} else {
-					if(useLargeImages) {
-						useLargeImages = false;
-						imageSrcWillChange = true;
-					}
-				}
-
-				if(imageSrcWillChange && !firstResize) {
-					gallery.invalidateCurrItems();
-				}
-
-				if(firstResize) {
-					firstResize = false;
-				}
-
-				imageSrcWillChange = false;
-
-			}));
-
-			gallery.listen('gettingData', (function(index, item) {
-				if( useLargeImages || !('m' in item) ) {
-					item.src = item.o.src;
-					item.w = item.o.w;
-					item.h = item.o.h;
-				} else {
-					item.src = item.m.src;
-					item.w = item.m.w;
-					item.h = item.m.h;
-				}
-			}));
-
-			gallery.init();
-		};
-
-		var galleryElements = document.querySelectorAll( gallerySelector );
-		if ( galleryElements.length > 0 ) {
-			imagesLoaded(galleryElements[0], (function () {
-
-				// select all gallery elements
-				for(var i = 0, l = galleryElements.length; i < l; i++) {
-					galleryElements[i].setAttribute('data-pswp-uid', i+1);
-					galleryElements[i].onclick = onThumbnailsClick;
-				}
-
-			}));
-		}
+		}));
 	};
 
 	/**
-	 * Initialize Plugin
-	 * @public
-	 * @param {Object} options User settings
+	 * Create a DOM Tree Map for an element
+	 * @param  {Node}   element The element to map
+	 * @return {Array}          A DOM tree map
 	 */
-	fetch.init = function ( options ) {
+	var createDOMMap = function (element) {
+		var map = [];
+		Array.from(element.childNodes).forEach((function (node) {
+			map.push({
+				content: node.childNodes && node.childNodes.length > 0 ? null : node.textContent,
+				atts: node.nodeType === 3 ? [] : getAttributes(node.attributes),
+				type: node.nodeType === 3 ? 'text' : node.tagName.toLowerCase(),
+				children: createDOMMap(node),
+				node: node
+			});
+		}));
+		return map;
+	};
 
-		// Feature test
-		if ( !supports ) return;
+	/**
+	 * Convert a template string into HTML DOM nodes
+	 * @param  {String} str The template string
+	 * @return {Node}       The template HTML
+	 */
+	var stringToHTML = function (str) {
+		var parser = new DOMParser();
+		var doc = parser.parseFromString(str, 'text/html');
+		return doc.body;
+	};
 
-		// Merge user options with defaults
-		settings = extend( defaults, options || {} );
+	/**
+	 * Make an HTML element
+	 * @param  {Object} elem The element details
+	 * @return {Node}        The HTML element
+	 */
+	var makeElem = function (elem) {
 
-		// If API key or shelter ID are not provided, end init and log error
-		if ( !settings.key || !settings.shelter ) {
-			console.log( 'You must provide a Petfinder API key and shelter ID to fetch pets from Petfinder' );
-			return;
+		// Create the element
+		var node = elem.type === 'text' ? document.createTextNode(elem.content) : document.createElement(elem.type);
+
+		// Add attributes
+		addAttributes(node, elem.atts);
+
+		// If the element has child nodes, create them
+		// Otherwise, add textContent
+		if (elem.children.length > 0) {
+			elem.children.forEach((function (childElem) {
+				node.appendChild(makeElem(childElem));
+			}));
+		} else if (elem.type !== 'text') {
+			node.textContent = elem.content;
 		}
 
-		// If all filters are false, set "showFilters" to false
-		if (
-			!settings.filterAnimals &&
-			!settings.filterSizes &&
-			!settings.filterAges &&
-			!settings.filterGenders &&
-			!settings.filterBreeds ) {
-				settings.showFilters = false;
-		}
+		return node;
 
-		// Get templates
-		var templates = createTemplates();
-		settings.templates = extend( settings.templates, { allPets: templates.allPets, onePet: templates.onePet, asideAllPets: templates.asideAllPets, } );
+	};
 
-		// Render the basic layout markup
-		renderLayout();
-
-		// If page has sidebar, add special class
-		if ( settings.hasSidebar ) {
-			document.documentElement.classList.add( settings.hasSidebarClass );
-		}
-
-		// Init petfinderAPI4everybody
-		petfinderAPI.init(settings);
-
+	var renderToDOM = function (map) {
+		var temp = document.createElement('div');
+		map.forEach((function (node, index) {
+			temp.appendChild(makeElem(node));
+		}));
+		app.innerHTML = '';
+		app.appendChild(temp);
 	};
 
 
 	//
-	// Public APIs
+	// Inits
 	//
 
-	return fetch;
+	if (!app) return;
+	var map = createDOMMap(stringToHTML(template));
+	renderToDOM(map);
 
-}));
+};
+// Initialize filters after render
+document.addEventListener('asmAllPets', (function () {
+	if (!window.petListingsFilter) return;
+	petListingsFilter();
+}), false);
+
+// Initialize PhotoSwipe after render
+document.addEventListener('asmIndividualPet', (function () {
+	if (!window.initPhotoSwipeFromDOM) return;
+	initPhotoSwipeFromDOM('[data-photoswipe]');
+}), false);
+
+// Render pet listings
+petListings();
