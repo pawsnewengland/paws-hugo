@@ -40,6 +40,10 @@
 			'age' => $pet['AGEGROUP'],
 			'sex' => $pet['SEXNAME'],
 			'breeds' => explode('/', $pet['BREEDNAME']),
+			'nodogs' => $pet['ISGOODWITHDOGSNAME'] === 'Yes' ? false : true,
+			'nocats' => $pet['ISGOODWITHCATSNAME'] === 'Yes' ? false : true,
+			'nokids' => $pet['ISGOODWITHCHILDRENNAME'] === 'Yes' ? false : true,
+			'specialneeds' => $pet['HASSPECIALNEEDSNAME'] === 'Yes' ? true : false,
 			'description' => $pet['ANIMALCOMMENTS'],
 			'images' => $pet['WEBSITEIMAGECOUNT'], // https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid=7986&seq=3
 			'video' => $pet['WEBSITEVIDEOURL'],
