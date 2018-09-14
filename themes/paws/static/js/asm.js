@@ -1129,7 +1129,7 @@ var petListings = function () {
 					'</div>' +
 				'</div>' +
 			'</div>';
-		safeDOM(app, template);
+		safeInnerHTML(app, template);
 
 		// Emit event
 		emitEvent('asmAllPets');
@@ -1149,7 +1149,7 @@ var petListings = function () {
 			'<p><a href="' + removeQueryStrings() + '">&larr; Back to all dogs</a></p>' +
 			'<p><img style="width:100%;" src="https://media.giphy.com/media/yoJC2oHh0Js8DpfYR2/giphy.gif"></p>' +
 			'<p>This dog is no longer available for adoption. Sorry! <a href="' + removeQueryStrings() + '">Check out other dogs we have available for adoption.</a></p>';
-		safeDOM(app, template);
+		safeInnerHTML(app, template);
 	};
 
 	var createPetImageGalleryHTML = function (pet) {
@@ -1245,7 +1245,7 @@ var petListings = function () {
 		}
 
 		// Create the listing
-		safeDOM(app, createPetHTML(pet));
+		safeInnerHTML(app, createPetHTML(pet));
 
 		// Emit event
 		emitEvent('asmIndividualPet');
@@ -1253,7 +1253,7 @@ var petListings = function () {
 	};
 
 	var renderError = function () {
-		safeDOM(app, original);
+		safeInnerHTML(app, original);
 	};
 
 	var run = function (pets) {
@@ -6348,7 +6348,7 @@ _registerModule('History', {
 	framework.extend(self, publicMethods); };
 	return PhotoSwipe;
 }));
-var safeDOM = function (app, template) {
+var safeInnerHTML = function (app, template, append) {
 
 	'use strict';
 
@@ -6356,6 +6356,17 @@ var safeDOM = function (app, template) {
 	//
 	// Methods
 	//
+
+	var supports = function () {
+		if (!Array.from || !window.DOMParser) return false;
+		var parser = new DOMParser();
+		try {
+			parser.parseFromString('x', 'text/html');
+		} catch(err) {
+			return false;
+		}
+		return true;
+	};
 
 	/**
 	 * Add attributes to an element
@@ -6392,6 +6403,46 @@ var safeDOM = function (app, template) {
 	};
 
 	/**
+	 * Make an HTML element
+	 * @param  {Object} elem The element details
+	 * @return {Node}        The HTML element
+	 */
+	var makeElem = function (elem) {
+
+		// Create the element
+		var node = elem.type === 'text' ? document.createTextNode(elem.content) : document.createElement(elem.type);
+
+		// Add attributes
+		addAttributes(node, elem.atts);
+
+		// If the element has child nodes, create them
+		// Otherwise, add textContent
+		if (elem.children.length > 0) {
+			elem.children.forEach((function (childElem) {
+				node.appendChild(makeElem(childElem));
+			}));
+		} else if (elem.type !== 'text') {
+			node.textContent = elem.content;
+		}
+
+		return node;
+
+	};
+
+	/**
+	 * Render the template items to the DOM
+	 * @param  {Array} map A map of the items to inject into the DOM
+	 */
+	var renderToDOM = function (map) {
+		var temp = document.createElement('div');
+		map.forEach((function (node, index) {
+			temp.appendChild(makeElem(node));
+		}));
+		if (!append) { app.innerHTML = ''; }
+		app.appendChild(temp);
+	};
+
+	/**
 	 * Create a DOM Tree Map for an element
 	 * @param  {Node}   element The element to map
 	 * @return {Array}          A DOM tree map
@@ -6421,48 +6472,18 @@ var safeDOM = function (app, template) {
 		return doc.body;
 	};
 
-	/**
-	 * Make an HTML element
-	 * @param  {Object} elem The element details
-	 * @return {Node}        The HTML element
-	 */
-	var makeElem = function (elem) {
-
-		// Create the element
-		var node = elem.type === 'text' ? document.createTextNode(elem.content) : document.createElement(elem.type);
-
-		// Add attributes
-		addAttributes(node, elem.atts);
-
-		// If the element has child nodes, create them
-		// Otherwise, add textContent
-		if (elem.children.length > 0) {
-			elem.children.forEach((function (childElem) {
-				node.appendChild(makeElem(childElem));
-			}));
-		} else if (elem.type !== 'text') {
-			node.textContent = elem.content;
-		}
-
-		return node;
-
-	};
-
-	var renderToDOM = function (map) {
-		var temp = document.createElement('div');
-		map.forEach((function (node, index) {
-			temp.appendChild(makeElem(node));
-		}));
-		app.innerHTML = '';
-		app.appendChild(temp);
-	};
-
 
 	//
 	// Inits
 	//
 
-	if (!app) return;
+	// Don't run if there's no element to inject into
+	if (!app) throw 'safeInnerHTML: Please provide a valid element to inject content into';
+
+	// Check for browser support
+	if (!supports()) throw 'safeInnerHTML: Your browser is not supported.';
+
+	// Make sure browser supports it
 	var map = createDOMMap(stringToHTML(template));
 	renderToDOM(map);
 

@@ -9,5 +9,5 @@ fullWidth: true
 
 <div data-asm="pet-listings" class="container container-large">
 	<h1>Our Adoptable Dogs</h1>
-	<p>Loading...</p>
+	<p><a href="#">Click here to view our adoptable dogs.</a></p>
 </div>

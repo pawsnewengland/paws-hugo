@@ -1,6 +1,6 @@
 # hostname (and path) to the root
 baseURL: "http://next.pawsnewengland.com"
-# baseURL: "http://localhost:8888/paws-hugo/public/"
+# baseURL: "http://localhost:8888/paws-hugo/public"
 
 # Customer parameters
 params:

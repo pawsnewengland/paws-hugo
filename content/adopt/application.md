@@ -40,11 +40,11 @@ An application does not mean you are required to adopt---it just lets us know yo
 				<label for="reserveanimalname_3">Primary Dog You're Interested In</label>
 			</div>
 			<div class="grid-two-thirds">
-				<select class="no-margin-bottom" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in"
+				<input class="no-margin-bottom" type="text" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in" data-asm-pet-select="primary" required>
+				<!-- <select class="no-margin-bottom" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in"
 				 required>
-				<option value=""></option>
-				[sm_get_pet_list shelter_id="zh0572" username="WebAPI" id="WebAPI" password="QZ7VVrMNhxkYdzEfadQKJRFJfonumkWgUTiFzANU8X9jeoh"]
-			</select>
+					<option value=""></option>
+				</select> -->
 				<p class="text-small text-muted margin-bottom-small"><strong>Note:</strong> If your desired dog's name does not appear in this list, they're no longer available for adoption.
 					Sorry!</p>
 			</div>
@@ -61,14 +61,16 @@ An application does not mean you are required to adopt---it just lets us know yo
 
 		<div class="row">
 			<div class="grid-third">
-				<label for="alternatedog_143">Other Dog You're Interested In<br>
-			<span class="text-small text-muted">Interested in more than one dog? No need to send in multiple applications.</span></label>
+				<label for="alternatedog_143">
+					Other Dogs You're Interested In<br>
+					<span class="text-small text-muted">Interested in more than one dog? No need to send in multiple applications.</span>
+				</label>
 			</div>
 			<div class="grid-two-thirds">
-				<select name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in">
+				<input type="text" name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in" data-asm-pet-select="alternate">
+				<!-- <select name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in">
 					<option value=""></option>
-					[sm_get_pet_list shelter_id="zh0572" username="WebAPI" id="WebAPI" password="QZ7VVrMNhxkYdzEfadQKJRFJfonumkWgUTiFzANU8X9jeoh"]
-			</select>
+				</select> -->
 			</div>
 		</div>
 
@@ -534,7 +536,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 		<div class="bg-muted border padding form-saver margin-bottom">
 			<p class="margin-bottom-small">Think you might complete other applications in the future? Save your information to make filling out the form faster.</p>
 			<div data-form-status></div>
-			<p class="no-margin-bottom"><button class="btn" data-form-save="#adoption-form" data-options='{ "saveMessage": "Your info was saved!","saveClass": "alert alert-success"}'>Save Your Info</button> <button class="btn btn-tertiary" data-form-delete="#adoption-form" data-options='{"deleteMessage": "Your info was deleted.","deleteClass": "alert alert-success","deleteClear": true}'>Delete Your Info</button></p>
+			<p class="no-margin-bottom"><button type="button" class="btn" data-form-save="#adoption-form" data-options='{ "saveMessage": "Your info was saved!","saveClass": "alert alert-success"}'>Save Your Info</button> <button type="button" class="btn btn-tertiary" data-form-delete="#adoption-form" data-options='{"deleteMessage": "Your info was deleted.","deleteClass": "alert alert-success","deleteClear": true}'>Delete Your Info</button></p>
 		</div>
 
 		<div class="clearfix">

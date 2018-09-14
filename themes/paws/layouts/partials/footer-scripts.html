@@ -9,5 +9,8 @@
 		if (document.querySelector('[data-asm="pet-listings"]')) {
 			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/asm.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/asm.js" | absURL }}{{ end }}')
 		}
+		if (document.querySelector('[data-asm-pet-select]')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/petSelect.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/petSelect.js" | absURL }}{{ end }}')
+		}
 	}
 </script>
