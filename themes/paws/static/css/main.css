@@ -1748,6 +1748,13 @@ button:-moz-focusring,
   border-bottom: 0.125em solid #e5e5e5;
 }
 
+/* line 23, src/sass/components/_woocommerce.scss */
+.woocommerce-checkout #payment div.payment_box .form-row,
+.woocommerce-checkout #payment div.form-row {
+  margin: 0;
+  padding: 0;
+}
+
 /**
  * @section WordPress Image Classes
  * Styling for the classes WordPress automatically applies to images.

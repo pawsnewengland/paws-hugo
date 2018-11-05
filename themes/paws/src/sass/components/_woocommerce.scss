@@ -20,6 +20,13 @@
 	border-bottom: calc-em(2px) solid $color-gray-light;
 }
 
+.woocommerce-checkout #payment div.payment_box .form-row,
+.woocommerce-checkout #payment div.form-row {
+	margin: 0;
+	padding: 0;
+}
+
+
 // .woocommerce-checkout #payment ul.payment_methods li .input-radio {
 // 	float: left;
 // 	margin-top: calc-em(7px);
