@@ -1418,7 +1418,7 @@ var petListingsFilter = function () {
 		updateState(state, checkbox);
 		if (toggleAll) {
 			Array.prototype.filter.call(document.querySelectorAll('[data-asm-sort-type="breeds"]'), (function (breed) {
-				updateState(saved, breed);
+				updateState(state, breed);
 			}));
 		}
 
