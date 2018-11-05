@@ -42,14 +42,12 @@ var petListings = function () {
 
 	var saveTitle = function () {
 		var tempTitle = document.title.split(' | ');
-		title = {
-			original: document.title,
-			base: tempTitle.length > 1 ? tempTitle[1] : ''
-		};
+		title = tempTitle.length > 1 ? tempTitle[1] : document.title;
 	};
 
 	var updateTitle = function (pet) {
-		console.log(pet);
+		if (!pet || !pet.name) return;
+		document.title = pet.name + ' | ' + title;
 	};
 
 	var propify = function (str) {
