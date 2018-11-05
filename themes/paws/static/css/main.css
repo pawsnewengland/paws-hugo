@@ -3145,6 +3145,11 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   margin-right: auto;
 }
 
+/* line 187, src/sass/components/_overrides.scss */
+.float-right {
+  float: right;
+}
+
 /**
  * Margins
  */
