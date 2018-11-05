@@ -1736,24 +1736,24 @@ button:-moz-focusring,
  * @section WooCommerce Styles
  * Customize WooCommerce sites
  */
-/* line 7, src/sass/components/_woocommerce.scss */
-.woocommerce .nav-wrap {
+/* line 6, src/sass/components/_woocommerce.scss */
+.pne-store .nav-wrap {
   margin-bottom: 0;
 }
 
-/* line 18, src/sass/components/_woocommerce.scss */
+/* line 17, src/sass/components/_woocommerce.scss */
 .shop_table tbody th,
 .shop_table tfoot th {
   border-bottom: 0;
 }
 
-/* line 23, src/sass/components/_woocommerce.scss */
+/* line 22, src/sass/components/_woocommerce.scss */
 .shop_table tfoot .cart-subtotal th,
 .shop_table tfoot .cart-subtotal td {
   border-bottom: 0.125em solid #e5e5e5;
 }
 
-/* line 28, src/sass/components/_woocommerce.scss */
+/* line 27, src/sass/components/_woocommerce.scss */
 .woocommerce-checkout #payment .wc-payment-form div.payment_box .form-row,
 .woocommerce-checkout #payment .wc-payment-form div.form-row {
   margin: 0;
