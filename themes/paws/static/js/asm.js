@@ -1398,9 +1398,9 @@ var petListingsFilter = function () {
 
 	var updateState = function (state, checkbox) {
 		if (checkbox.checked) {
-			state[checkbox.getAttribute('data-asm-sort-target')] = true;
-		} else {
 			delete state[checkbox.getAttribute('data-asm-sort-target')];
+		} else {
+			state[checkbox.getAttribute('data-asm-sort-target')] = false;
 		}
 	};
 
