@@ -1396,6 +1396,14 @@ var petListingsFilter = function () {
 		}));
 	};
 
+	var updateState = function (state, checkbox) {
+		if (checkbox.checked) {
+			state[checkbox.getAttribute('data-asm-sort-target')] = true;
+		} else {
+			delete state[checkbox.getAttribute('data-asm-sort-target')];
+		}
+	};
+
 	var saveState = function (checkbox, toggleAll) {
 
 		// Only run if sessionStorage is supported
@@ -1407,13 +1415,10 @@ var petListingsFilter = function () {
 
 		// Update state
 		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+		updateState(state, checkbox);
 		if (toggleAll) {
-			Array.prototype.filter.call(document.querySelectorAll('data-asm-sort-type="breeds"'), (function (checkbox) {
-				if (checkbox.checked) {
-					state[checkbox.getAttribute('data-asm-sort-target')] = true;
-				} else {
-					delete state[checkbox.getAttribute('data-asm-sort-target')];
-				}
+			Array.prototype.filter.call(document.querySelectorAll('data-asm-sort-type="breeds"'), (function (breed) {
+				updateState(saved, breed);
 			}));
 		}
 
