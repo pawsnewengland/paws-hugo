@@ -20,8 +20,8 @@
 	border-bottom: calc-em(2px) solid $color-gray-light;
 }
 
-.woocommerce-checkout #payment div.payment_box .form-row,
-.woocommerce-checkout #payment div.form-row {
+.woocommerce-checkout #payment .wc-payment-form div.payment_box .form-row,
+.woocommerce-checkout #payment .wc-payment-form div.form-row {
 	margin: 0;
 	padding: 0;
 }

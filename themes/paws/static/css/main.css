@@ -1749,8 +1749,8 @@ button:-moz-focusring,
 }
 
 /* line 23, src/sass/components/_woocommerce.scss */
-.woocommerce-checkout #payment div.payment_box .form-row,
-.woocommerce-checkout #payment div.form-row {
+.woocommerce-checkout #payment .wc-payment-form div.payment_box .form-row,
+.woocommerce-checkout #payment .wc-payment-form div.form-row {
   margin: 0;
   padding: 0;
 }
