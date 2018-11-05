@@ -78,7 +78,7 @@ var petListingsFilter = function () {
 		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
 		updateState(state, checkbox);
 		if (toggleAll) {
-			Array.prototype.filter.call(document.querySelectorAll('data-asm-sort-type="breeds"'), function (breed) {
+			Array.prototype.filter.call(document.querySelectorAll('[data-asm-sort-type="breeds"]'), function (breed) {
 				updateState(saved, breed);
 			});
 		}
