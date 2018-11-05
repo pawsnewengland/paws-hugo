@@ -1402,14 +1402,16 @@ var petListingsFilter = function () {
 		if (!window.sessionStorage) return;
 
 		// Get currently saved
-		// var state = sessionStorage.getItem(sessionID);
-		// state = state ? JSON.parse(state) : {};
-		var state = {};
+		var state = sessionStorage.getItem(sessionID);
+		state = state ? JSON.parse(state) : {};
 
 		// Update state
-		Array.prototype.filter.call(document.querySelectorAll('[data-asm-sort-type]'), (function (checkbox) {
-			state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
-		}));
+		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+		if (toggleAll) {
+			Array.prototype.filter.call(document.querySelectorAll('data-asm-sort-type="breeds"'), (function (checkbox) {
+				state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+			}));
+		}
 
 		// Save updated state
 		sessionStorage.setItem(sessionID, JSON.stringify(state));
@@ -1458,7 +1460,8 @@ var petListingsFilter = function () {
 		if (!checkbox) return;
 
 		// If toggle all checkbox
-		if (checkbox.getAttribute('data-asm-sort-type') === 'toggle-all') {
+		var toggleAll = checkbox.getAttribute('data-asm-sort-type') === 'toggle-all';
+		if (toggleAll) {
 			toggleAllCheckboxes(checkbox);
 		}
 
@@ -1466,7 +1469,7 @@ var petListingsFilter = function () {
 		filterPets();
 
 		// Save state
-		saveState(checkbox);
+		saveState(checkbox, toggleAll);
 
 	};
 
