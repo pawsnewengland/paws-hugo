@@ -70,7 +70,11 @@ var petListingsFilter = function () {
 		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
 		if (toggleAll) {
 			Array.prototype.filter.call(document.querySelectorAll('data-asm-sort-type="breeds"'), function (checkbox) {
-				state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+				if (checkbox.checked) {
+					state[checkbox.getAttribute('data-asm-sort-target')] = true;
+				} else {
+					delete state[checkbox.getAttribute('data-asm-sort-target')];
+				}
 			});
 		}
 
