@@ -3,6 +3,11 @@
  * Customize WooCommerce sites
  */
 
+//
+.woocommerce .nav-wrap {
+	margin-bottom: 0;
+}
+
 .product_meta {
 	.sku_wrapper,
 	.posted_in {

@@ -1736,19 +1736,24 @@ button:-moz-focusring,
  * @section WooCommerce Styles
  * Customize WooCommerce sites
  */
-/* line 13, src/sass/components/_woocommerce.scss */
+/* line 7, src/sass/components/_woocommerce.scss */
+.woocommerce .nav-wrap {
+  margin-bottom: 0;
+}
+
+/* line 18, src/sass/components/_woocommerce.scss */
 .shop_table tbody th,
 .shop_table tfoot th {
   border-bottom: 0;
 }
 
-/* line 18, src/sass/components/_woocommerce.scss */
+/* line 23, src/sass/components/_woocommerce.scss */
 .shop_table tfoot .cart-subtotal th,
 .shop_table tfoot .cart-subtotal td {
   border-bottom: 0.125em solid #e5e5e5;
 }
 
-/* line 23, src/sass/components/_woocommerce.scss */
+/* line 28, src/sass/components/_woocommerce.scss */
 .woocommerce-checkout #payment .wc-payment-form div.payment_box .form-row,
 .woocommerce-checkout #payment .wc-payment-form div.form-row {
   margin: 0;
@@ -1904,15 +1909,10 @@ td {
   }
 }
 
-/* line 20, src/sass/components/_nav-main.scss */
-.woocommerce .nav-wrap .nav-wrap {
-  margin-bottom: 0;
-}
-
 /**
  * The logo
  */
-/* line 29, src/sass/components/_nav-main.scss */
+/* line 25, src/sass/components/_nav-main.scss */
 .logo {
   display: inline-block;
   font-weight: bold;
@@ -1922,14 +1922,14 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 29, src/sass/components/_nav-main.scss */
+  /* line 25, src/sass/components/_nav-main.scss */
   .logo {
     float: left;
     margin-bottom: 0;
   }
 }
 
-/* line 43, src/sass/components/_nav-main.scss */
+/* line 39, src/sass/components/_nav-main.scss */
 .logo, .logo:active, .logo:focus, .logo:hover {
   color: #ffffff;
 }
@@ -1937,7 +1937,7 @@ td {
 /**
  * The nav menu
  */
-/* line 55, src/sass/components/_nav-main.scss */
+/* line 51, src/sass/components/_nav-main.scss */
 .nav {
   list-style: none;
   margin: 0 -0.5em;
@@ -1948,13 +1948,13 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 55, src/sass/components/_nav-main.scss */
+  /* line 51, src/sass/components/_nav-main.scss */
   .nav {
     text-align: right;
   }
 }
 
-/* line 64, src/sass/components/_nav-main.scss */
+/* line 60, src/sass/components/_nav-main.scss */
 .nav li {
   display: inline-block;
   float: none;
@@ -1962,13 +1962,13 @@ td {
   margin-right: 0.5em;
 }
 
-/* line 71, src/sass/components/_nav-main.scss */
+/* line 67, src/sass/components/_nav-main.scss */
 .nav a, .nav .link-block-styled {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 79, src/sass/components/_nav-main.scss */
+/* line 75, src/sass/components/_nav-main.scss */
 .nav a:hover, .nav .link-block-styled:hover, .nav .link-block:hover .link-block-styled, .link-block:hover .nav .link-block-styled,
 .nav a:active,
 .nav .link-block-styled:active,
@@ -1979,7 +1979,7 @@ td {
   border-bottom: 0.125em solid #ffffff;
 }
 
-/* line 88, src/sass/components/_nav-main.scss */
+/* line 84, src/sass/components/_nav-main.scss */
 
 .nav .active a,
 .nav .active .link-block-styled {
