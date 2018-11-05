@@ -57,17 +57,20 @@ var petListingsFilter = function () {
 		});
 	};
 
-	var saveState = function (checkbox) {
+	var saveState = function (checkbox, toggleAll) {
 
 		// Only run if sessionStorage is supported
 		if (!window.sessionStorage) return;
 
 		// Get currently saved
-		var state = sessionStorage.getItem(sessionID);
-		state = state ? JSON.parse(state) : {};
+		// var state = sessionStorage.getItem(sessionID);
+		// state = state ? JSON.parse(state) : {};
+		var state = {};
 
 		// Update state
-		state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+		Array.prototype.filter.call(document.querySelectorAll('[data-asm-sort-type]'), function (checkbox) {
+			state[checkbox.getAttribute('data-asm-sort-target')] = checkbox.checked;
+		});
 
 		// Save updated state
 		sessionStorage.setItem(sessionID, JSON.stringify(state));
