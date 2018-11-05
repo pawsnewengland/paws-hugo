@@ -3301,7 +3301,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  */
 /* line 328, src/sass/components/_overrides.scss */
 [hidden], template, .product_meta .sku_wrapper,
-.product_meta .posted_in, .tarpit, h2.give-form-title, .pswp__caption small {
+.product_meta .posted_in, .related.products, .tarpit, h2.give-form-title, .pswp__caption small {
   display: none;
   visibility: hidden;
 }
