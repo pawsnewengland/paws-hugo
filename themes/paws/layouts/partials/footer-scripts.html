@@ -12,5 +12,10 @@
 		if (document.querySelector('[data-asm-pet-select]')) {
 			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/petSelect.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/petSelect.js" | absURL }}{{ end }}')
 		}
+		if (document.querySelector('[data-form-save]')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/form-saver.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/form-saver.js" | absURL }}{{ end }}', function () {
+				formSaver.init({deleteClear: false});
+			});
+		}
 	}
 </script>

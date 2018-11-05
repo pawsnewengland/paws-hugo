@@ -1733,6 +1733,22 @@ button:-moz-focusring,
 }
 
 /**
+ * @section WooCommerce Styles
+ * Customize WooCommerce sites
+ */
+/* line 13, src/sass/components/_woocommerce.scss */
+.shop_table tbody th,
+.shop_table tfoot th {
+  border-bottom: 0;
+}
+
+/* line 18, src/sass/components/_woocommerce.scss */
+.shop_table tfoot .cart-subtotal th,
+.shop_table tfoot .cart-subtotal td {
+  border-bottom: 0.125em solid #e5e5e5;
+}
+
+/**
  * @section WordPress Image Classes
  * Styling for the classes WordPress automatically applies to images.
  */
@@ -1987,6 +2003,38 @@ td {
 /* line 38, src/sass/components/_give.scss */
 .give-form legend {
   padding-top: 1em !important;
+}
+
+/**
+ * @section Alerts
+ * Styles for alert messages
+ */
+/* line 7, src/sass/components/_alerts.scss */
+.alert {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+/* line 12, src/sass/components/_alerts.scss */
+.alert-success {
+  color: #528008;
+}
+
+/* line 16, src/sass/components/_alerts.scss */
+.alert-danger {
+  color: #880e14;
+}
+
+/* line 1, src/sass/components/_form-saver.scss */
+.form-saver {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 6, src/sass/components/_form-saver.scss */
+.js-form-saver .form-saver {
+  display: block;
+  visibility: visible;
 }
 
 /**
@@ -3240,7 +3288,8 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
 /* line 328, src/sass/components/_overrides.scss */
-[hidden], template, .tarpit, h2.give-form-title, .pswp__caption small {
+[hidden], template, .product_meta .sku_wrapper,
+.product_meta .posted_in, .tarpit, h2.give-form-title, .pswp__caption small {
   display: none;
   visibility: hidden;
 }

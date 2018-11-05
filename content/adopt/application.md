@@ -75,8 +75,8 @@ An application does not mean you are required to adopt---it just lets us know yo
 		</div>
 
 		<div class="bg-muted border padding margin-bottom">
-			<p>Unsure which of our wonderful dogs is the right match for you? Need guidance? <a href="https://pawsnewengland.com/adoption-form/pet-matchmaker/">Our Doggie Matchmaker</a>						will work with you to narrow down your search and find a forever friend that is the best match for you.</p>
-			<p class="text-center no-margin-bottom"><a class="btn" href="https://pawsnewengland.com/adoption-form/pet-matchmaker/">Matchmaker Questionnaire</a></p>
+			<p>Unsure which of our wonderful dogs is the right match for you? Need guidance? <a href="/adopt/matchmaker/">Our Doggie Matchmaker</a>						will work with you to narrow down your search and find a forever friend that is the best match for you.</p>
+			<p class="text-center no-margin-bottom"><a class="btn" href="/adopt/matchmaker/">Matchmaker Questionnaire</a></p>
 		</div>
 
 		<div class="row">
@@ -536,10 +536,10 @@ An application does not mean you are required to adopt---it just lets us know yo
 		<div class="bg-muted border padding form-saver margin-bottom">
 			<p class="margin-bottom-small">Think you might complete other applications in the future? Save your information to make filling out the form faster.</p>
 			<div data-form-status></div>
-			<p class="no-margin-bottom"><button type="button" class="btn" data-form-save="#adoption-form" data-options='{ "saveMessage": "Your info was saved!","saveClass": "alert alert-success"}'>Save Your Info</button> <button type="button" class="btn btn-tertiary" data-form-delete="#adoption-form" data-options='{"deleteMessage": "Your info was deleted.","deleteClass": "alert alert-success","deleteClear": true}'>Delete Your Info</button></p>
+			<p class="no-margin-bottom"><button type="button" class="btn" data-form-save="#adoption-form" data-options='{ "saveMessage": "Your info was saved!","saveClass": "alert alert-success"}'>Save Your Info</button> <button type="button" class="btn btn-tertiary" data-form-delete="#adoption-form" data-options='{"deleteMessage": "Your info was deleted.","deleteClass": "alert alert-success"}'>Delete Your Info</button></p>
 		</div>
 
-		<div class="clearfix">
+		<div class="clearfix text-right">
 			<input type="hidden" name="magicASJSkey" id="magicASJSkey" value="918273645">
 			<input class="input-inline btn btn-large" type="submit" value="Submit">
 		</div>

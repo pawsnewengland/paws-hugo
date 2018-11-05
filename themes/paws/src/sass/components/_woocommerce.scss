@@ -1,0 +1,27 @@
+/**
+ * @section WooCommerce Styles
+ * Customize WooCommerce sites
+ */
+
+.product_meta {
+	.sku_wrapper,
+	.posted_in {
+		@extend [hidden];
+	}
+}
+
+.shop_table tbody th,
+.shop_table tfoot th {
+	border-bottom: 0;
+}
+
+.shop_table tfoot .cart-subtotal th,
+.shop_table tfoot .cart-subtotal td, {
+	border-bottom: calc-em(2px) solid $color-gray-light;
+}
+
+// .woocommerce-checkout #payment ul.payment_methods li .input-radio {
+// 	float: left;
+// 	margin-top: calc-em(7px);
+// 	margin-right: calc-em(8px);
+// }

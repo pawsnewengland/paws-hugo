@@ -15,10 +15,10 @@ $color-black: #272727;
 $color-black-dark: #000000;
 $color-white: #ffffff;
 
-// $color-info: #0088cc; // Blue
-// $color-success: #377f31; // Green
-// $color-danger: #880e14; // Red
-// $color-warning: #dba909; // Yellow
+$color-info: $color-tertiary; // Blue
+$color-success: darken($color-primary, 7%); // Green
+$color-danger: #880e14; // Red
+$color-warning: $color-secondary; // Yellow
 $color-code: #dd1144;
 
 $color-gray-dark: #808080;

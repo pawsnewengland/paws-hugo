@@ -1,0 +1,18 @@
+/**
+ * @section Alerts
+ * Styles for alert messages
+ */
+
+
+.alert {
+	font-style: italic;
+	margin-bottom: 1em;
+}
+
+.alert-success {
+	color: $color-success;
+}
+
+.alert-danger {
+	color: $color-danger;
+}

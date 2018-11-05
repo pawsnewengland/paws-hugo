@@ -1129,7 +1129,7 @@ var petListings = function () {
 					'</div>' +
 				'</div>' +
 			'</div>';
-		safeInnerHTML(app, template);
+		saferInnerHTML(app, template);
 
 		// Emit event
 		emitEvent('asmAllPets');
@@ -1149,7 +1149,7 @@ var petListings = function () {
 			'<p><a href="' + removeQueryStrings() + '">&larr; Back to all dogs</a></p>' +
 			'<p><img style="width:100%;" src="https://media.giphy.com/media/yoJC2oHh0Js8DpfYR2/giphy.gif"></p>' +
 			'<p>This dog is no longer available for adoption. Sorry! <a href="' + removeQueryStrings() + '">Check out other dogs we have available for adoption.</a></p>';
-		safeInnerHTML(app, template);
+		saferInnerHTML(app, template);
 	};
 
 	var createPetImageGalleryHTML = function (pet) {
@@ -1245,7 +1245,7 @@ var petListings = function () {
 		}
 
 		// Create the listing
-		safeInnerHTML(app, createPetHTML(pet));
+		saferInnerHTML(app, createPetHTML(pet));
 
 		// Emit event
 		emitEvent('asmIndividualPet');
@@ -1253,7 +1253,7 @@ var petListings = function () {
 	};
 
 	var renderError = function () {
-		safeInnerHTML(app, original);
+		saferInnerHTML(app, original);
 	};
 
 	var run = function (pets) {
@@ -6348,9 +6348,16 @@ _registerModule('History', {
 	framework.extend(self, publicMethods); };
 	return PhotoSwipe;
 }));
-var safeInnerHTML = function (app, template, append) {
+var saferInnerHTML = function (app, template, append) {
 
 	'use strict';
+
+
+	//
+	// Variables
+	//
+
+	var parser = null;
 
 
 	//
@@ -6359,7 +6366,7 @@ var safeInnerHTML = function (app, template, append) {
 
 	var supports = function () {
 		if (!Array.from || !window.DOMParser) return false;
-		var parser = new DOMParser();
+		parser = parser || new DOMParser();
 		try {
 			parser.parseFromString('x', 'text/html');
 		} catch(err) {
@@ -6434,12 +6441,10 @@ var safeInnerHTML = function (app, template, append) {
 	 * @param  {Array} map A map of the items to inject into the DOM
 	 */
 	var renderToDOM = function (map) {
-		var temp = document.createElement('div');
-		map.forEach((function (node, index) {
-			temp.appendChild(makeElem(node));
-		}));
 		if (!append) { app.innerHTML = ''; }
-		app.appendChild(temp);
+		map.forEach((function (node, index) {
+			app.appendChild(makeElem(node));
+		}));
 	};
 
 	/**
@@ -6454,8 +6459,7 @@ var safeInnerHTML = function (app, template, append) {
 				content: node.childNodes && node.childNodes.length > 0 ? null : node.textContent,
 				atts: node.nodeType === 3 ? [] : getAttributes(node.attributes),
 				type: node.nodeType === 3 ? 'text' : node.tagName.toLowerCase(),
-				children: createDOMMap(node),
-				node: node
+				children: createDOMMap(node)
 			});
 		}));
 		return map;
@@ -6467,7 +6471,7 @@ var safeInnerHTML = function (app, template, append) {
 	 * @return {Node}       The template HTML
 	 */
 	var stringToHTML = function (str) {
-		var parser = new DOMParser();
+		parser = parser || new DOMParser();
 		var doc = parser.parseFromString(str, 'text/html');
 		return doc.body;
 	};
@@ -6478,16 +6482,16 @@ var safeInnerHTML = function (app, template, append) {
 	//
 
 	// Don't run if there's no element to inject into
-	if (!app) throw 'safeInnerHTML: Please provide a valid element to inject content into';
+	if (!app) throw new Error('safeInnerHTML: Please provide a valid element to inject content into');
 
 	// Check for browser support
-	if (!supports()) throw 'safeInnerHTML: Your browser is not supported.';
+	if (!supports()) throw new Error('safeInnerHTML: Your browser is not supported.');
 
-	// Make sure browser supports it
-	var map = createDOMMap(stringToHTML(template));
-	renderToDOM(map);
+	// Render the template into the DOM
+	renderToDOM(createDOMMap(stringToHTML(template)));
 
 };
+
 // Initialize filters after render
 document.addEventListener('asmAllPets', (function () {
 	if (!window.petListingsFilter) return;

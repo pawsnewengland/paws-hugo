@@ -227,7 +227,7 @@ var petListings = function () {
 					'</div>' +
 				'</div>' +
 			'</div>';
-		safeInnerHTML(app, template);
+		saferInnerHTML(app, template);
 
 		// Emit event
 		emitEvent('asmAllPets');
@@ -247,7 +247,7 @@ var petListings = function () {
 			'<p><a href="' + removeQueryStrings() + '">&larr; Back to all dogs</a></p>' +
 			'<p><img style="width:100%;" src="https://media.giphy.com/media/yoJC2oHh0Js8DpfYR2/giphy.gif"></p>' +
 			'<p>This dog is no longer available for adoption. Sorry! <a href="' + removeQueryStrings() + '">Check out other dogs we have available for adoption.</a></p>';
-		safeInnerHTML(app, template);
+		saferInnerHTML(app, template);
 	};
 
 	var createPetImageGalleryHTML = function (pet) {
@@ -343,7 +343,7 @@ var petListings = function () {
 		}
 
 		// Create the listing
-		safeInnerHTML(app, createPetHTML(pet));
+		saferInnerHTML(app, createPetHTML(pet));
 
 		// Emit event
 		emitEvent('asmIndividualPet');
@@ -351,7 +351,7 @@ var petListings = function () {
 	};
 
 	var renderError = function () {
-		safeInnerHTML(app, original);
+		saferInnerHTML(app, original);
 	};
 
 	var run = function (pets) {
