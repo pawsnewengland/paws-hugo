@@ -1360,7 +1360,7 @@ var petListingsFilter = function () {
 
 		// Toggle breeds
 		Array.from(breedFilters).forEach((function (breed) {
-			var pets = document.querySelectorAll('[data-asm-attribute*=' + breed.getAttribute('data-asm-sort-target') + ']');
+			var pets = document.querySelectorAll('[data-asm-attribute*="' + breed.getAttribute('data-asm-sort-target') + '"]');
 			if (breed.checked === true) {
 				showPets(pets);
 			}
@@ -1368,7 +1368,7 @@ var petListingsFilter = function () {
 
 		// Toggle all other attributes
 		Array.from(attributeFilters).forEach((function (att) {
-			var pets = document.querySelectorAll('[data-asm-attribute*=' + att.getAttribute('data-asm-sort-target') + ']');
+			var pets = document.querySelectorAll('[data-asm-attribute*="' + att.getAttribute('data-asm-sort-target') + '"]');
 			if (att.checked === false) {
 				hidePets(pets);
 			}
