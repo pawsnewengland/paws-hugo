@@ -23,6 +23,7 @@ theme: "paws"
 # See "content-management/permalinks"
 permalinks:
   news: /:title/
+  redirects: /:title/
 
 # Use absolute URLs
 canonifyURLs: true

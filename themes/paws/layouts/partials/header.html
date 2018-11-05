@@ -15,6 +15,16 @@
 		<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ $.Site.Params.rssURL }}">
 		<link rel="feed" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ $.Site.Params.rssURL }}">
 
+		{{ if eq .Type "redirects" }}
+			{{ if .IsPage }}
+				{{ if ne .Params.redirect "" }}
+					<script>window.location.href = '{{ .Params.redirect }}';</script>
+				{{ end }}
+			{{ else  }}
+				<script>window.location.href = '{{ .Site.BaseURL }}';</script>
+			{{ end }}
+		{{ end }}
+
 		{{ partial "header-open-graph.html" }}
 
 		{{ partial "header-favicon.html" }}
