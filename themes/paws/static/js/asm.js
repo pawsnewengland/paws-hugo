@@ -1470,8 +1470,6 @@ var petListingsFilter = function () {
 	// Filter pet listings
 	filterPets();
 
-	console.log('running');
-
 };
 /**
  * Initialize PhotoSwipe
