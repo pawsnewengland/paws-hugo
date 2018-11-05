@@ -16,6 +16,10 @@
 	@media (min-width: $bp-large) {
 		text-align: left;
 	}
+
+	.woocommerce & .nav-wrap {
+		margin-bottom: 0;
+	}
 }
 
 

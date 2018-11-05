@@ -1904,10 +1904,15 @@ td {
   }
 }
 
+/* line 20, src/sass/components/_nav-main.scss */
+.woocommerce .nav-wrap .nav-wrap {
+  margin-bottom: 0;
+}
+
 /**
  * The logo
  */
-/* line 25, src/sass/components/_nav-main.scss */
+/* line 29, src/sass/components/_nav-main.scss */
 .logo {
   display: inline-block;
   font-weight: bold;
@@ -1917,14 +1922,14 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 25, src/sass/components/_nav-main.scss */
+  /* line 29, src/sass/components/_nav-main.scss */
   .logo {
     float: left;
     margin-bottom: 0;
   }
 }
 
-/* line 39, src/sass/components/_nav-main.scss */
+/* line 43, src/sass/components/_nav-main.scss */
 .logo, .logo:active, .logo:focus, .logo:hover {
   color: #ffffff;
 }
@@ -1932,7 +1937,7 @@ td {
 /**
  * The nav menu
  */
-/* line 51, src/sass/components/_nav-main.scss */
+/* line 55, src/sass/components/_nav-main.scss */
 .nav {
   list-style: none;
   margin: 0 -0.5em;
@@ -1943,13 +1948,13 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 51, src/sass/components/_nav-main.scss */
+  /* line 55, src/sass/components/_nav-main.scss */
   .nav {
     text-align: right;
   }
 }
 
-/* line 60, src/sass/components/_nav-main.scss */
+/* line 64, src/sass/components/_nav-main.scss */
 .nav li {
   display: inline-block;
   float: none;
@@ -1957,13 +1962,13 @@ td {
   margin-right: 0.5em;
 }
 
-/* line 67, src/sass/components/_nav-main.scss */
+/* line 71, src/sass/components/_nav-main.scss */
 .nav a, .nav .link-block-styled {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 75, src/sass/components/_nav-main.scss */
+/* line 79, src/sass/components/_nav-main.scss */
 .nav a:hover, .nav .link-block-styled:hover, .nav .link-block:hover .link-block-styled, .link-block:hover .nav .link-block-styled,
 .nav a:active,
 .nav .link-block-styled:active,
@@ -1974,7 +1979,7 @@ td {
   border-bottom: 0.125em solid #ffffff;
 }
 
-/* line 84, src/sass/components/_nav-main.scss */
+/* line 88, src/sass/components/_nav-main.scss */
 
 .nav .active a,
 .nav .active .link-block-styled {
