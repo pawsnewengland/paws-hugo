@@ -8,7 +8,7 @@ var petListings = function () {
 
 	var app = document.querySelector('[data-asm="pet-listings"]');
 	var sessionID = 'asmPetData';
-	var original;
+	var original, title;
 
 
 	//
@@ -38,6 +38,18 @@ var petListings = function () {
 			cancelable: true
 		});
 		app.dispatchEvent(event);
+	};
+
+	var saveTitle = function () {
+		var tempTitle = document.title.split(' | ');
+		title = {
+			original: document.title,
+			base: tempTitle.length > 1 ? tempTitle[1] : ''
+		};
+	};
+
+	var updateTitle = function (pet) {
+		console.log(pet);
 	};
 
 	var propify = function (str) {
@@ -345,6 +357,9 @@ var petListings = function () {
 		// Create the listing
 		saferInnerHTML(app, createPetHTML(pet));
 
+		// Update title
+		updateTitle(pet);
+
 		// Emit event
 		emitEvent('asmIndividualPet');
 
@@ -408,6 +423,7 @@ var petListings = function () {
 
 	var loading = function () {
 		original = app.innerHTML;
+		saveTitle();
 		app.innerHTML = 'Loading...';
 	};
 
