@@ -66,11 +66,9 @@ Each application takes approximately one-hour to process over the course of one 
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="grid-two-thirds offset-third">
-			<input type="hidden" name="magicASJSkey" value="918273645">
-			<input class="input-inline btn" type="submit" value="Submit">
-		</div>
+	<div class="clearfix text-right">
+		<input type="hidden" name="magicASJSkey" value="918273645">
+		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
 
@@ -129,11 +127,9 @@ When we rescue dogs, they often need vaccines, medical treatment and rehabilitat
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="grid-two-thirds offset-third">
-			<input type="hidden" name="magicASJSkey" value="918273645">
-			<input class="input-inline btn" type="submit" value="Submit">
-		</div>
+	<div class="clearfix text-right">
+		<input type="hidden" name="magicASJSkey" value="918273645">
+		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
 
@@ -333,11 +329,9 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="grid-two-thirds offset-third">
-			<input type="hidden" name="magicASJSkey" value="918273645">
-			<input class="input-inline btn" type="submit" value="Submit">
-		</div>
+	<div class="clearfix text-right">
+		<input type="hidden" name="magicASJSkey" value="918273645">
+		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
 
@@ -386,11 +380,9 @@ Do you want to help spread the word about PAWS New England? We're looking for ma
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="grid-two-thirds offset-third">
-			<input type="hidden" name="magicASJSkey" value="918273645">
-			<input class="input-inline btn" type="submit" value="Submit">
-		</div>
+	<div class="clearfix text-right">
+		<input type="hidden" name="magicASJSkey" value="918273645">
+		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
 
