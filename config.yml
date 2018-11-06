@@ -2,7 +2,10 @@
 baseURL: "http://next.pawsnewengland.com"
 # baseURL: "http://localhost:8888/paws-hugo/public/"
 
-# Customer parameters
+# Site title
+title: "PAWS New England"
+
+# Custom parameters
 params:
   description: "We save lives, one dog at a time."
   rssURL: "https://pawsnewengland.com/feed/index.xml"
@@ -12,9 +15,6 @@ params:
 
 # The language code for the site
 languageCode: "en-us"
-
-# Site title
-title: "PAWS New England"
 
 # theme to use (located by default in /themes/THEMENAME/)
 theme: "paws"
