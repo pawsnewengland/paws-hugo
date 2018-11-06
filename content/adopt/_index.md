@@ -9,5 +9,5 @@ fullWidth: true
 
 <div data-asm="pet-listings" class="container container-large">
 	<h1>Our Adoptable Dogs</h1>
-	<p><a href="#">Click here to view our adoptable dogs.</a></p>
+	<p><a href="https://www.adoptapet.com/adoption_rescue/73233-paws-new-england-barrington-rhode-island#featured">Click here to view our adoptable dogs.</a></p>
 </div>
