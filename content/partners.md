@@ -18,136 +18,136 @@ These businesses generously donate their time, money and services to help us do 
 
 ## Sponsors
 
-**The Brandi Project**
+**The Brandi Project**<br>
 [http://www.thebrandiproject.com](http://www.thebrandiproject.com/)
 
 
 ## Veterinary Partners
 
-**Court Street Animal Hospital**
-136 Court Street
-Plymouth, MA 02360
+**Court Street Animal Hospital**<br>
+136 Court Street<br>
+Plymouth, MA 02360<br>
 [http://www.courtstreetvet.com](http://www.courtstreetvet.com)
 
-**Randolph Animal Hospital**
-400 South Main Street
-Randolph, MA 02368
-(781) 963-2298
+**Randolph Animal Hospital**<br>
+400 South Main Street<br>
+Randolph, MA 02368<br>
+(781) 963-2298<br>
 [http://randolphanimal.com](http://randolphanimal.com)
 
-**Companion Animal Welfare Society**
-88 West Warwick Avenue
-West Warwick, RI 02893
-(401) 615-2200
+**Companion Animal Welfare Society**<br>
+88 West Warwick Avenue<br>
+West Warwick, RI 02893<br>
+(401) 615-2200<br>
 [http://www.cawsri.com](http://www.cawsri.com)
 
-**Memphis Veterinary Specialists**
-555 Trinity Creek Cove
-Cordova, TN 38018
-(901) 624-9002
+**Memphis Veterinary Specialists**<br>
+555 Trinity Creek Cove<br>
+Cordova, TN 38018<br>
+(901) 624-9002<br>
 [http://www.memphisveterinaryspecialists.com](http://www.memphisveterinaryspecialists.com)
 
-**Berclair Animal Hospital**
-5169 Wheelis Drive
-Memphis, TN 38117
-(901) 685-8204
+**Berclair Animal Hospital**<br>
+5169 Wheelis Drive<br>
+Memphis, TN 38117<br>
+(901) 685-8204<br>
 [http://berclairanimalhospital.com](http://berclairanimalhospital.com)
 
-**Gentle Care Animal Hospital**
-2958 Covington Pike
-Memphis, TN 38128
+**Gentle Care Animal Hospital**<br>
+2958 Covington Pike<br>
+Memphis, TN 38128<br>
 [http://www.gentlecareanimalhospital.com](http://www.gentlecareanimalhospital.com)
 
-**English Veterinary Care**
-138 Commercial Drive
-Atoka, TN 38004
+**English Veterinary Care**<br>
+138 Commercial Drive<br>
+Atoka, TN 38004<br>
 [http://www.englishvetcare.com](http://www.englishvetcare.com)
 
 
 ## Dog Training
 
-**John Gagnon’s Pet Resort**
-227 Upton Rd.
-Colchester, CT 06415
+**John Gagnon’s Pet Resort**<br>
+227 Upton Rd.<br>
+Colchester, CT 06415<br>
 [http://www.4dogman.com](http://www.4dogman.com)
 
-**Clear Skies Dog Training & Evaluation**
+**Clear Skies Dog Training & Evaluation**<br>
 [http://clearskiesdogtraining.weebly.com](http://clearskiesdogtraining.weebly.com)
 
-**Outbound Hounds**
+**Outbound Hounds**<br>
 [http://www.obhounds.com](http://www.obhounds.com/)
 
 
 ## Photography
 
-**Lisa Gilbert**
-Cohasset, MA
+**Lisa Gilbert**<br>
+Cohasset, MA<br>
 [http://www.lisagilbertphotography.com](http://www.lisagilbertphotography.com)
 
-**Carla McElroy**
-Lebanon, CT
+**Carla McElroy**<br>
+Lebanon, CT<br>
 [http://www.carlamcelroyphoto.com](http://www.carlamcelroyphoto.com)
 
-**Phil Smith**
-Douglas, MA
+**Phil Smith**<br>
+Douglas, MA<br>
 [http://www.philsmithimages.com](http://www.philsmithimages.com)
 
-**Wags and Whiskers Pet Photography**
-Helia Zarkhosh
-Boston, MA
+**Wags and Whiskers Pet Photography**<br>
+Helia Zarkhosh<br>
+Boston, MA<br>
 [http://www.wagsandwhiskerspetphoto.com](http://www.wagsandwhiskerspetphoto.com/)
 
-**Jennifer Tausevich**
-Plymouth, MA
+**Jennifer Tausevich**<br>
+Plymouth, MA<br>
 [https://www.facebook.com/jennytausevichphotography](https://www.facebook.com/jennytausevichphotography/)
 
-**Dawn Ferragamo**
-Woburn, MA
+**Dawn Ferragamo**<br>
+Woburn, MA<br>
 [http://www.dawnferragamophotography.com](http://www.dawnferragamophotography.com)
 
 
-**Lisa Patnaude**
-Worcester, MA
+**Lisa Patnaude**<br>
+Worcester, MA<br>
 [http://www.lisapatnaudephotography.com/-/lisapatnaudephotography](http://www.lisapatnaudephotography.com/-/lisapatnaudephotography/)
 
-**Kate Ackermann**
-Wilmington, MA
+**Kate Ackermann**<br>
+Wilmington, MA<br>
 [http://kateackermannphotography.com](http://kateackermannphotography.com)
 
-**Steve Mark**
-Stoughton, MA
+**Steve Mark**<br>
+Stoughton, MA<br>
 [http://www.stevemarkphoto.com](http://www.stevemarkphoto.com)
 
-**Doug Levy**
-Ayer, MA
+**Doug Levy**<br>
+Ayer, MA<br>
 [http://www.douglaslevy.com](http://www.douglaslevy.com)
 
-**Heidi Reed**
-Rhode Island
+**Heidi Reed**<br>
+Rhode Island<br>
 [http://www.heidireedphotography.com](http://www.heidireedphotography.com)
 
-**Sarah Montani**
-Franklin, MA
+**Sarah Montani**<br>
+Franklin, MA<br>
 [http://www.sarahmontaniphotography.com](http://www.sarahmontaniphotography.com)
 
 
 ## Dog Daycare, Boarding & Walking
 
-**Skipton Pet Lodge**
-33 West Union Street
-Ashland, MA 01721
-(978) 973-7855
+**Skipton Pet Lodge**<br>
+33 West Union Street<br>
+Ashland, MA 01721<br>
+(978) 973-7855<br>
 [http://www.skiptonpetlodge.com](http://www.skiptonpetlodge.com)
 
-**Crate Escape**
-200 Terminal Street
-Charlestown, MA 02129
-(617) 489-9003
+**Crate Escape**<br>
+200 Terminal Street<br>
+Charlestown, MA 02129<br>
+(617) 489-9003<br>
 [http://www.crate-escape.com](http://www.crate-escape.com)
 
-**Elliot’s House, LLC**
-485 Massachusetts Ave
-Suite 300 PMB 11
-Cambridge, MA 02139
-(617) 800-9421
+**Elliot’s House, LLC**<br>
+485 Massachusetts Ave<br>
+Suite 300 PMB 11<br>
+Cambridge, MA 02139<br>
+(617) 800-9421<br>
 [http://www.elliotshouse.com](http://www.elliotshouse.com)
