@@ -32,7 +32,7 @@ var petSelect = function () {
 		var href = url ? url : window.location.href;
 		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
 		var string = reg.exec(href);
-		return string ? string[1] : null;
+		return string ? decodeURIComponent(string[1]) : null;
 	};
 
 	var createSelectOptions = function (pets, petID) {
@@ -65,7 +65,6 @@ var petSelect = function () {
 			if (input.required) {
 				select.setAttribute('required', 'required');
 			}
-			console.log(input.value);
 			select.innerHTML = createSelectOptions(petsArr, input.value);
 			input.replaceWith(select);
 		}));
