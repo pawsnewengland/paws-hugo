@@ -1,6 +1,6 @@
 ---
 id: 371
-title: 'Quincy &#038; Zoe'
+title: 'Quincy & Zoe'
 date: 2009-05-23T13:07:27+00:00
 author: Kelly
 layout: post
@@ -19,7 +19,7 @@ _Quincy and Zoe&#8217;s happy tail, shared by their new owners Calista and Tim:_
 Hello All&#8230;
 
 Quick note to let everyone know that we are so very happy to have had Quincy and Zoe join our family. They have brought us many moments of smiles and laughter in just the past two weeks. We could not imagine a more wonderful and happy crew and we want to thank everyone for helping bring them home to us.
-  
+
 More pics soon&#8230;
 
 Calista & Tim

@@ -1,6 +1,6 @@
 ---
 id: 313
-title: 'Molly &#038; Abby'
+title: 'Molly & Abby'
 date: 2009-05-23T12:34:59+00:00
 author: Kelly
 layout: post

@@ -1,6 +1,6 @@
 ---
 id: 573
-title: 'The &#8220;Black Dog Curse&#8221;'
+title: 'The Black Dog Curse'
 date: 2010-07-31T11:03:37+00:00
 author: Kelly
 layout: post

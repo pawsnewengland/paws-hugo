@@ -1,6 +1,6 @@
 ---
 id: 431
-title: 'PAWS Sanctuary Destroyed &#8211; Help Needed!'
+title: 'PAWS Sanctuary Destroyed - Help Needed!'
 date: 2010-05-03T16:00:00+00:00
 author: Kelly
 layout: post

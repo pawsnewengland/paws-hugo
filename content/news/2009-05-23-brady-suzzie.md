@@ -1,6 +1,6 @@
 ---
 id: 363
-title: 'Brady &#038; Suzzie'
+title: 'Brady & Suzzie'
 date: 2009-05-23T13:03:12+00:00
 author: Kelly
 layout: post

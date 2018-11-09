@@ -1,6 +1,6 @@
 ---
 id: 415
-title: 'Cody&#8217;s Creations'
+title: "Cody's Creations"
 date: 2009-09-10T15:53:14+00:00
 author: Kelly
 layout: post

@@ -1,6 +1,6 @@
 ---
 id: 578
-title: 'Petfinder&#8217;s 2010 Most Pet-Friendly Airlines'
+title: "Petfinder's 2010 Most Pet-Friendly Airlines"
 date: 2010-08-09T19:09:24+00:00
 author: Chris
 layout: post

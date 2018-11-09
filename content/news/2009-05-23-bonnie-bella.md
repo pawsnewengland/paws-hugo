@@ -1,6 +1,6 @@
 ---
 id: 367
-title: 'Bonnie &#038; Bella'
+title: 'Bonnie & Bella'
 date: 2009-05-23T13:05:04+00:00
 author: Kelly
 layout: post
