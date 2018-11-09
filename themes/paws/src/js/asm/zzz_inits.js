@@ -8,6 +8,7 @@ document.addEventListener('asmAllPets', function () {
 document.addEventListener('asmIndividualPet', function () {
 	if (!window.initPhotoSwipeFromDOM) return;
 	initPhotoSwipeFromDOM('[data-photoswipe]');
+	fluidvids.render();
 }, false);
 
 // Render pet listings

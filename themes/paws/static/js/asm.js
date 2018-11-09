@@ -900,6 +900,14 @@ function makeArray( obj ) {
   return ImagesLoaded;
 
 }));
+/**
+ * Element.requestFullScreen() polyfill
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if (!Element.prototype.requestFullscreen) {
+	Element.prototype.requestFullscreen = Element.prototype.mozRequestFullscreen || Element.prototype.webkitRequestFullscreen || Element.prototype.msRequestFullscreen;
+}
 var petListings = function () {
 
 	'use strict';
@@ -932,6 +940,13 @@ var petListings = function () {
 
 	var removeQueryStrings = function () {
 		return window.location.href.split('?')[0];
+	};
+
+	var getVideoID = function (url) {
+		if (/youtu.be/.test(url)) {
+			return url.replace('https://youtu.be/', '');
+		}
+		return getQueryString('v', url);
 	};
 
 	var emitEvent = function (type) {
@@ -1172,6 +1187,11 @@ var petListings = function () {
 		for (var i = 0; i < pet.images; i++) {
 			var url = 'https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid=' + pet.id + '&seq=' + (i + 1);
 			photos += '<a class="grid-third" data-size href="' + url + '" ><img class="img-photo asm-img-limit-height" alt="A photo of ' + pet.name + '" src="' + url + '"></a>';
+		}
+
+		// Add video
+		if (pet.video && pet.video.length > 0) {
+			photos += '<div class="grid-two-thirds" data-video><iframe width="560" height="315" src="https://www.youtube.com/embed/' + getVideoID(pet.video) + '?rel=0" frameborder="0" allow="autoplay; encrypted-media; fullscreen;" allowfullscreen></iframe></div>';
 		}
 
 		// Create gallery
@@ -1521,9 +1541,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 			el = thumbElements[i];
 
 			// include only element nodes
-			if(el.nodeType !== 1) {
-				continue;
-			}
+			// Skip video links
+			if(el.nodeType !== 1 || el.hasAttribute('data-video')) continue;
 
 			childElements = el.children;
 
@@ -1577,9 +1596,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 	var onThumbnailsClick = function(e) {
 		e = e || window.event;
+
 		e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
 		var eTarget = e.target || e.srcElement;
+
+		// Skip video links
+		if (eTarget.hasAttribute('data-video')) return
 
 		var clickedListItem = closest(eTarget, (function(el) {
 			return el.tagName === 'A';
@@ -6529,6 +6552,7 @@ document.addEventListener('asmAllPets', (function () {
 document.addEventListener('asmIndividualPet', (function () {
 	if (!window.initPhotoSwipeFromDOM) return;
 	initPhotoSwipeFromDOM('[data-photoswipe]');
+	fluidvids.render();
 }), false);
 
 // Render pet listings

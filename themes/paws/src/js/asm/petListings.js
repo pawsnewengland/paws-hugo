@@ -32,6 +32,13 @@ var petListings = function () {
 		return window.location.href.split('?')[0];
 	};
 
+	var getVideoID = function (url) {
+		if (/youtu.be/.test(url)) {
+			return url.replace('https://youtu.be/', '');
+		}
+		return getQueryString('v', url);
+	};
+
 	var emitEvent = function (type) {
 		var event = new CustomEvent(type, {
 			bubbles: true,
@@ -270,6 +277,11 @@ var petListings = function () {
 		for (var i = 0; i < pet.images; i++) {
 			var url = 'https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid=' + pet.id + '&seq=' + (i + 1);
 			photos += '<a class="grid-third" data-size href="' + url + '" ><img class="img-photo asm-img-limit-height" alt="A photo of ' + pet.name + '" src="' + url + '"></a>';
+		}
+
+		// Add video
+		if (pet.video && pet.video.length > 0) {
+			photos += '<div class="grid-two-thirds" data-video><iframe width="560" height="315" src="https://www.youtube.com/embed/' + getVideoID(pet.video) + '?rel=0" frameborder="0" allow="autoplay; encrypted-media; fullscreen;" allowfullscreen></iframe></div>';
 		}
 
 		// Create gallery

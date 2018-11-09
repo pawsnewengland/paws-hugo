@@ -19,9 +19,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 			el = thumbElements[i];
 
 			// include only element nodes
-			if(el.nodeType !== 1) {
-				continue;
-			}
+			// Skip video links
+			if(el.nodeType !== 1 || el.hasAttribute('data-video')) continue;
 
 			childElements = el.children;
 
@@ -75,9 +74,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 	var onThumbnailsClick = function(e) {
 		e = e || window.event;
+
 		e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
 		var eTarget = e.target || e.srcElement;
+
+		// Skip video links
+		if (eTarget.hasAttribute('data-video')) return
 
 		var clickedListItem = closest(eTarget, function(el) {
 			return el.tagName === 'A';
