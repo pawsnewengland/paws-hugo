@@ -1679,10 +1679,20 @@ button:-moz-focusring,
 }
 
 /* line 11, src/sass/components/_form-validation.scss */
-.error-message {
-  color: #bd131c;
+.error-message,
+.success-message {
   font-style: italic;
   margin-bottom: 1em;
+}
+
+/* line 17, src/sass/components/_form-validation.scss */
+.error-message {
+  color: #bd131c;
+}
+
+/* line 21, src/sass/components/_form-validation.scss */
+.success-message {
+  color: #528008;
 }
 
 /*  Adds a border */

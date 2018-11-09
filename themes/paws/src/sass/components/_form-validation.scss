@@ -8,8 +8,16 @@
 	border-color: $color-danger;
 }
 
-.error-message {
-	color: $color-danger;
+.error-message,
+.success-message {
 	font-style: italic;
 	margin-bottom: 1em;
+}
+
+.error-message {
+	color: $color-danger;
+}
+
+.success-message {
+	color: $color-success;
 }
