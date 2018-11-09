@@ -17,5 +17,10 @@
 				formSaver.init({deleteClear: false});
 			});
 		}
+		if (document.querySelector('[action*="service.sheltermanager.com"]')) {
+			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/bouncer.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/bouncer.js" | absURL }}{{ end }}', function () {
+				var bouncer = new Bouncer('[action*="service.sheltermanager.com"]');
+			});
+		}
 	}
 </script>
