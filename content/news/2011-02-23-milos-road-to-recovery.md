@@ -1,6 +1,6 @@
 ---
 id: 1028
-title: 'Milo&#8217;s Road to Recovery'
+title: "Milo's Road to Recovery"
 date: 2011-02-23T08:00:00+00:00
 author: Chris
 layout: post

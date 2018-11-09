@@ -1,6 +1,6 @@
 ---
 id: 1186
-title: 'Tell CT Governor Malloy, &#8220;Don&#8217;t Shut Down Rescue Work in CT!&#8221;'
+title: "Tell CT Governor Malloy, Don't Shut Down Rescue Work in CT!"
 date: 2011-07-11T13:00:00+00:00
 author: Chris
 layout: post

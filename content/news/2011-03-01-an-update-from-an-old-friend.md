@@ -1,6 +1,6 @@
 ---
 id: 1033
-title: 'An update from an old friend&#8230;.'
+title: 'An update from an old friend.'
 date: 2011-03-01T22:18:55+00:00
 author: Kelly
 layout: post

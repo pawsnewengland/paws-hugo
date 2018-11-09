@@ -1,6 +1,6 @@
 ---
 id: 605
-title: 'Why PAWS Never Gave Up on Monty&#8230;..'
+title: 'Why PAWS Never Gave Up on Monty...'
 date: 2010-09-19T15:50:14+00:00
 author: Kelly
 layout: post

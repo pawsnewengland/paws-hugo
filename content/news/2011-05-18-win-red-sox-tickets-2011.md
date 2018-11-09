@@ -1,6 +1,6 @@
 ---
 id: 1150
-title: 'We&#8217;re giving away Red Sox tickets!'
+title: "We're giving away Red Sox tickets!"
 date: 2011-05-18T08:00:00+00:00
 author: Chris
 layout: post
@@ -42,7 +42,7 @@ We&#8217;ll announce the winner on <del datetime="2011-06-21T11:51:55+00:00">Jun
 
 The tickets are for the Sunday, July 10th game against the Baltimore Orioles. This is a home game at Fenway Park in Boston, MA. The seats are in the Infield Grandstand (Row 26).
 
-_No donation is necessary to enter to win this prize. If you would like to be entered without making a donation, please send your name, address, phone number, and email address to PAWS New England 5 Freedom St. Plymouth, MA 02360.</p> 
+_No donation is necessary to enter to win this prize. If you would like to be entered without making a donation, please send your name, address, phone number, and email address to PAWS New England 5 Freedom St. Plymouth, MA 02360.</p>
 
 The tickets were donated by long time PAWS supporter Jeanne Powers. The autograph photo was donated by the Red Sox.
 

@@ -1,6 +1,6 @@
 ---
 id: 1008
-title: 'PAWS Valentine&#8217;s Day Cards'
+title: "PAWS Valentine's Day Cards"
 date: 2011-02-08T22:19:50+00:00
 author: Chris
 layout: post

@@ -1,6 +1,6 @@
 ---
 id: 594
-title: 'Leyla Finds Her Forever Home&#8230;'
+title: 'Leyla Finds Her Forever Home'
 date: 2010-09-19T15:15:50+00:00
 author: Kelly
 layout: post

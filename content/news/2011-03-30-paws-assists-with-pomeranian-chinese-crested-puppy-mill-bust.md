@@ -1,6 +1,6 @@
 ---
 id: 1099
-title: 'PAWS Assists with Pomeranian &#038; Chinese Crested Puppy Mill Bust'
+title: 'PAWS Assists with Pomeranian Chinese Crested Puppy Mill Bust'
 date: 2011-03-30T04:52:07+00:00
 author: Kelly
 layout: post
@@ -38,7 +38,7 @@ Amazing what a bath and some grooming can do- mats cut off of one dog weighed ov
 &nbsp;
 
 And meet the first two puppy mill survivors available for adoption- Claire and Clark! Click on their pictures to learn more about them!
-  
+
 [<img src="https://us1.admin.mailchimp.com/_ssl/proxy.php?u=http%3A%2F%2Fgallery.mailchimp.com%2F0c705fc71db1e2d4d6f5f4ba3%2Fimages%2FClark__8_.jpg" border="0" alt="" width="205" height="226" align="left" />](http://www.petfinder.com/petdetail/19087982)[ <span style="text-decoration: underline;"></span><img src="https://us1.admin.mailchimp.com/_ssl/proxy.php?u=http%3A%2F%2Fgallery.mailchimp.com%2F0c705fc71db1e2d4d6f5f4ba3%2Fimages%2FClair__6_.jpg" border="0" alt="" width="179" height="226" />](http://www.petfinder.com/petdetail/19087885)
 
 <div class="clear">
