@@ -1,6 +1,6 @@
 ---
 id: 1572
-title: 'The &#8220;Fix Elvis&#8217; Pelvis&#8221; Campaign'
+title: 'The Fix Elvis Pelvis Campaign'
 date: 2013-02-09T07:21:09+00:00
 author: Kelly
 layout: post

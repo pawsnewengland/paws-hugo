@@ -1,6 +1,6 @@
 ---
 id: 1587
-title: 'From Traumatized To Treasured&#8230;'
+title: 'From Traumatized To Treasured'
 date: 2013-02-13T13:16:09+00:00
 author: Kelly
 layout: post

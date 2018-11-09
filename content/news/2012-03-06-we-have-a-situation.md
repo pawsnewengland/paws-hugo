@@ -1,6 +1,6 @@
 ---
 id: 1345
-title: 'We Have A Situation&#8230;'
+title: 'We Have A Situation'
 date: 2012-03-06T00:10:38+00:00
 author: Kelly
 layout: post
@@ -13,7 +13,7 @@ And We Need Your Help&#8230;
 
 <div id="attachment_1346" style="width: 246px" class="wp-caption alignleft">
   <a href="http://www.petfinder.com/petdetail/21950502"><img class=" wp-image-1346   " style="margin-left: 10px; margin-right: 10px;" title="Jax (1)" src="https://pawsnewengland.com/wp-content/uploads/2012/03/Jax-1-393x300.jpg" alt="" width="236" height="180" /></a>
-  
+
   <p class="wp-caption-text">
     I need a foster home! Click here to learn more...
   </p>
@@ -25,7 +25,7 @@ To prevent lives from being lost, we are asking for your help. Volunteers in Ten
 
 <div id="attachment_1347" style="width: 190px" class="wp-caption alignright">
   <a href="http://www.petfinder.com/petdetail/22129980"><img class=" wp-image-1347 " style="margin-left: 10px; margin-right: 10px;" title="Buddy" src="https://pawsnewengland.com/wp-content/uploads/2012/03/Buddy-225x300.jpg" alt="" width="180" height="240" /></a>
-  
+
   <p class="wp-caption-text">
     I need a foster home! Click here for more info..
   </p>

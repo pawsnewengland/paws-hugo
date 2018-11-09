@@ -1,6 +1,6 @@
 ---
 id: 1485
-title: 'Heroes &#038; Hounds 2013 Calendar'
+title: 'Heroes Hounds 2013 Calendar'
 date: 2012-10-21T09:00:00+00:00
 author: Chris
 layout: post

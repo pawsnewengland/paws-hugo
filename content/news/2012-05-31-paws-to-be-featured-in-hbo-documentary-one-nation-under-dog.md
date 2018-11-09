@@ -1,6 +1,6 @@
 ---
 id: 1399
-title: 'PAWS to be Featured in HBO Documentary &#8220;One Nation Under Dog&#8221;'
+title: 'PAWS to be Featured in HBO Documentary One Nation Under Dog'
 date: 2012-05-31T07:04:54+00:00
 author: Kelly
 layout: post

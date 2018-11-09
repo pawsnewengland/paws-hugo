@@ -1,6 +1,6 @@
 ---
 id: 1566
-title: 'Crunching the 2012 Numbers&#8230;.'
+title: 'Crunching the 2012 Numbers.'
 date: 2013-01-06T17:58:36+00:00
 author: Kelly
 layout: post
@@ -30,5 +30,5 @@ PAWS New England was featured in the groundbreaking HBO documentary, <a href="ht
 There are great changes taking place at Tipton County Animal Control (TCAS). A new spay program was implemented as well as a new vaccine program. Since the creation of the <a href="https://www.facebook.com/PawsandClawsPhotographyTiptonCountyAnimalShelter?ref=ts&fref=ts" target="_blank">Paws and Claws Facebook page</a>, there has been a dramatic decrease in the number of dogs euthanized in the shelter. When PAWS first began almost seven years ago, we would never have dreamed that it was possible for an entire month to go by without a single dog being euthanized. The partnership between Paws and Claws founders Heather Twisdale and Anita Shea, the TCAS staff, and the many rescues now involved seems to be making the impossible, possible&#8230; In 2013, we believe the sky in the limit. Please &#8220;like&#8221; the PAWS and Claws Facebook page and witness this remarkable achievement.
 
 Wishing you and your loved ones the best for 2013,
-  
+
 The Pups and Volunteers at PAWS New England

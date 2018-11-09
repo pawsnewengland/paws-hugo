@@ -1,6 +1,6 @@
 ---
 id: 1852
-title: 'Breaking News- Starbucks Lady &#038; Julie Adams Unite for Unforgettable Rescue!'
+title: "Breaking News- Starbucks Lady - Julie Adams Unite for Unforgettable Rescue!"
 date: 2014-07-08T20:08:30+00:00
 author: Kelly
 layout: post
@@ -24,9 +24,9 @@ So, tomorrow morning I will be flying to Missouri to pick up my dear friend Juli
 Penny Lane, some one _IS_ coming for you. And we will make sure you never want for anything ever again. We hope all of our supporters will join us on our Facebook page to see photos, videos, and updates from the trip.
 
 Many thanks,
-  
+
 Starbucks Lady & Julie Adams
-  
+
 The Pups and Volunteers at PAWS New England
 
 <div class="sub-heading" style="text-align: center;">

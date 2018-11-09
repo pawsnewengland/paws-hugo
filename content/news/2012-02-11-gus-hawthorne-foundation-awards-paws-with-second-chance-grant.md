@@ -1,6 +1,6 @@
 ---
 id: 1335
-title: 'Gus Hawthorne Foundation Awards PAWS with &#8220;Second Chance&#8221; Grant'
+title: 'Gus Hawthorne Foundation Awards PAWS with Second Chance Grant'
 date: 2012-02-11T13:58:27+00:00
 author: Kelly
 layout: post
@@ -11,7 +11,7 @@ categories:
 ---
 <div id="attachment_1336" style="width: 250px" class="wp-caption alignleft">
   <img class=" wp-image-1336" style="margin-top: 5px; margin-bottom: 5px;" title="IMG00193-20120106-1320" src="https://pawsnewengland.com/wp-content/uploads/2012/02/IMG00193-20120106-1320-400x300.jpg" alt="" width="240" height="180" />
-  
+
   <p class="wp-caption-text">
     Winnie Before...
   </p>
@@ -33,7 +33,7 @@ From the pups and volunteers at PAWS- **&#8220;Thank you Gus Hawthorne!&#8221;**
 
 <div id="attachment_1337" style="width: 330px" class="wp-caption alignleft">
   <img class="size-full wp-image-1337" title="Winnie_after" src="https://pawsnewengland.com/wp-content/uploads/2012/02/Winnie_after.jpg" alt="" width="320" height="240" />
-  
+
   <p class="wp-caption-text">
     Winnie After!
   </p>

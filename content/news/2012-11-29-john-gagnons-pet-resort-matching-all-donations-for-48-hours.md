@@ -1,6 +1,6 @@
 ---
 id: 1528
-title: 'John Gagnon&#8217;s Pet Resort Matching All Donations for 48 hours!'
+title: "John Gagnon's Pet Resort Matching All Donations for 48 hours!"
 date: 2012-11-29T19:32:50+00:00
 author: Kelly
 layout: post

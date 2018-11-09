@@ -1,6 +1,6 @@
 ---
 id: 1382
-title: 'Mother&#8217;s Day Gifts to Support Shelter Dogs'
+title: "Mother's Day Gifts to Support Shelter Dogs"
 date: 2012-05-03T22:34:48+00:00
 author: Kelly
 layout: post

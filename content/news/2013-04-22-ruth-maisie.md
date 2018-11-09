@@ -1,6 +1,6 @@
 ---
 id: 1625
-title: 'Ruth &#038; Maisie'
+title: 'Ruth Maisie'
 date: 2013-04-22T08:00:00+00:00
 author: Chris
 layout: post
@@ -13,14 +13,14 @@ _After hearing about [Truth and Argus](https://www.facebook.com/photo.php?fbid=4
 
 [slideshow]
 
-Deaf/Blind dogs are referred to as everything from Special Needs, to Double Merles in a nod to the genetic markers, to the less kindly Lethal Whites referring to the high rate puppies born this way are destroyed. But their lives need not be sad or pitied. 
+Deaf/Blind dogs are referred to as everything from Special Needs, to Double Merles in a nod to the genetic markers, to the less kindly Lethal Whites referring to the high rate puppies born this way are destroyed. But their lives need not be sad or pitied.
 
 This is our story of a very full life with two amazing such dogs.
-  
+
 <!--more-->
 
 
-  
-My husband and I recently saw the postings on Facebook of Argus and Truth, two deaf/blind dogs that need a new home. 
+
+My husband and I recently saw the postings on Facebook of Argus and Truth, two deaf/blind dogs that need a new home.
 
 We were touched like many of you, but for a different reason: our Australian Shepherds, Ruth and Maisie, are deaf and blind, as well. Given our experience, I thought I

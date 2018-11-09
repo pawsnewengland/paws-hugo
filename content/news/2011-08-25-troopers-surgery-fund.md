@@ -1,6 +1,6 @@
 ---
 id: 1211
-title: 'Trooper&#8217;s Surgery Fund'
+title: "Trooper's Surgery Fund"
 date: 2011-08-25T18:00:00+00:00
 author: Chris
 layout: post
@@ -15,7 +15,7 @@ tags:
 ---
 <img src="https://pawsnewengland.com/wp-content/uploads/2011/08/Trooper-229x300.jpg" alt="" title="Trooper" width="229" height="300" class="aligncenter size-medium wp-image-1212" />
 
-A military family emailed us yesterday, desperate for help for their 9 month old German Shepherd Trooper who had developed an intestinal blockage and needed emergency surgery. During these tough economic times, they were unable to come up with the funds to pay the vet and were actually sent home with Trooper when he was in horrific pain. 
+A military family emailed us yesterday, desperate for help for their 9 month old German Shepherd Trooper who had developed an intestinal blockage and needed emergency surgery. During these tough economic times, they were unable to come up with the funds to pay the vet and were actually sent home with Trooper when he was in horrific pain.
 
 The family was not willing to give up or allow their dog to suffer.
 

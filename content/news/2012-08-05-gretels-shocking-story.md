@@ -1,6 +1,6 @@
 ---
 id: 1461
-title: 'Gretel&#8217;s Shocking Story'
+title: "Gretel's Shocking Story"
 date: 2012-08-05T22:18:35+00:00
 author: Kelly
 layout: post
@@ -18,9 +18,9 @@ Gretel has been with me for 24 hours and it is incredible how great she is doing
 I will post pictures of her on <a href="http://pawnewengland.chipin.com/gretel-paws-new-england" target="_blank">this link</a> as soon as the photos are not so sad. I told Gretel this morning that there are now thousands of people who are thinking about her and sending her well wishes. She gave a double tail wag for that one! Dogs are so resilient. I have no doubt that, with your help, she will look beautiful in just a few months.
 
 Thank you!
-  
+
 Julie Adams
-  
+
 PAWS New England
-  
+
 Featured in &#8220;One Nation Under Dog&#8221;

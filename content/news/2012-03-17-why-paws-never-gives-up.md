@@ -1,6 +1,6 @@
 ---
 id: 1348
-title: 'Why PAWS Never Gives Up&#8230;.'
+title: 'Why PAWS Never Gives Up.'
 date: 2012-03-17T16:37:51+00:00
 author: Kelly
 layout: post

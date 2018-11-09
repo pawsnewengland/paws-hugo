@@ -1,6 +1,6 @@
 ---
 id: 1842
-title: 'Mother&#8217;s Day Gifts for Dorothy Lovers!'
+title: "Mother's Day Gifts for Dorothy Lovers!"
 date: 2014-05-04T13:45:17+00:00
 author: Kelly
 layout: post

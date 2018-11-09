@@ -1,6 +1,6 @@
 ---
 id: 1411
-title: 'Volunteer Spotlight: Elaine O&#8217;Donohue'
+title: "Volunteer Spotlight: Elaine O'Donohue"
 date: 2012-06-13T13:37:20+00:00
 author: Kelly
 layout: post
@@ -20,7 +20,7 @@ categories:
 **Current pets:** Sophie, 6yo schnoodle; Maggie May, 7yo terrier mix; Lily, 13yo cat; Snickers, 3yo Maine Coon (In the pic, Sophie (black) & Maggie)
 
 **How long have you volunteered?** Since Feb 2010
-  
+
 How were you introduced to PAWS? Found PAWS on line when searching for a way to help shelter dogs.
 
 **What do you do as a volunteer?** I started by checking references on applications. Now I foster, do my own applications and do home visits for other adoption coordinators.

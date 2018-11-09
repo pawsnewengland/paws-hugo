@@ -1,6 +1,6 @@
 ---
 id: 53255
-title: 'Elly&#8217;s Story'
+title: "Elly's Story"
 date: 2016-10-27T17:17:40+00:00
 author: Chris
 layout: post

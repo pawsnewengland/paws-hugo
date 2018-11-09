@@ -1,6 +1,6 @@
 ---
 id: 1445
-title: 'Bentley&#8217;s Great Escape'
+title: "Bentley's Great Escape"
 date: 2012-07-04T06:30:00+00:00
 author: Chris
 layout: post
@@ -13,7 +13,7 @@ _Exactly one year ago today, PAWS rescue dog Bentley ran away from his new adopt
 
 <div id="attachment_1447" style="width: 197px" class="wp-caption alignright">
   <img src="https://pawsnewengland.com/wp-content/uploads/2012/07/bentley1.jpg" alt="Bentley the Labrador" title="Bentley the Labrador" width="187" height="250" class="size-full wp-image-1447" />
-  
+
   <p class="wp-caption-text">
     Bentley
   </p>

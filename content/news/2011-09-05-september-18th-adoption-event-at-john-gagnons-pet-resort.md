@@ -1,6 +1,6 @@
 ---
 id: 1213
-title: 'September 18th Adoption Event at John Gagnon&#8217;s Pet Resort'
+title: "September 18th Adoption Event at John Gagnon's Pet Resort"
 date: 2011-09-05T18:29:35+00:00
 author: Kelly
 layout: post
@@ -10,11 +10,11 @@ categories:
   - Uncategorized
 ---
 > **When:** Sunday September 18th 11am &#8211; 2pm
-  
+
 > **Where:** John Gagnon&#8217;s Pet Resort, Colchester, CT
-> 
+>
 > [Directions on Google Maps](http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=227+Upton+Road+Colchester,+CT+06415&aq=&sll=37.0625,-95.677068&sspn=37.819897,79.013672&ie=UTF8&hq=&hnear=227+Upton+Rd,+Colchester,+New+London,+Connecticut+06415&z=16)
-  
+
 > [RSVP on Facebook](https://www.facebook.com/event.php?eid=173702636033669) (_optional_)
 
 This is one of the best adoption events in New England. Sponsored by [John Gagnon&#8217;s Pet Resort](http://www.4dogman.com/), dogs of all shapes and sizes come in hopes of finding their forever family.

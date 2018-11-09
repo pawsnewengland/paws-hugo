@@ -1,6 +1,6 @@
 ---
 id: 1683
-title: 'Wellness Foods Gives &#8220;Freedom&#8221; 4th of July Independence!'
+title: "Wellness Foods Gives Freedom 4th of July Independence!"
 date: 2013-07-08T09:55:45+00:00
 author: Kelly
 layout: post

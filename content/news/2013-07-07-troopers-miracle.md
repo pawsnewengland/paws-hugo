@@ -1,6 +1,6 @@
 ---
 id: 1671
-title: 'Trooper&#8217;s Miracle'
+title: "Trooper's Miracle"
 date: 2013-07-07T14:53:40+00:00
 author: Kelly
 layout: post
@@ -13,7 +13,7 @@ categories:
   <img class="aligncenter  wp-image-1672" alt="trooper in truck" src="https://pawsnewengland.com/wp-content/uploads/2013/07/trooper-in-truck-565x640.jpeg" width="452" height="512" />
 </p>
 
-Imagine not being able to use your legs, and dragging yourself everywhere you want to go. Now, imagine doing all that while not knowing where you were going to sleep or where your next meal was going to come from.<section> 
+Imagine not being able to use your legs, and dragging yourself everywhere you want to go. Now, imagine doing all that while not knowing where you were going to sleep or where your next meal was going to come from.<section>
 
 <div id="trooper">
   <p>

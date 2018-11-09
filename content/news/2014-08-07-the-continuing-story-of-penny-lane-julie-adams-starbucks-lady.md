@@ -1,6 +1,6 @@
 ---
 id: 1864
-title: 'The Continuing Story of Penny Lane, Julie Adams &#038; Starbucks Lady&#8230;'
+title: "The Continuing Story of Penny Lane, Julie Adams - Starbucks Lady"
 date: 2014-08-07T14:00:51+00:00
 author: PAWS New England
 layout: post

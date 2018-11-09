@@ -1,6 +1,6 @@
 ---
 id: 1279
-title: 'Foster A Lonely Pet for the Holidays&#8230;'
+title: 'Foster A Lonely Pet for the Holidays'
 date: 2011-11-16T09:50:15+00:00
 author: Kelly
 layout: post
@@ -11,7 +11,7 @@ categories:
 ---
 For the last three years, PAWS New England has teamed up with Petfinder.com in this national effort to help empty shelters across the country and place homeless pets in loving foster and adoptive homes. **PAWS would like to make history this year by finding a foster home for every dog in our sanctuary by December 10th.**
 
-If we are able to achieve this goal, PAWS can go to Tipton County Animal Control and empty the pound immediately before Christmas. _Can you imagine what a miracle it would be if no dogs had to be put to sleep during the week of Christmas?_ 
+If we are able to achieve this goal, PAWS can go to Tipton County Animal Control and empty the pound immediately before Christmas. _Can you imagine what a miracle it would be if no dogs had to be put to sleep during the week of Christmas?_
 
 Want to help? It&#8217;s as easy as 1,2,3,4!
 
@@ -20,7 +20,7 @@ Want to help? It&#8217;s as easy as 1,2,3,4!
 <center>
 </center>
 
-(2) **[Volunteer to Foster.](https://pawsnewengland.com/foster/)..** _To learn more about fostering and to fill out a foster application, [please click here](https://pawsnewengland.com/foster/). We are looking for foster homes willing to take their foster dogs the week after Thanksgiving and provide them with a loving, safe place to stay until they are adopted._ 
+(2) **[Volunteer to Foster.](https://pawsnewengland.com/foster/)..** _To learn more about fostering and to fill out a foster application, [please click here](https://pawsnewengland.com/foster/). We are looking for foster homes willing to take their foster dogs the week after Thanksgiving and provide them with a loving, safe place to stay until they are adopted._
 
 (3) **[Share your ideas](https://www.facebook.com/PAWSNewEngland)**&#8230; _PAWS is looking for a corporate or private donor to sponsor our &#8220;matching campaign.&#8221; We want all donations made during this initiative to be matched in an effort to double our impact! If you have suggestions of potential sponsors, please email Kelly at kesalerno@gmail.com._
 

@@ -1,6 +1,6 @@
 ---
 id: 2220
-title: 'BREAKING NEWS&#8230;. A Remarkable Rescue is Underway!'
+title: "BREAKING NEWS. A Remarkable Rescue is Underway!"
 date: 2015-05-12T22:48:50+00:00
 author: Kelly
 layout: post
@@ -14,11 +14,11 @@ categories:
 <img class="alignright  wp-image-2221" src="https://pawsnewengland.com/wp-content/uploads/2015/05/11013271_592423487527784_5256592081708908518_n-481x640.jpg" alt="11013271_592423487527784_5256592081708908518_n" width="251" height="334" />So, when we first saw photos of Willie Mays and Red Sox Rosie we decided that they deserved mobilization of all PAWS resources. And, boy oh boy, has it been an exciting 48 hours! In the morning, rescue heroes Coach Comeback and the Diva of the Diamond, will be boarding a plane to change Willie and Rosie&#8217;s life forever. Coach Comeback and Willie Mays will be driving back to a team of medical specialists in Ohio. Thanks to an anonymous sponsor, the Diva of the Diamond and Red Sox Rosie (our Baseball Babes!) will be jet-setting back to New England for world-class veterinary care.
 
 The next 24 hours will be game-changing for these two deserving underdogs. We hope that you will follow this Cinderella Team on Facebook tomorrow as they discover how great life is when the &#8220;curse is reversed!&#8221; And, if you believe that dogs like Willie and Rosie deserve a chance, please consider making a donation to their care by clicking the link below.
-  
+
 [btn link=&#8221;https://www.paypal.com/cgi-bin/webscr?cmd=\_s-xclick&hosted\_button_id=BU8AUPFWRVEAG&#8221; label=&#8221;Donate Now&#8221;]
-  
+
 Thank you for your support!
-  
+
 Willie Mays, Red Sox Rosie, Coach Comeback, and the Diva of the Diamond
 
 ## <span class="subTitle"><strong>Meet the Rescue Roster</strong><br /> </span>

@@ -1,6 +1,6 @@
 ---
 id: 6208
-title: 'Valentine&#8217;s Day cards to celebrate love and loyalty'
+title: "Valentine's Day cards to celebrate love and loyalty"
 date: 2016-02-02T16:34:39+00:00
 author: Kelly
 layout: post

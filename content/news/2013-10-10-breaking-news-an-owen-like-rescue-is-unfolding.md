@@ -1,6 +1,6 @@
 ---
 id: 1758
-title: 'Breaking News: An &#8220;Owen-Like&#8221; Rescue is Unfolding!'
+title: "Breaking News: An Owen-Like Rescue is Unfolding!"
 date: 2013-10-10T21:29:56+00:00
 author: Kelly
 layout: post
@@ -14,11 +14,11 @@ categories:
 As I type this email, the extraordinary Loren McCaghy is boarding a plane to fly to Memphis. He will pick up Lauren, Kalila, and Atlas and drive them well over 1,200 miles into the arms of our veterinary teams and experienced foster homes that are anxiously awaiting their arrival. We hope all our fans will follow along on <a href="https://www.facebook.com/PAWSNewEngland" target="_self">Facebook</a> as Loren and the pups embark on their journey.
 
 The veterinary costs associated with three trauma cases in one week are enough to give this PAWS Cofounder an ulcer, but I learned long ago that our supporters will always help us find a way. Please consider making a donation to these three brave pups through the Owen Fund. All donations collected for the next two weeks via the <a href="https://pawsnewengland.com/owen-fund/" target="_self">Owen Fund</a> will go directly to Lauren, Kalila, and Atlas.
-  
+
 [<img class="size-full wp-image-1359 alignnone" alt="Donate_Button" src="https://pawsnewengland.com/wp-content/uploads/2012/03/Donate_Button.jpg" width="162" height="38" />](https://pawsnewengland.com/donate/)
 
 Thank you for your generosity,
-  
+
 Starbucks Lady, Loren McCaghy, Lauren, Kalila, Atlas & all the Volunteers and Pups at PAWS New England
 
 _A tremendous thank you to Natalie Thurner for creating <a href="https://www.youtube.com/watch?feature=player_embedded&v=pbDgpBvLNYc" target="_self">this video</a> of the three dogs. PAWS New England very much looks forward to bringing you the &#8220;after&#8221; photos of these three dogs when they put on weight and their hair grows back! We know that many of our fans simply can not stand to look at photos of injured and abused dogs, so we have only included head shots of these three beautiful creatures below._

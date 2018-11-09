@@ -1,6 +1,6 @@
 ---
 id: 1331
-title: 'Crunching the 2011 Numbers&#8230;'
+title: 'Crunching the 2011 Numbers'
 date: 2012-01-16T12:03:14+00:00
 author: Kelly
 layout: post

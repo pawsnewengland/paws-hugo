@@ -1,6 +1,6 @@
 ---
 id: 2180
-title: 'Honoring Mom this Mother&#8217;s Day'
+title: "Honoring Mom this Mother's Day"
 date: 2015-04-28T20:33:55+00:00
 author: Melissa
 layout: post
@@ -29,18 +29,18 @@ categories:
   <h3 style="text-align: left">
     <strong>Meet our Moms!</strong>
   </h3>
-  
+
   <div id="attachment_2204" style="width: 649px" class="wp-caption alignnone">
     <img class="size-full wp-image-2204" src="https://pawsnewengland.com/wp-content/uploads/2015/04/MommaDill.jpg" alt="Momma Dill is a 6 year old terrier mix who was found wandering and pregnant in TN. She gave birth to her beautiful &quot;pickle&quot; babies Gherkin, Kosher and Relish who have long found their adoptive homes. Now &quot;Momma&quot; awaits a very special home of her own. In the meantime, she is flourishing in her foster home. " width="639" height="479" />
-    
+
     <p class="wp-caption-text">
       Momma Dill is a 6 year old terrier mix who was found wandering and pregnant in TN. She gave birth to her beautiful &#8220;pickle&#8221; babies Gherkin, Kosher and Relish who have long found their adoptive homes. Now &#8220;Momma&#8221; awaits a very special home of her own. In the meantime, she is flourishing in her foster home.
     </p>
   </div>
-  
+
   <div id="attachment_2206" style="width: 649px" class="wp-caption alignnone">
     <img class="size-full wp-image-2206" src="https://pawsnewengland.com/wp-content/uploads/2015/04/Yolo.jpg" alt="Yolo is a 4 yr old pug mix who was picked up as a stray with a family on board! Named &quot;Yolo&quot; for her spice for life, her love for her pups (all now adopted) shows the dedication of every mother. And some of our hilarious photos of Yolo demonstrate that Motherhood can be one wild ride! " width="639" height="479" />
-    
+
     <p class="wp-caption-text">
       Yolo is a 4 yr old pug mix who was picked up as a stray with a family on board! Named &#8220;Yolo&#8221; for her spice for life, her love for her pups (all now adopted) shows the dedication of every mother. And some of our hilarious photos of Yolo demonstrate that Motherhood can be one wild ride!
     </p>

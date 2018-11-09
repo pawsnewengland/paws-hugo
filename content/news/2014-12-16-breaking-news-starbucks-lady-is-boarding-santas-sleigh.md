@@ -1,6 +1,6 @@
 ---
 id: 2001
-title: 'Breaking News&#8230; Starbucks lady is boarding Santa&#8217;s sleigh!'
+title: "Breaking News: Starbucks lady is boarding Santa&#8217;s sleigh!"
 date: 2014-12-16T06:00:44+00:00
 author: PAWS New England
 layout: post
@@ -11,7 +11,7 @@ categories:
 ---
 <img class="aligncenter  wp-image-2003" src="https://pawsnewengland.com/wp-content/uploads/2014/12/Noel-copy-640x426.jpg" alt="Noel copy" width="506" height="337" />
 
-This photo found its way to our email inbox last week with only one line of text: &#8220;please help her, she is pitiful.&#8221; Ten years old, partially blind, with such severe ear infections that she walked in circles, dog &#8220;A273545&#8221; would not even look up when someone came to feed her. **She had given up.** 
+This photo found its way to our email inbox last week with only one line of text: &#8220;please help her, she is pitiful.&#8221; Ten years old, partially blind, with such severe ear infections that she walked in circles, dog &#8220;A273545&#8221; would not even look up when someone came to feed her. **She had given up.**
 
 _Her image haunted us_. We knew that dogs at Memphis Animal Control only had five days before they were euthanized and, with her poor condition and age, she had no chance. Without any intervention, dog &#8220;A273545&#8221; would meet the same fate as the nearly 6,000 dogs put to sleep there just this year. No matter how many times you tell yourself, &#8220;you can&#8217;t save them all&#8221; we could not let this girl die like this.
 

@@ -1,6 +1,6 @@
 ---
 id: 75817
-title: '2017 Mother&#8217;s Day Cards for a Cause'
+title: "2017 Mother's Day Cards for a Cause"
 date: 2017-05-05T14:26:42+00:00
 author: Ali
 layout: post

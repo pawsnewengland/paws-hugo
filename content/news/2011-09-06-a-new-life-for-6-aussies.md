@@ -1,6 +1,6 @@
 ---
 id: 1225
-title: 'A New Life for 6 Aussies&#8230;'
+title: 'A New Life for 6 Aussies'
 date: 2011-09-06T11:56:03+00:00
 author: Chris
 layout: post
@@ -18,7 +18,7 @@ The dogs had been kept in a chicken coop their entire lives, were under-socializ
 We knew that it would be a long road to rehabilitate such intelligent, sensitive dogs who had been shown the worst of humanity. In fact, PAWS was the only rescue group in the county who came through for these dogs. Other rescue groups believed that these dogs were &#8220;beyond hope.&#8221; But the volunteers at PAWS believed in the power of second chances and knew that our talented foster homes had the ability to perform miracles.
 
 And what a miracle it has been to watch these dogs!
-  
+
 <!--more-->
 
 ## Where are they now?
@@ -34,7 +34,7 @@ Please enjoy the updates below on each one of the dogs. If you are [interested i
 Many thanks,
 
 The Pups and Volunteers at PAWS
-  
+
 Especially Rusty, Rose, Jacob, Suzie, Lucy, and Reds
 
 ## Jacob

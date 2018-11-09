@@ -1,6 +1,6 @@
 ---
 id: 1675
-title: 'Sasha is Saved&#8230;'
+title: 'Sasha is Saved'
 date: 2013-07-08T08:31:27+00:00
 author: Kelly
 layout: post
@@ -11,7 +11,7 @@ categories:
 ---
 <img class="aligncenter size-full wp-image-1664" alt="sasha" src="https://pawsnewengland.com/wp-content/uploads/2013/07/sasha.jpg" width="200" height="260" />
 
-Sometimes life gives you a lemon and sometimes life gives you a peach, and a peach is exactly what we got when our foster pup, Sasha, arrived.<section> 
+Sometimes life gives you a lemon and sometimes life gives you a peach, and a peach is exactly what we got when our foster pup, Sasha, arrived.<section>
 
 <div id="sasha">
   <p>

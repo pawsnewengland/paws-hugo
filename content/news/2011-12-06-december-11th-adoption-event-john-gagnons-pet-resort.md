@@ -1,6 +1,6 @@
 ---
 id: 1310
-title: 'December 11th Adoption Event John Gagnon&#8217;s Pet Resort'
+title: "December 11th Adoption Event John Gagnon's Pet Resort"
 date: 2011-12-06T21:18:30+00:00
 author: Kelly
 layout: post

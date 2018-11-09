@@ -1,6 +1,6 @@
 ---
 id: 2299
-title: 'Super Heroes&#8230;Unite!'
+title: "Super Heroes Unite!"
 date: 2015-11-06T18:41:16+00:00
 author: Melissa
 layout: post
@@ -25,7 +25,7 @@ categories:
 
 <div id="attachment_2301" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2301" src="https://pawsnewengland.com/wp-content/uploads/2015/11/01January-640x427.jpg" alt="01January" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     January
   </p>
@@ -33,7 +33,7 @@ categories:
 
 <div id="attachment_2320" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2320" src="https://pawsnewengland.com/wp-content/uploads/2015/11/02February-640x427.jpg" alt="02February" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     February
   </p>
@@ -41,7 +41,7 @@ categories:
 
 <div id="attachment_2302" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2302" src="https://pawsnewengland.com/wp-content/uploads/2015/11/03March-640x427.jpg" alt="03March" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     March
   </p>
@@ -49,7 +49,7 @@ categories:
 
 <div id="attachment_2303" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2303" src="https://pawsnewengland.com/wp-content/uploads/2015/11/04April-640x427.jpg" alt="04April" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     April
   </p>
@@ -57,7 +57,7 @@ categories:
 
 <div id="attachment_2304" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2304" src="https://pawsnewengland.com/wp-content/uploads/2015/11/05May-copy-640x427.jpg" alt="05May copy" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     May
   </p>
@@ -65,7 +65,7 @@ categories:
 
 <div id="attachment_2305" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2305" src="https://pawsnewengland.com/wp-content/uploads/2015/11/06June-copy-640x427.jpg" alt="06June copy" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     June
   </p>
@@ -73,7 +73,7 @@ categories:
 
 <div id="attachment_2306" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2306" src="https://pawsnewengland.com/wp-content/uploads/2015/11/07July-640x427.jpg" alt="07July" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     July
   </p>
@@ -81,7 +81,7 @@ categories:
 
 <div id="attachment_2307" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2307" src="https://pawsnewengland.com/wp-content/uploads/2015/11/08August-640x427.jpg" alt="08August" width="419" height="280" />
-  
+
   <p class="wp-caption-text">
     August
   </p>
@@ -89,7 +89,7 @@ categories:
 
 <div id="attachment_2308" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2308" src="https://pawsnewengland.com/wp-content/uploads/2015/11/09September-640x427.jpg" alt="09September" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     September
   </p>
@@ -97,7 +97,7 @@ categories:
 
 <div id="attachment_2311" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2311" src="https://pawsnewengland.com/wp-content/uploads/2015/11/OCTOBERfinal-Edit-640x427.jpg" alt="OCTOBERfinal-Edit" width="419" height="280" />
-  
+
   <p class="wp-caption-text">
     October
   </p>
@@ -105,7 +105,7 @@ categories:
 
 <div id="attachment_2309" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2309" src="https://pawsnewengland.com/wp-content/uploads/2015/11/11November-copy-640x427.jpg" alt="11November copy" width="419" height="280" />
-  
+
   <p class="wp-caption-text">
     November
   </p>
@@ -113,7 +113,7 @@ categories:
 
 <div id="attachment_2310" style="width: 429px" class="wp-caption aligncenter">
   <img class="wp-image-2310" src="https://pawsnewengland.com/wp-content/uploads/2015/11/12December-copy-640x427.jpg" alt="12December copy" width="419" height="279" />
-  
+
   <p class="wp-caption-text">
     December
   </p>

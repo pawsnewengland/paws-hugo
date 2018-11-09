@@ -1,6 +1,6 @@
 ---
 id: 1468
-title: 'Volunteer Spotlight:  Ericka Bueno'
+title: 'Volunteer Spotlight: Ericka Bueno'
 date: 2012-08-24T13:57:35+00:00
 author: Kelly
 layout: post

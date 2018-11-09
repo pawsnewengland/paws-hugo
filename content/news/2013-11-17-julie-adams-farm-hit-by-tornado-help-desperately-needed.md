@@ -1,6 +1,6 @@
 ---
 id: 1774
-title: 'Julie Adam&#8217;s Farm Hit By Tornado- Help Desperately Needed!'
+title: "Julie Adam's Farm Hit By Tornado- Help Desperately Needed!"
 date: 2013-11-17T17:57:41+00:00
 author: Kelly
 layout: post
