@@ -6,7 +6,9 @@ noTitle: False
 subnav: "adopt"
 ---
 
-PAWS was founded from a relationship with volunteers in Tenessee and Missouri to help dogs in high-kill shelters. Our primary mission is to help dogs in those areas. We operate with limited foster space, and have many dogs in volunteer’s homes waiting to move to New England.
+PAWS was founded from a relationship with volunteers in Tennessee and has grown to include shelters and rescue groups in Arkansas, Texas, and Mississippi.
+
+Our primary mission is to help dogs in those areas. We operate with limited foster space, and have many dogs in volunteer’s homes waiting to move to New England.
 
 Although we try to help local dogs when the situation permits, most often we are not able to due to a lack of foster space. We are happy to offer advice and assistance whenever possible. If you are considering rehoming your dog, please read the info below.
 

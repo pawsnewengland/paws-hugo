@@ -13,9 +13,9 @@ Want to join our team? We're always looking for people who can share their time 
 
 - [Adoption Coordinators](#adoption-coordinators)
 - [Fosters](#fosters)
-- [Fundraising coordinators](#fundraising-managers)
-- [Transportation volunteer](#transportation-volunteer)
-- [Marketing volunteer](#marketing-volunteer)
+- [Fundraising Coordinators](#fundraising-managers)
+- [Transportation Volunteer](#transportation-volunteer)
+- [Marketing Volunteer](#marketing-volunteer)
 
 <hr class="line-secondary">
 
