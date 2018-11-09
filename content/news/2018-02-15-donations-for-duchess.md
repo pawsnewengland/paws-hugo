@@ -31,6 +31,4 @@ Help give us the resources to continue her life-saving care and give this small 
 
 We will continue to update everyone on her progress, thank you for your support!
 
-## Help Support Duchess&#8217; Recovery {#donate}
-
-[donation_form id=&#8221;125403&#8243;]
+<a class="btn btn-large" href="/donate">Donate</a>
