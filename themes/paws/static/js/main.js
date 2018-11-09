@@ -101,7 +101,7 @@
   return fluidvids;
 
 }));
-var mailchimp = function (callback) {
+var mailchimpSubmit = function (form, callback) {
 
 	'use strict';
 
@@ -111,21 +111,14 @@ var mailchimp = function (callback) {
 	//
 
 	// Fields
-	var form = document.querySelector('#mailchimp-form');
 	if (!form) return;
-	var email = form.querySelector('#mailchimp-email');
-	if (!email) return;
 	var status = form.querySelector('#mc-status');
 
 	// Messages
-	var messages = {
-		empty: 'Please provide an email address.',
-		notEmail: 'Please use a valid email address.',
-		success: 'Success! Thanks for inviting me to your inbox.'
-	};
+	var successMessage = 'Success! Thanks for inviting us to your inbox.';
 
 	// Endpoint
-	var endpoint = 'http://next.pawsnewengland.com/donate/wp-json/gmt-mailchimp/v1/subscribe';
+	var endpoint = '/donate/wp-json/gmt-mailchimp/v1/subscribe';
 
 
 	//
@@ -133,8 +126,7 @@ var mailchimp = function (callback) {
 	//
 
 	/**
-	 * Serialize the form data into a query string
-	 * https://stackoverflow.com/a/30153391/1293256
+	 * Serialize all form data into a query string
 	 * @param  {Node}   form The form to serialize
 	 * @return {String}      The serialized form data
 	 */
@@ -151,28 +143,21 @@ var mailchimp = function (callback) {
 			// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
 			if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
 
+			// If a multi-select, get all selections
+			if (field.type === 'select-multiple') {
+				for (var n = 0; n < field.options.length; n++) {
+					if (!field.options[n].selected) continue;
+					serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+				}
+			}
+
 			// Convert field data to a query string
-			if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+			else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
 				serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
 			}
 		}
 
 		return serialized.join('&');
-
-	};
-
-	var clearStatus = function () {
-
-		// Bail if there's no status container
-		if (!status) return;
-
-		// Wipe classes and HTML from the status
-		status.textContent = '';
-		status.className = '';
-
-		// Wipe classes and aria labels from the email field
-		email.className = '';
-		email.removeAttribute('aria-describedby');
 
 	};
 
@@ -185,16 +170,11 @@ var mailchimp = function (callback) {
 		status.textContent = msg;
 
 		// Set status class
-		if (success) {
-			status.className = 'success-message';
-			status.setAttribute('tabindex', '-1');
-			status.focus();
-		} else {
-			status.className = 'error-message';
-			email.className = 'error';
-			email.setAttribute('aria-describedby', 'mc-status');
-			email.focus();
-		}
+		status.className = success ? 'success-message' : 'error-message';
+
+		// Bring error to focus
+		status.setAttribute('tabindex', '-1');
+		status.focus();
 
 	};
 
@@ -228,7 +208,7 @@ var mailchimp = function (callback) {
 			var success = xhr.status === 200 ? true : false;
 			var response = JSON.parse(xhr.responseText);
 			if (success) {
-				showStatus(messages.success, success);
+				showStatus(successMessage, success);
 			} else {
 				showStatus(response.message, success);
 			}
@@ -251,62 +231,16 @@ var mailchimp = function (callback) {
 
 	};
 
-	// Submit the form
-	var submitForm = function () {
-
-		// Disable the submit button
-		disableButton();
-
-		// Send the data to the MailChimp API
-		sendData(serialize(form));
-
-	};
-
-	var isEmail = function () {
-		return /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/.test(email.value);
-	};
-
-	var validate = function () {
-
-		// If no email is provided
-		if (email.value.length < 1) {
-			showStatus(messages.empty);
-			return false;
-		}
-
-		// If email is not valid
-		if (!isEmail()) {
-			showStatus(messages.notEmail);
-			return false;
-		}
-
-		return true;
-
-	};
-
-	var submitHandler = function (event) {
-
-		// Stop form from submitting
-		event.preventDefault();
-
-		// Clear the status
-		clearStatus();
-
-		// Validate email
-		var valid = validate();
-
-		if (valid) {
-			submitForm();
-		}
-
-	};
-
 
 	//
-	// Event Listeners & Inits
+	// Send the form
 	//
 
-	form.addEventListener('submit', submitHandler, false);
+	// Disable the submit button
+	disableButton();
+
+	// Send the data to the MailChimp API
+	sendData(serialize(form));
 
 };
 /**
@@ -318,12 +252,3 @@ fluidvids.init({
 	selector: ['iframe', 'object'],
 	players: ['www.youtube.com', 'player.vimeo.com', 'www.slideshare.net', 'www.hulu.com', 'videopress.com/embed/']
 });
-
-// Mailchimp form
-if (document.querySelector('#mailchimp-form')) {
-	mailchimp((function (response) {
-		if (response.code === 200) {
-			window.location.href = '/newsletter-success';
-		}
-	}));
-}

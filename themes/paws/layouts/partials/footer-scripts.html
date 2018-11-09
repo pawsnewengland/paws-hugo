@@ -17,9 +17,27 @@
 				formSaver.init({deleteClear: false});
 			});
 		}
-		if (document.querySelector('[action*="service.sheltermanager.com"]')) {
+		if (document.querySelector('form')) {
 			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/bouncer.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/bouncer.js" | absURL }}{{ end }}', function () {
-				var bouncer = new Bouncer('[action*="service.sheltermanager.com"]');
+
+				// MailChimp
+				var mcForm = document.querySelector('#mailchimp-form');
+				if (mcForm && window.mailchimpSubmit) {
+					var bouncer = new Bouncer('#mailchimp-form', {disableSubmit: true});
+					mcForm.addEventListener('bouncerFormValid', function (event) {
+						mailchimpSubmit(event.target, function (response) {
+							if (response.code === 200) {
+								window.location.href = '/newsletter-success';
+							}
+						});
+					}, false);
+				}
+
+				// ASM
+				if (document.querySelector('[action*="service.sheltermanager.com"]')) {
+					var bouncer = new Bouncer('[action*="service.sheltermanager.com"]');
+				}
+
 			});
 		}
 	}

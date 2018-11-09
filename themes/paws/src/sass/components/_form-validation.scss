@@ -5,11 +5,11 @@
 
 .error {
 	@extend .margin-bottom-small;
-	border-color: darken( $color-secondary, 25% );
+	border-color: $color-danger;
 }
 
 .error-message {
-	color: darken( $color-secondary, 25% );
+	color: $color-danger;
 	font-style: italic;
 	margin-bottom: 1em;
 }

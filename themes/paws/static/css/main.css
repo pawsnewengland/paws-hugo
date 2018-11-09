@@ -1675,12 +1675,12 @@ button:-moz-focusring,
  */
 /* line 6, src/sass/components/_form-validation.scss */
 .error {
-  border-color: #794312;
+  border-color: #bd131c;
 }
 
 /* line 11, src/sass/components/_form-validation.scss */
 .error-message {
-  color: #794312;
+  color: #bd131c;
   font-style: italic;
   margin-bottom: 1em;
 }
@@ -2034,7 +2034,7 @@ td {
 
 /* line 16, src/sass/components/_alerts.scss */
 .alert-danger {
-  color: #880e14;
+  color: #bd131c;
 }
 
 /* line 1, src/sass/components/_form-saver.scss */
