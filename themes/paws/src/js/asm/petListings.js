@@ -32,11 +32,39 @@ var petListings = function () {
 		return window.location.href.split('?')[0];
 	};
 
-	var getVideoID = function (url) {
+	var getYouTubeID = function (url) {
+		url = removeQueryStrings(url);
 		if (/youtu.be/.test(url)) {
 			return url.replace('https://youtu.be/', '');
 		}
 		return getQueryString('v', url);
+	};
+
+	var getVimeoID = function (url) {
+		return removeQueryStrings(url).replace('https://vimeo.com/', '');
+	};
+
+	var getVideoID = function (url, service) {
+		var id;
+		if (service === 'youtube') { id = getYouTubeID(url); }
+		else if (service === 'vimeo') { id = getVimeoID(url); }
+		else if (service === 'facebook') { id = url; }
+		return url;
+	};
+
+	var getVideoService = function (url) {
+		var service;
+		if (/youtu.be/.test(url) || /youtube.com/.test(url)) { service = 'youtube'; }
+		else if (/facebook.com/.test(url)) { service = 'facebook'; }
+		else if (/vimeo.com/.test(url)) { service = 'vimeo'; }
+		return service;
+	};
+
+	var getVideo = function (url) {
+		var video = {};
+		video.service = getVideoService(url);
+		video.id = getVideoID(url, video.service);
+		return video;
 	};
 
 	var emitEvent = function (type) {
@@ -281,7 +309,25 @@ var petListings = function () {
 
 		// Add video
 		if (pet.video && pet.video.length > 0) {
-			photos += '<div class="grid-two-thirds" data-video><iframe width="560" height="315" src="https://www.youtube.com/embed/' + getVideoID(pet.video) + '?rel=0" frameborder="0" allow="autoplay; encrypted-media; fullscreen;" allowfullscreen></iframe></div>';
+
+			// Get video details
+			var video = getVideo(pet.video);
+
+			// YouTube
+			if (video.service === 'youtube') {
+				photos += '<div class="grid-two-thirds" data-video="youtube"><iframe width="560" height="315" src="https://www.youtube.com/embed/' + video.id + '?rel=0" frameborder="0" allow="autoplay; encrypted-media; fullscreen;" allowfullscreen></iframe></div>';
+			}
+
+			// Vimeo
+			else if (video.service === 'vimeo') {
+				photos += '<div class="grid-two-thirds" data-video="vimdeo"><iframe src="https://player.vimeo.com/video/' + video.id + '?color=f6aa020&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
+			}
+
+			// Facebook
+			else if (video.service === 'facebook') {
+				photos += '<a class="grid-third" data-video="facebook" target="_blank" href="' + video.id + '"><img target="_blank" alt="Watch a video of ' + pet.name + '" src="/img/video.png"></a>';
+			}
+
 		}
 
 		// Create gallery

@@ -5,6 +5,11 @@
  */
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
+	var handleVideo = function (video) {
+		if (video === 'facebook') return;
+		e.preventDefault();
+	};
+
 	var parseThumbnailElements = function(el) {
 		var thumbElements = el.childNodes,
 			numNodes = thumbElements.length,
@@ -75,16 +80,20 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 	var onThumbnailsClick = function(e) {
 		e = e || window.event;
 
-		e.preventDefault ? e.preventDefault() : e.returnValue = false;
-
 		var eTarget = e.target || e.srcElement;
-
-		// Skip video links
-		if (eTarget.hasAttribute('data-video')) return
 
 		var clickedListItem = closest(eTarget, function(el) {
 			return el.tagName === 'A';
 		});
+
+		// Skip video links
+		var isVideo = clickedListItem.getAttribute('data-video');
+		if (isVideo) {
+			handleVideo(isVideo, e);
+			return;
+		}
+
+		e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
 		if(!clickedListItem) {
 			return;
