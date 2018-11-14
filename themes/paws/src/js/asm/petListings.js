@@ -49,7 +49,7 @@ var petListings = function () {
 		if (service === 'youtube') { id = getYouTubeID(url); }
 		else if (service === 'vimeo') { id = getVimeoID(url); }
 		else if (service === 'facebook') { id = url; }
-		return url;
+		return id;
 	};
 
 	var getVideoService = function (url) {
