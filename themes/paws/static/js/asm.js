@@ -1,5 +1,5 @@
 /*!
- * paws v1.0.1: The theme for pawsnewengland.com
+ * paws v1.0.2: The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
@@ -943,7 +943,6 @@ var petListings = function () {
 	};
 
 	var getYouTubeID = function (url) {
-		url = removeQueryStrings(url);
 		if (/youtu.be/.test(url)) {
 			return url.replace('https://youtu.be/', '');
 		}

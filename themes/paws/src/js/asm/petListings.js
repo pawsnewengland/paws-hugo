@@ -33,7 +33,6 @@ var petListings = function () {
 	};
 
 	var getYouTubeID = function (url) {
-		url = removeQueryStrings(url);
 		if (/youtu.be/.test(url)) {
 			return url.replace('https://youtu.be/', '');
 		}
