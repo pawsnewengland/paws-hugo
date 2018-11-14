@@ -29,7 +29,7 @@
 
 		{{ partial "header-favicon.html" }}
 
-		{{ partial "header-styles-and-scripts.html" }}
+		{{ partial "header-styles-and-scripts.html" . }}
 	</head>
 
 	<body class="type-{{ .Type }} {{ if .IsPage }}page-single{{ else }}page-list{{ end }}" id="page-{{ .UniqueID }}">
