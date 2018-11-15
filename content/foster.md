@@ -39,7 +39,7 @@ You are their caregiver day and night until they are adopted.
 
 ## Foster Application
 
-<form class="adoption-form" id="foster-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/foster-form/foster-application-confirmation/"><input type="hidden" name="flags" value="Applicant - Foster"><input type="hidden" name="formname" value="Foster Application Form">
+<form class="adoption-form" id="foster-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/foster/foster-success/"><input type="hidden" name="flags" value="Applicant - Foster"><input type="hidden" name="formname" value="Foster Application Form">
 	<legend>The Basics</legend>
 	<p class="text-small text-muted">Some basic information and how we can get in touch with you.</p>
 	<div class="row">

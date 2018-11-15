@@ -11,7 +11,7 @@ Unsure which of our wonderful dogs is the right match for you? Need guidance?
 
 Our Doggie Matchmaker will work with you to narrow down your search and find a forever friend that is the best match for you.
 
-<form action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post" /><input type="hidden" name="account" value="zh0572" /><input type="hidden" name="redirect" value="https://pawsnewengland.com/adoption-form/pet-matchmaker/pet-matchmaker-confirmation/" /><input type="hidden" name="flags" value="Doggie Matchmaker Requested" /><input type="hidden" name="formname" value="Doggie Matchmaker Questionnaire" />
+<form action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post" /><input type="hidden" name="account" value="zh0572" /><input type="hidden" name="redirect" value="https://pawsnewengland.com/adopt/matchmaker-success/" /><input type="hidden" name="flags" value="Doggie Matchmaker Requested" /><input type="hidden" name="formname" value="Doggie Matchmaker Questionnaire" />
 
 	<div class="row">
 		<div class="grid-third">
