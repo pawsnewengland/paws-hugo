@@ -1,5 +1,5 @@
 /*!
- * paws v1.2.0: The theme for pawsnewengland.com
+ * paws v1.3.0: The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
@@ -1144,11 +1144,11 @@ var petListings = function () {
 		else if (pet.nodogs === 2 && pet.nocats === 2) { html.push('Unknown with Dogs/Cats'); }
 		else if (pet.nodogs === 2 && pet.nokids === 2) { html.push('Unknown with Dogs/Kids'); }
 		else if (pet.nocats === 2 && pet.nokids === 2) { html.push('Unknown with Cats/Kids'); }
-		else if (pet.nodogs === 2) { html.push('Unknown with Dogs'); }
-		else if (pet.nocats === 2) { html.push('Unknown with Cats'); }
-		else if (pet.nokids === 2) { html.push('Unknown with Kids'); }
+		else if (pet.nodogs === 2) { html.push('Unknown with&nbsp;Dogs'); }
+		else if (pet.nocats === 2) { html.push('Unknown with&nbsp;Cats'); }
+		else if (pet.nokids === 2) { html.push('Unknown with&nbsp;Kids'); }
 
-		return html.join(', ');
+		return html.join('<br>');
 
 	};
 
