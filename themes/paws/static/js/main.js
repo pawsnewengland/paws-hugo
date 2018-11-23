@@ -1,5 +1,5 @@
 /*!
- * paws v1.1.0: The theme for pawsnewengland.com
+ * paws v1.2.0: The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
