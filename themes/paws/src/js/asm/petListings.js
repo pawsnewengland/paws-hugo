@@ -217,15 +217,29 @@ var petListings = function () {
 	};
 
 	var createGoodWithHTML = function (pet) {
-		var html = '';
-		if (pet.nodogs && pet.nocats && pet.nokids) { html = 'No Dogs/Cats/Kids'; }
-		else if (pet.nodogs && pet.nocats) { html = 'No Dogs/Cats'; }
-		else if (pet.nodogs && pet.nokids) { html = 'No Dogs/Kids'; }
-		else if (pet.nocats && pet.nokids) { html = 'No Cats/Kids'; }
-		else if (pet.nodogs) { html = 'No Dogs'; }
-		else if (pet.nocats) { html = 'No Cats'; }
-		else if (pet.nokids) { html = 'No Kids'; }
-		return html;
+
+		var html = [];
+
+		// Get "bad with" text
+		if (pet.nodogs === 1 && pet.nocats === 1 && pet.nokids === 1) { html.push('No Dogs/Cats/Kids'); }
+		else if (pet.nodogs === 1 && pet.nocats === 1) { html.push('No Dogs/Cats'); }
+		else if (pet.nodogs === 1 && pet.nokids === 1) { html.push('No Dogs/Kids'); }
+		else if (pet.nocats === 1 && pet.nokids === 1) { html.push('No Cats/Kids'); }
+		else if (pet.nodogs === 1) { html.push('No Dogs'); }
+		else if (pet.nocats === 1) { html.push('No Cats'); }
+		else if (pet.nokids === 1) { html.push('No Kids'); }
+
+		// Get "unknown" text
+		if (pet.nodogs === 2 && pet.nocats === 2 && pet.nokids === 2) { html.push('Unknown with Dogs/Cats/Kids'); }
+		else if (pet.nodogs === 2 && pet.nocats === 2) { html.push('Unknown with Dogs/Cats'); }
+		else if (pet.nodogs === 2 && pet.nokids === 2) { html.push('Unknown with Dogs/Kids'); }
+		else if (pet.nocats === 2 && pet.nokids === 2) { html.push('Unknown with Cats/Kids'); }
+		else if (pet.nodogs === 2) { html.push('Unknown with Dogs'); }
+		else if (pet.nocats === 2) { html.push('Unknown with Cats'); }
+		else if (pet.nokids === 2) { html.push('Unknown with Kids'); }
+
+		return html.join(', ');
+
 	};
 
 	var getPetBreedAttributes = function (pet) {
@@ -238,9 +252,9 @@ var petListings = function () {
 
 	var getPetOptionsAttributes = function (pet) {
 		var options = [];
-		if (pet.nodogs) options.push(propify('options_' + 'No Dogs'));
-		if (pet.nocats) options.push(propify('options_' + 'No Cats'));
-		if (pet.nokids) options.push(propify('options_' + 'No Kids'));
+		if (pet.nodogs === 1) options.push(propify('options_' + 'No Dogs'));
+		if (pet.nocats === 1) options.push(propify('options_' + 'No Cats'));
+		if (pet.nokids === 1) options.push(propify('options_' + 'No Kids'));
 		if (pet.specialneeds) options.push(propify('options_' + 'Special Needs'));
 		return options.join(' ');
 	};
