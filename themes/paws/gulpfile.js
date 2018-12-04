@@ -118,12 +118,15 @@ var cleanDist = function (done) {
 
 };
 
+// Version number
+var version = settings.cacheBusting ? '.' + package.version : '';
+
 // Repeated JavaScript tasks
 var jsTasks = lazypipe()
 	.pipe(header, banner.full, {package: package})
 	.pipe(optimizejs)
 	.pipe(dest, paths.scripts.output)
-	.pipe(rename, {suffix: '.min'})
+	.pipe(rename, {suffix: '.min' + version})
 	.pipe(uglify)
 	.pipe(optimizejs)
 	.pipe(header, banner.min, {package: package})
@@ -213,7 +216,7 @@ var buildStyles = function (done) {
 		}))
 		.pipe(header(banner.full, { package : package }))
 		.pipe(dest(paths.styles.output))
-		.pipe(rename({suffix: '.min'}))
+		.pipe(rename({suffix: '.min' + version}))
 		.pipe(minify({
 			discardComments: {
 				removeAll: true
