@@ -1,9 +1,9 @@
 /*!
- * paws v1.3.0: The theme for pawsnewengland.com
+ * paws v1.3.0
+ * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
- * Open Source Credits: https://github.com/toddmotto/fluidvids, http://prismjs.com, https://github.com/filamentgroup/loadJS/, https://github.com/filamentgroup/loadCSS, https://github.com/bramstein/fontfaceobserver
  */
 
 /*!
@@ -1182,7 +1182,7 @@ var petListings = function () {
 	var createListingHTML = function (pet) {
 		var goodWith = createGoodWithHTML(pet);
 		var html =
-			'<article class="grid-auto grid-asm text-center margin-bottom" data-asm-attribute="' + getPetAttributes(pet) + '">' +
+			'<article class="grid-auto grid-asm text-center margin-bottom asm-pet-' + pet.id + '" data-asm-attribute="' + getPetAttributes(pet) + '">' +
 				'<header>' +
 					'<a href="?petID=' + pet.id + '">' +
 						'<figure>' +
@@ -1216,6 +1216,9 @@ var petListings = function () {
 		// Create the markup
 		var filters = createFilters(pets);
 		var listings = createListings(pets);
+
+		// Update the DOM
+		app.classList.add('asm-pets-all');
 
 		// Render the DOM
 		var template =
@@ -1358,6 +1361,8 @@ var petListings = function () {
 
 		// Update the DOM
 		app.classList.remove('container-large');
+		app.classList.add('asm-pets-individual');
+		app.classList.add('asm-pet-' + id);
 
 		// Get the dog's info
 		var pet = getIndividualPet(pets, id);

@@ -1,9 +1,9 @@
 /*!
- * paws v1.3.0: The theme for pawsnewengland.com
+ * paws v1.3.0
+ * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
- * Open Source Credits: https://github.com/toddmotto/fluidvids, http://prismjs.com, https://github.com/filamentgroup/loadJS/, https://github.com/filamentgroup/loadCSS, https://github.com/bramstein/fontfaceobserver
  */
 
 ;(function (window, document, undefined) {
