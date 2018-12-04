@@ -30,12 +30,6 @@
 		{{ partial "header-favicon.html" }}
 
 		{{ partial "header-styles-and-scripts.html" . }}
-
-		<style type="text/css">
-			[href*="?petID=7986"] {
-				display: none;
-			}
-		</style>
 	</head>
 
 	<body class="type-{{ .Type }} {{ if .IsPage }}page-single{{ else }}page-list{{ end }}" id="page-{{ .UniqueID }}">
