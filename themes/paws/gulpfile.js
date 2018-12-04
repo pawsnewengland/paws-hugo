@@ -10,7 +10,8 @@ var settings = {
 	styles: true,
 	svgs: true,
 	copy: true,
-	reload: false
+	reload: false,
+	cacheBusting: true
 };
 
 
