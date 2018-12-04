@@ -55,6 +55,6 @@
 	}
 
 	// Save to the server
-	file_put_contents('../api/adoptable-pets.json', json_encode($pets));
+	file_put_contents('../api/pets.json', json_encode($pets));
 	file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Success " . "\n", FILE_APPEND);
 	return 'done';

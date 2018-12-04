@@ -525,7 +525,7 @@ var petListings = function () {
 		// Create and send a GET request
 		// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 		// The second argument is the endpoint URL
-		xhr.open('GET', '/api/adoptable-pets.json');
+		xhr.open('GET', '/api/pets.json');
 		xhr.send();
 
 	};

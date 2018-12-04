@@ -1,5 +1,5 @@
 /*!
- * paws v1.3.1
+ * paws v1.3.2
  * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
@@ -900,14 +900,6 @@ function makeArray( obj ) {
   return ImagesLoaded;
 
 }));
-/**
- * Element.requestFullScreen() polyfill
- * @author Chris Ferdinandi
- * @license MIT
- */
-if (!Element.prototype.requestFullscreen) {
-	Element.prototype.requestFullscreen = Element.prototype.mozRequestFullscreen || Element.prototype.webkitRequestFullscreen || Element.prototype.msRequestFullscreen;
-}
 var petListings = function () {
 
 	'use strict';
@@ -1435,7 +1427,7 @@ var petListings = function () {
 		// Create and send a GET request
 		// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 		// The second argument is the endpoint URL
-		xhr.open('GET', '/api/adoptable-pets.json');
+		xhr.open('GET', '/api/pets.json');
 		xhr.send();
 
 	};
