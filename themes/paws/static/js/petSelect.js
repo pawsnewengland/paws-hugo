@@ -1,5 +1,5 @@
 /*!
- * paws v1.4.1
+ * paws v1.4.2
  * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
@@ -33,6 +33,46 @@ var petSelect = function () {
 		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
 		var string = reg.exec(href);
 		return string ? decodeURIComponent(string[1]) : null;
+	};
+
+	/**
+	 * Check if data is still valid
+	 * @param  {Number}  timestamp  The time the original data was saved
+	 * @return {Boolean}            If true, data is still valid
+	 */
+	var isDataValid = function (timestamp) {
+
+		// Make sure timestamp exists
+		if (!timestamp) return false;
+
+		// Get the difference between the timestamp and current time
+		var difference = new Date().getTime() - timestamp;
+
+		// Check if the ellapsed time is less than a half hour
+		return difference < (1000 * 60 * 30);
+
+	};
+
+	/**
+	 * Get data from sessionStorage
+	 * @return {*} The saved data
+	 */
+	var getData = function () {
+		var data = sessionStorage.getItem(sessionID);
+		if (!data) return;
+		data = JSON.parse(data);
+		if (!isDataValid(data.timestamp)) return;
+		return data.data;
+	};
+
+	/**
+	 * Save data to sessionStorage with a timestamp
+	 */
+	var saveData = function (data) {
+		sessionStorage.setItem(sessionID, JSON.stringify({
+			timestamp: new Date().getTime(),
+			data: data
+		}));
 	};
 
 	var createSelectOptions = function (pets, petID) {
@@ -74,9 +114,9 @@ var petSelect = function () {
 	var getPets = function () {
 
 		// If pet data saved in sessionStorage, use that
-		var saved = sessionStorage.getItem(sessionID);
+		var saved = getData();
 		if (saved) {
-			run(JSON.parse(saved));
+			run(saved);
 			return;
 		}
 
@@ -91,8 +131,9 @@ var petSelect = function () {
 
 			// Process our return data
 			if (xhr.status === 200) {
-				run(JSON.parse(xhr.responseText));
-				sessionStorage.setItem(sessionID, xhr.responseText);
+				var data = JSON.parse(xhr.responseText);
+				run(data);
+				saveData(data);
 			} else {
 				renderError();
 			}
