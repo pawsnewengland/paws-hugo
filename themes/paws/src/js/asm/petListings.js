@@ -558,8 +558,9 @@ var petListings = function () {
 
 			// Process our return data
 			if (xhr.status === 200) {
-				run(JSON.parse(xhr.responseText));
-				saveData(xhr.responseText);
+				var data = JSON.parse(xhr.responseText);
+				run(data);
+				saveData(data);
 			} else {
 				renderError();
 			}

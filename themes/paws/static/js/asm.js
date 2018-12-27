@@ -1,5 +1,5 @@
 /*!
- * paws v1.4.0
+ * paws v1.4.1
  * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
@@ -1460,8 +1460,9 @@ var petListings = function () {
 
 			// Process our return data
 			if (xhr.status === 200) {
-				run(JSON.parse(xhr.responseText));
-				saveData(xhr.responseText);
+				var data = JSON.parse(xhr.responseText);
+				run(data);
+				saveData(data);
 			} else {
 				renderError();
 			}
