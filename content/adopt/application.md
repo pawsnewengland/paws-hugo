@@ -40,7 +40,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 				<label for="reserveanimalname_3">Primary Dog You're Interested In</label>
 			</div>
 			<div class="grid-two-thirds">
-				<input class="no-margin-bottom" type="text" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in" data-asm-pet-select="primary" required>
+				<input class="no-margin-bottom" type="text" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in" data-form-no-save data-asm-pet-select="primary" required>
 				<!-- <select class="no-margin-bottom" name="reserveanimalname_3" id="reserveanimalname_3" title="Select the dog that you're interested in"
 				 required>
 					<option value=""></option>
@@ -67,7 +67,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 				</label>
 			</div>
 			<div class="grid-two-thirds">
-				<input type="text" name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in" data-asm-pet-select="alternate">
+				<input type="text" name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in" data-form-no-save data-asm-pet-select="alternate">
 				<!-- <select name="alternatedog_143" id="alternatedog_143" title="Select any additional dogs that you're interested in">
 					<option value=""></option>
 				</select> -->

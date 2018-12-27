@@ -23,7 +23,7 @@
 				// MailChimp
 				var mcForm = document.querySelector('#mailchimp-form');
 				if (mcForm && window.mailchimpSubmit) {
-					var bouncer = new Bouncer('#mailchimp-form', {disableSubmit: true});
+					new Bouncer('#mailchimp-form', {disableSubmit: true});
 					mcForm.addEventListener('bouncerFormValid', function (event) {
 						mailchimpSubmit(event.target, function (response) {
 							if (response.code === 200) {
@@ -35,7 +35,7 @@
 
 				// ASM
 				if (document.querySelector('[action*="service.sheltermanager.com"]')) {
-					var bouncer = new Bouncer('[action*="service.sheltermanager.com"]');
+					new Bouncer('[action*="service.sheltermanager.com"]');
 				}
 
 			});

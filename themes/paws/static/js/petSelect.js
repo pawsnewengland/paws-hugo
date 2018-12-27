@@ -1,5 +1,5 @@
 /*!
- * paws v1.3.2
+ * paws v1.4.0
  * The theme for pawsnewengland.com
  * (c) 2018 Chris Ferdinandi
  * MIT License
@@ -65,6 +65,7 @@ var petSelect = function () {
 			if (input.required) {
 				select.setAttribute('required', 'required');
 			}
+			select.setAttribute('data-form-no-save', 'true');
 			select.innerHTML = createSelectOptions(petsArr, input.value);
 			input.replaceWith(select);
 		}));

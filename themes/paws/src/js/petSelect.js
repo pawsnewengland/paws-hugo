@@ -57,6 +57,7 @@ var petSelect = function () {
 			if (input.required) {
 				select.setAttribute('required', 'required');
 			}
+			select.setAttribute('data-form-no-save', 'true');
 			select.innerHTML = createSelectOptions(petsArr, input.value);
 			input.replaceWith(select);
 		});
