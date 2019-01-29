@@ -1,12 +1,12 @@
 /*!
- * paws v1.4.2
+ * paws v1.4.3
  * The theme for pawsnewengland.com
  * (c) 2019 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
  */
 
-var cacheBust = '.1.4.2'
+var cacheBust = '.1.4.3'
 ;(function (window, document, undefined) {
 
 	'use strict';
