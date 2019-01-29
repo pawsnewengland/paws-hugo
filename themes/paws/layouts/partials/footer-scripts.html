@@ -41,6 +41,7 @@
 
 			});
 		}
+		{{- if false -}}
 		// if (document.querySelector('#form-search')) {
 		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/lunr.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/lunr.js" | absURL }}{{ end }}');
 		// }
@@ -78,5 +79,6 @@
 
 		// 	});
 		// }
+		{{- end -}}
 	}
 </script>
