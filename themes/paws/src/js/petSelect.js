@@ -78,6 +78,9 @@ var petSelect = function () {
 
 	var run = function (pets) {
 
+		// Get pet ID
+		var petID = getQueryString('pet');
+
 		// Sort alphabetically
 		var petsArr = Array.from(pets);
 		petsArr.sort(function (pet1, pet2) {
@@ -98,7 +101,7 @@ var petSelect = function () {
 				select.setAttribute('required', 'required');
 			}
 			select.setAttribute('data-form-no-save', 'true');
-			select.innerHTML = createSelectOptions(petsArr, input.value);
+			select.innerHTML = createSelectOptions(petsArr, petID);
 			input.replaceWith(select);
 		});
 	};
@@ -135,16 +138,9 @@ var petSelect = function () {
 		// Create and send a GET request
 		// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 		// The second argument is the endpoint URL
-		xhr.open('GET', '/api/adoptable-pets.json');
+		xhr.open('GET', 'https://pawsnewnengland.com/api/pets.json');
 		xhr.send();
 
-	};
-
-	var setPetID = function () {
-		var primary = document.querySelector('[data-asm-pet-select="primary"]');
-		var petID = getQueryString('pet');
-		if (!primary || !petID) return;
-		primary.value = petID;
 	};
 
 
@@ -153,7 +149,6 @@ var petSelect = function () {
 	//
 
 	if (selects.length < 1) return;
-	setPetID();
 	getPets();
 
 };

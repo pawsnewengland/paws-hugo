@@ -10,8 +10,7 @@ params:
   description: "We save lives, one dog at a time."
   rssURL: "https://pawsnewengland.com/feed/index.xml"
   rssLimit: 7
-  cacheBust: true
-  version: "1.4.2"
+  minify: true
 
 # The language code for the site
 languageCode: "en-us"

@@ -1,7 +1,7 @@
 /*!
  * paws v1.4.2
  * The theme for pawsnewengland.com
- * (c) 2018 Chris Ferdinandi
+ * (c) 2019 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
  */
@@ -1472,7 +1472,7 @@ var petListings = function () {
 		// Create and send a GET request
 		// The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 		// The second argument is the endpoint URL
-		xhr.open('GET', '/api/pets.json');
+		xhr.open('GET', 'https://pawsnewnengland.com/api/pets.json');
 		xhr.send();
 
 	};

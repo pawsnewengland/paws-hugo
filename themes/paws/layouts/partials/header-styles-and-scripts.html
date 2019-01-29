@@ -1,8 +1,12 @@
 <!-- Stylesheet -->
-<link rel="stylesheet" href="{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/css/main.min.%s.css" $.Site.Params.version | absURL ) }}{{ else }}{{ "/css/main.css" | absURL }}{{ end }}">
+<style type="text/css">
+	{{ if eq $.Site.Params.minify true }}{{ readFile "/themes/paws/static/css/main.min.css" | safeCSS }}{{ else }}{{ readFile "/themes/paws/static/css/main.css" | safeCSS }}{{ end }}
+</style>
 
 <!-- Feature Detection -->
-<script src="{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/detects.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/detects.js" | absURL }}{{ end }}"></script>
+<script>
+	{{ if eq $.Site.Params.minify true }}{{ readFile "/themes/paws/static/js/detects.min.js" | safeJS }}{{ else }}{{ readFile "/themes/paws/static/js/detects.js" | safeJS }}{{ end }}
+</script>
 <script>
 	;(function () {
 		var css = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i';

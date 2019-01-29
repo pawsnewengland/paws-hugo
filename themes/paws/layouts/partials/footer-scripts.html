@@ -1,24 +1,25 @@
 <script src="{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/loadJS.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/loadJS.js" | absURL }}{{ end }}"></script>
+{{ if eq $.Site.Params.minify true }}{{ readFile "/themes/paws/static/js/loadJS.min.js" | safeJS }}{{ else }}{{ readFile "/themes/paws/static/js/loadJS.js" | safeJS }}{{ end }}
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find"></script>
 <script>
 	if ('querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_')) {
-		loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/main.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/main.js" | absURL }}{{ end }}');
+		{{ if eq $.Site.Params.minify true }}{{ readFile "/themes/paws/static/js/main.min.js" | safeJS }}{{ else }}{{ readFile "/themes/paws/static/js/main.js" | safeJS }}{{ end }}
 		if (document.querySelector('#form-search')) {
-			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/lunr.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/lunr.js" | absURL }}{{ end }}');
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/lunr.min' + cacheBust + '.js'{{ else }}'/js/lunr.js'{{ end }});
 		}
 		if (document.querySelector('[data-asm="pet-listings"]')) {
-			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/asm.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/asm.js" | absURL }}{{ end }}')
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/asm.min' + cacheBust + '.js'{{ else }}'/js/asm.js'{{ end }});
 		}
 		if (document.querySelector('[data-asm-pet-select]')) {
-			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/petSelect.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/petSelect.js" | absURL }}{{ end }}')
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/petSelect.min' + cacheBust + '.js'{{ else }}'/js/petSelect.js'{{ end }});
 		}
 		if (document.querySelector('[data-form-save]')) {
-			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/form-saver.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/form-saver.js" | absURL }}{{ end }}', function () {
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/form-saver.min' + cacheBust + '.js'{{ else }}'/js/form-saver.js'{{ end }}, function (){
 				formSaver.init({deleteClear: false});
 			});
 		}
 		if (document.querySelector('form')) {
-			loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/bouncer.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/bouncer.js" | absURL }}{{ end }}', function () {
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/bouncer.min' + cacheBust + '.js'{{ else }}'/js/bouncer.js'{{ end }}, function (){
 
 				// MailChimp
 				var mcForm = document.querySelector('#mailchimp-form');
@@ -40,5 +41,42 @@
 
 			});
 		}
+		// if (document.querySelector('#form-search')) {
+		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/lunr.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/lunr.js" | absURL }}{{ end }}');
+		// }
+		// if (document.querySelector('[data-asm="pet-listings"]')) {
+		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/asm.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/asm.js" | absURL }}{{ end }}')
+		// }
+		// if (document.querySelector('[data-asm-pet-select]')) {
+		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/petSelect.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/petSelect.js" | absURL }}{{ end }}')
+		// }
+		// if (document.querySelector('[data-form-save]')) {
+		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/form-saver.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/form-saver.js" | absURL }}{{ end }}', function () {
+		// 		formSaver.init({deleteClear: false});
+		// 	});
+		// }
+		// if (document.querySelector('form')) {
+		// 	loadJS('{{ if eq $.Site.Params.cacheBust true }}{{ ( printf "/js/bouncer.min.%s.js" $.Site.Params.version | absURL ) }}{{ else }}{{ "/js/bouncer.js" | absURL }}{{ end }}', function () {
+
+		// 		// MailChimp
+		// 		var mcForm = document.querySelector('#mailchimp-form');
+		// 		if (mcForm && window.mailchimpSubmit) {
+		// 			new Bouncer('#mailchimp-form', {disableSubmit: true});
+		// 			mcForm.addEventListener('bouncerFormValid', function (event) {
+		// 				mailchimpSubmit(event.target, function (response) {
+		// 					if (response.code === 200) {
+		// 						window.location.href = '/newsletter-success';
+		// 					}
+		// 				});
+		// 			}, false);
+		// 		}
+
+		// 		// ASM
+		// 		if (document.querySelector('[action*="service.sheltermanager.com"]')) {
+		// 			new Bouncer('[action*="service.sheltermanager.com"]');
+		// 		}
+
+		// 	});
+		// }
 	}
 </script>

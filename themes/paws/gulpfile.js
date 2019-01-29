@@ -88,7 +88,6 @@ var optimizejs = require('gulp-optimize-js');
 
 // Styles
 var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-cssnano');
 
 // SVGs
@@ -126,10 +125,12 @@ var jsTasks = lazypipe()
 	.pipe(header, banner.full, {package: package})
 	.pipe(optimizejs)
 	.pipe(dest, paths.scripts.output)
-	.pipe(rename, {suffix: '.min' + version})
+	.pipe(rename, {suffix: '.min'})
 	.pipe(uglify)
 	.pipe(optimizejs)
 	.pipe(header, banner.min, {package: package})
+	.pipe(dest, paths.scripts.output)
+	.pipe(rename, {suffix: version})
 	.pipe(dest, paths.scripts.output);
 
 // Lint, minify, and concatenate scripts
@@ -161,10 +162,16 @@ var buildScripts = function (done) {
 
 				}
 
+				var cacheVersion = '';
+				if (settings.cacheBusting && /main/.test(file.relative)) {
+					cacheVersion = "var cacheBust = '." + package.version + "'\n";
+				}
+
 				// Grab all files and concatenate them
 				// If separate polyfills enabled, this will have .polyfills in the filename
 				src(file.path + '/*.js')
 					.pipe(concat(file.relative + suffix + '.js'))
+					.pipe(header(cacheVersion))
 					.pipe(jsTasks());
 
 				return stream;
@@ -209,20 +216,17 @@ var buildStyles = function (done) {
 			outputStyle: 'expanded',
 			sourceComments: true
 		}))
-		.pipe(prefix({
-			browsers: ['last 2 version', '> 0.25%'],
-			cascade: true,
-			remove: true
-		}))
 		.pipe(header(banner.full, { package : package }))
 		.pipe(dest(paths.styles.output))
-		.pipe(rename({suffix: '.min' + version}))
+		.pipe(rename({suffix: '.min'}))
 		.pipe(minify({
 			discardComments: {
 				removeAll: true
 			}
 		}))
 		.pipe(header(banner.min, { package : package }))
+		.pipe(dest(paths.styles.output))
+		.pipe(rename({suffix: version}))
 		.pipe(dest(paths.styles.output));
 
 	// Signal completion
