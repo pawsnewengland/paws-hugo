@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+
+	{{ partial "content-page.html" . }}
+
+	<div class="row">
+		<div class="grid-fourth" data-pet-listing-filters>
+			<p><em>Loading filters...</em></p>
+		</div>
+		<div class="margin-bottom grid-three-fourths">
+			<div class="row row-start-xsmall row-wrap">
+			{{- range sort .Pages ".Params.weight" "desc" -}}
+				<article class="grid-auto grid-asm text-center margin-bottom asm-pet-{{ .Params.petid }}" data-asm-attribute="{{ .Params.attributes }}">
+					<header>
+						<a href="/adopt/pet-{{ .Params.petid }}">
+							<figure>
+								<img class="img-photo asm-img-limit-height" alt="A photo of {{ .Title }}" src="{{ if gt .Params.images 0 }}https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ .Params.petid }}&seq=1{{ else }}/img/adopt-missing-photo.png{{ end }}">
+							</figure>
+							<h2 class="h3 no-padding-top no-margin-top no-padding-bottom no-margin-bottom">
+								{{ .Title }}
+							</h2>
+						</a>
+					</header>
+					<div class="text-small">
+						<div>{{ .Params.size }}, {{ .Params.age}}, {{ .Params.sex }}</div>
+						<div class="text-muted">{{ delimit .Params.breeds ", " }}</div>
+						<div><em class="text-muted">{{ .Params.goodwith | safeHTML }}</em></div>
+						{{- if .Params.specialneeds -}}<div><em class="text-muted">Special Needs</em></div>{{- end -}}
+					</div>
+				</article>
+			{{- end -}}
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var petListingData = {{ getJSON $.Site.Params.pets }};
+	</script>
+
+{{ partial "footer.html" . }}
