@@ -2049,21 +2049,21 @@ td {
  * Filters for "All Pets" page
  */
 /* line 10, src/sass/components/_asm-filters.scss */
-.asm-pet-listings-filter-loaded .asm-filters {
+.asm-filters {
   display: none;
   visibility: hidden;
 }
 
 @media (min-width: 60em) {
   /* line 10, src/sass/components/_asm-filters.scss */
-  .asm-pet-listings-filter-loaded .asm-filters {
+  .asm-filters {
     display: block;
     visibility: visible;
   }
 }
 
 /* line 19, src/sass/components/_asm-filters.scss */
-.asm-pet-listings-filter-loaded .asm-filters.is-visible {
+.asm-filters.is-visible {
   display: block;
   visibility: visible;
 }

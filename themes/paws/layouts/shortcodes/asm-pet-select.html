@@ -1,0 +1,23 @@
+{{- $pets := getJSON $.Site.Params.pets -}}
+{{- if isset $pets 0 }}
+<select
+ data-form-no-save
+{{ if .Get "class" }} class='{{ .Get "class" }}'{{ end }}
+{{ if .Get "name" }} name='{{ .Get "name" }}' id='{{ .Get "name" }}'{{ end }}
+{{ if .Get "required" }} required{{ end }}
+{{ if .Get "multiple" }} multiple{{ end }}
+>
+	<option></option>
+	{{- range sort $pets "name" "asc" -}}
+		<option value="{{ .name }}::{{ .sheltercode }}">{{ .name }}</option>
+	{{- end -}}
+</select>
+{{- else -}}
+<input
+ type="text"
+ data-form-no-save
+{{ if .Get "class" }} class='{{ .Get "class" }}'{{ end }}
+{{ if .Get "name" }} name='{{ .Get "name" }}' id='{{ .Get "name" }}'{{ end }}
+{{ if .Get "required" }} required{{ end }}
+>
+{{- end -}}

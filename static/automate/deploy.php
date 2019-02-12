@@ -8,6 +8,9 @@
 	 * Hash validation from Craig Blanchette (http://isometriks.com/verify-github-webhooks-with-php)
 	 */
 
+	// Includes
+	include_once('run-get-pets.php');
+
 	// Variables
 	$secret = getenv('GH_DEPLOY_SECRET');
 	$repo_dir = '/srv/users/serverpilot/apps/paws/build';
@@ -66,6 +69,7 @@
 
 		// Do a git checkout, run Hugo, and copy files to public directory
 		exec('cd ' . $repo_dir . ' && git fetch --all && git reset --hard origin/master');
+		run_get_pets();
 		exec('cd ' . $repo_dir . ' && ' . $hugo_path);
 		exec('cd ' . $repo_dir . ' && cp -r ' . $repo_dir . $rendered_dir . '/. ' . $web_root_dir);
 

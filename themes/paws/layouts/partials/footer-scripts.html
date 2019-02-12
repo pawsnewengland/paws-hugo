@@ -6,11 +6,11 @@
 		if (document.querySelector('#form-search')) {
 			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/lunr.min' + cacheBust + '.js'{{ else }}'/js/lunr.js'{{ end }});
 		}
-		if (document.querySelector('[data-asm="pet-listings"]')) {
-			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/asm.min' + cacheBust + '.js'{{ else }}'/js/asm.js'{{ end }});
+		if (document.querySelector('[data-pet-listing-filters]')) {
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/petListings.min' + cacheBust + '.js'{{ else }}'/js/petListings.js'{{ end }});
 		}
-		if (document.querySelector('[data-asm-pet-select]')) {
-			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/petSelect.min' + cacheBust + '.js'{{ else }}'/js/petSelect.js'{{ end }});
+		if (document.querySelector('[data-photoswipe]')) {
+			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/photoswipe.min' + cacheBust + '.js'{{ else }}'/js/photoswipe.js'{{ end }});
 		}
 		if (document.querySelector('[data-form-save]')) {
 			loadJS({{ if eq $.Site.Params.cacheBust true }}'/js/form-saver.min' + cacheBust + '.js'{{ else }}'/js/form-saver.js'{{ end }}, function (){

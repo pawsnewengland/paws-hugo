@@ -9,8 +9,14 @@ title: "PAWS New England"
 params:
   description: "We save lives, one dog at a time."
   rssURL: "https://pawsnewengland.com/feed/index.xml"
+  pets: "https://pawsnewengland.com/api/pets.json"
   rssLimit: 7
   minify: true
+
+# Caches
+caches:
+  getjson:
+    maxAge: "10m"
 
 # The language code for the site
 languageCode: "en-us"
@@ -44,6 +50,7 @@ paginatePath: "page"
 # Markdown Options
 blackfriday:
   fractions: false
+  extensions: ['hardLineBreak']
 
 # Syntax Highlighting
 pygmentsCodefences: true

@@ -1,0 +1,73 @@
+{{ partial "header.html" . }}
+
+	<header>
+		<h1 class="no-margin-bottom">{{ .Title }}</h1>
+		<aside>
+			<p><a href="/adopt/">&larr; Back to all dogs</a></p>
+		</aside>
+	</header>
+
+	{{- if or (gt .Params.images 0) (.Params.video) -}}
+	{{- $petid := .Params.petid -}}
+	{{- $petname := .Title -}}
+	<div data-photoswipe class="row row-start-xsmall row-wrap text-center margin-bottom-small">
+	{{- range $index, $sequence := (seq .Params.images) -}}
+		<a class="grid-third" data-size href="https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"><img class="img-photo asm-img-limit-height" alt="A photo of {{ $petname }}" src="https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"></a>
+	{{- end -}}
+	{{- if .Params.video -}}
+		{{- if ne (len (findRE "facebook.com" .Params.video)) 0 -}}
+			<a class="grid-third" data-pet-video="facebook" target="_blank" href="{{ .Params.video }}"><img target="_blank" alt="Watch a video of {{ $petname }}" src="/img/video.png"></a>
+		{{- else -}}
+			<div class="grid-two-thirds" data-pet-video="{{ .Params.video }}"></div>
+		{{- end -}}
+	{{- end -}}
+	</div>
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<div class="pswp__scroll-wrap">
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<div class="pswp__ui pswp__ui--hidden">
+				<div class="pswp__top-bar">
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{- end -}}
+
+	<div class="margin-bottom">
+		<strong>Size:</strong> {{ .Params.size }}<br>
+		<strong>Age:</strong> {{ .Params.age }}<br>
+		<strong>Gender:</strong> {{ .Params.sex }}<br>
+		<strong>Breeds:</strong> {{ delimit .Params.breeds ", " }}
+		{{- if ne .Params.goodwith "" -}}<div><em>{{ .Params.goodwith | safeHTML }}</em></div>{{- end -}}
+		{{- if .Params.specialneeds -}}<div><em>Special Needs</em></div>{{- end -}}
+	</div>
+	<p><a class="btn" href="/adopt/application?pet={{ .Title | htmlEscape }}::{{ .Params.sheltercode }}">Fill out an adoption form</a></p>
+
+	{{ .Content }}
+
+{{ partial "footer.html" . }}
