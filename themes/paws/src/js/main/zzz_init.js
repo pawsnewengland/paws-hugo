@@ -12,3 +12,7 @@ fluidvids.init({
 if (document.querySelector('#reserveanimalname_3')) {
 	petSelect('#reserveanimalname_3');
 }
+
+if (document.querySelector('.type-adopt')) {
+	petListingRedirect();
+}

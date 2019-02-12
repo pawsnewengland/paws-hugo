@@ -1,12 +1,12 @@
 /*!
- * paws v1.4.3
+ * paws v1.5.0
  * The theme for pawsnewengland.com
  * (c) 2019 Chris Ferdinandi
  * MIT License
  * http://github.com/pawsnewengland/paws
  */
 
-var cacheBust = '.1.4.3'
+var cacheBust = '.1.5.0'
 ;(function (window, document, undefined) {
 
 	'use strict';
@@ -244,6 +244,28 @@ var mailchimpSubmit = function (form, callback) {
 	sendData(serialize(form));
 
 };
+var petListingRedirect = function () {
+
+	/**
+	 * Get the value of a query string from a URL
+	 * (c) 2017 Chris Ferdinandi, MIT License, https://gomakethings.com
+	 * @param  {String} field The field to get the value of
+	 * @param  {String} url   The URL to get the value from [optional]
+	 * @return {String}       The value
+	 */
+	var getQueryString = function (field, url) {
+		var href = url ? url : window.location.href;
+		var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+		var string = reg.exec(href);
+		return string ? string[1] : null;
+	};
+
+	var pet = getQueryString('petID');
+	if (pet) {
+		window.location.href = 'https://pawsnewengland.com/adopt/pet-' + pet;
+	}
+
+};
 var petSelect = function (selector) {
 
 	'use strict';
@@ -286,4 +308,8 @@ fluidvids.init({
 // Select pet from dropdown
 if (document.querySelector('#reserveanimalname_3')) {
 	petSelect('#reserveanimalname_3');
+}
+
+if (document.querySelector('.type-adopt')) {
+	petListingRedirect();
 }
