@@ -6,7 +6,7 @@
 		<div class="grid-fourth" data-pet-listing-filters>
 			<p><em>Loading filters...</em></p>
 		</div>
-		<div class="margin-bottom grid-three-fourths">
+		<div class="margin-bottom grid-three-fourths" data-pet-listings>
 			<div class="row row-start-xsmall row-wrap">
 			{{- range sort .Pages ".Params.weight" "desc" -}}
 				<article class="grid-auto grid-asm text-center margin-bottom asm-pet-{{ .Params.petid }}" data-asm-attribute="{{ .Params.attributes }}">

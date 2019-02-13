@@ -9,6 +9,7 @@ var petListingsFilter = function () {
 	var allPets = document.querySelectorAll('[data-asm-attribute]');
 	var breedFilters = document.querySelectorAll('[data-asm-sort-type="breeds"]');
 	var attributeFilters = document.querySelectorAll('[data-asm-sort-type="attribute"]');
+	var noPets = document.querySelector('[data-no-matching-pets]');
 	var sessionID = 'asmFilterState';
 
 
@@ -28,7 +29,14 @@ var petListingsFilter = function () {
 		});
 	};
 
+	var hasMatches = function () {
+		return allPets.length > document.querySelectorAll('[data-asm-attribute][hidden]').length;
+	};
+
 	var filterPets = function () {
+
+		// Hide noPets
+		noPets.setAttribute('hidden', 'hidden');
 
 		// Hide all pets
 		hidePets(allPets);
@@ -48,6 +56,11 @@ var petListingsFilter = function () {
 				hidePets(pets);
 			}
 		});
+
+		// Show "no matches" message
+		if (!hasMatches()) {
+			noPets.removeAttribute('hidden');
+		}
 
 	};
 

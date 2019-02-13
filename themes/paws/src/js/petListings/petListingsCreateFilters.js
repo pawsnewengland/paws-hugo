@@ -6,8 +6,9 @@ var petListingsCreateFilters = function () {
 	// Variables
 	//
 
-	var app = document.querySelector('[data-pet-listing-filters]');
 	if (!petListingData) return;
+	var filters = document.querySelector('[data-pet-listing-filters]');
+	var listings = document.querySelector('[data-pet-listings]');
 	var pets = JSON.parse(JSON.stringify(petListingData));
 
 
@@ -113,11 +114,20 @@ var petListingsCreateFilters = function () {
 
 	};
 
+	var createMatchingPets = function () {
+		var p = document.createElement('p');
+		p.setAttribute('data-no-matching-pets', 'true');
+		p.setAttribute('hidden', 'hidden');
+		p.textContent = 'There are no dogs matching your criteria.';
+		return p;
+	};
+
 	//
 	// Inits
 	//
 
-	if (!app || !pets) return;
-	app.innerHTML = createFilters();
+	if (!filters || !pets) return;
+	filters.innerHTML = createFilters();
+	listings.prepend(createMatchingPets());
 
 };

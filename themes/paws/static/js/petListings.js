@@ -14,8 +14,9 @@ var petListingsCreateFilters = function () {
 	// Variables
 	//
 
-	var app = document.querySelector('[data-pet-listing-filters]');
 	if (!petListingData) return;
+	var filters = document.querySelector('[data-pet-listing-filters]');
+	var listings = document.querySelector('[data-pet-listings]');
 	var pets = JSON.parse(JSON.stringify(petListingData));
 
 
@@ -121,12 +122,21 @@ var petListingsCreateFilters = function () {
 
 	};
 
+	var createMatchingPets = function () {
+		var p = document.createElement('p');
+		p.setAttribute('data-no-matching-pets', 'true');
+		p.setAttribute('hidden', 'hidden');
+		p.textContent = 'There are no dogs matching your criteria.';
+		return p;
+	};
+
 	//
 	// Inits
 	//
 
-	if (!app || !pets) return;
-	app.innerHTML = createFilters();
+	if (!filters || !pets) return;
+	filters.innerHTML = createFilters();
+	listings.prepend(createMatchingPets());
 
 };
 var petListingsFilter = function () {
@@ -140,6 +150,7 @@ var petListingsFilter = function () {
 	var allPets = document.querySelectorAll('[data-asm-attribute]');
 	var breedFilters = document.querySelectorAll('[data-asm-sort-type="breeds"]');
 	var attributeFilters = document.querySelectorAll('[data-asm-sort-type="attribute"]');
+	var noPets = document.querySelector('[data-no-matching-pets]');
 	var sessionID = 'asmFilterState';
 
 
@@ -159,7 +170,14 @@ var petListingsFilter = function () {
 		}));
 	};
 
+	var hasMatches = function () {
+		return allPets.length > document.querySelectorAll('[data-asm-attribute][hidden]').length;
+	};
+
 	var filterPets = function () {
+
+		// Hide noPets
+		noPets.setAttribute('hidden', 'hidden');
 
 		// Hide all pets
 		hidePets(allPets);
@@ -179,6 +197,11 @@ var petListingsFilter = function () {
 				hidePets(pets);
 			}
 		}));
+
+		// Show "no matches" message
+		if (!hasMatches()) {
+			noPets.removeAttribute('hidden');
+		}
 
 	};
 
