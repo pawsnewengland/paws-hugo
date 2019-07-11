@@ -35,7 +35,7 @@ The time commitment required in being a foster parent varies depending on the an
 
 You are their caregiver day and night until they are adopted.
 
-<div class="bg-muted border padding margin-bottom">Want more details about how it all works? <a href="https://pawsnewengland.com/wp-content/uploads/2011/01/Foster-FAQ.pdf">Download our foster FAQ document.</a></div>
+<div class="bg-muted border padding margin-bottom">Want more details about how it all works? <a href="/downloads/foster-faq.com">Download our foster FAQ document.</a></div>
 
 ## Foster Application
 
