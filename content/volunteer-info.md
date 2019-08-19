@@ -5,4 +5,6 @@ subnav = ""
 title = "Our Volunteer Team"
 
 +++
-## Everything we accomplish is made possible by a diverse group of hard working volunteers. 
+## Everything we accomplish is made possible by a diverse group of hard working volunteers.
+
+![](/img/articles/time?.svg)
