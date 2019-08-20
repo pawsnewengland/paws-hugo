@@ -6,6 +6,18 @@ subnav = ""
 title = "Our Volunteer Team"
 
 +++
-## Everything we accomplish is made possible by a diverse group of hard working volunteers.
+## "I work full time."
 
-![](/img/articles/time?.svg)
+## "I have kids."
+
+## "I already have dogs." 
+
+## "I have cats."
+
+## "I am not allowed to have pets." 
+
+## People often think these are reasons that prevent them from being able to volunteer - but we disagree!  
+
+## Read about our incredible crew of volunteers, the diverse ways they help us carry out our mission - see that they are just like you! 
+
+## Everyone has something to give, what are you waiting for?
