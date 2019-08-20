@@ -34,20 +34,34 @@ title = "Our Volunteer Team"
 
 ![](/img/articles/SHANNON.svg)
 
-# ![](/img/articles/divider.svg)
+![](/img/articles/divider.svg)
 
 ![](/img/articles/angie.svg)
 
+![](/img/articles/divider.svg)
+
 ![](/img/articles/alicia.svg)
 
-# 
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/JENN.svg)
 
-# 
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/vicki.svg)
 
+![](/img/articles/divider.svg)
+
 ![](/img/articles/CASEY-1.svg)
 
+![](/img/articles/divider.svg)
+
 ![](/img/articles/AMANDA.svg)
+
+![](/img/articles/divider.svg)
+
+![](/img/articles/KRISTEN.svg)
+
+![](/img/articles/divider.svg)![](/img/articles/sockna.svg)
+
+![](/img/articles/divider.svg)
