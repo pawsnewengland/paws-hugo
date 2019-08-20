@@ -21,3 +21,5 @@ title = "Our Volunteer Team"
 ## Read about our incredible crew of volunteers, the diverse ways they help us carry out our mission - see that they are just like you! 
 
 ## Everyone has something to give, what are you waiting for?
+
+[suzanne.logoist](/img/articles/suzanne.logoist "suzanne.logoist")
