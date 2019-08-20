@@ -22,19 +22,19 @@ title = "Our Volunteer Team"
 
 ## Everyone has something to give, what are you waiting for?
 
-#  
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/suzanne.svg)
 
-# 
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/ELAINE.svg)
 
-# 
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/SHANNON.svg)
 
-# 
+# ![](/img/articles/divider.svg)
 
 ![](/img/articles/angie.svg)
 
