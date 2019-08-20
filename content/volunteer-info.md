@@ -6,7 +6,7 @@ subnav = ""
 title = "Our Volunteer Team"
 
 +++
-## "I work full time."
+## "I work full-time."
 
 ## "I have kids."
 
