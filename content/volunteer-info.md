@@ -6,15 +6,15 @@ subnav = ""
 title = "Our Volunteer Team"
 
 +++
-## "I work full-time."
+### "I work full-time." 
 
-## "I have kids."
+### "I have kids."
 
-## "I already have dogs."
+### "I already have dogs." 
 
-## "I have cats."
+### "I have cats."
 
-## "I am not allowed to have pets."
+### "I am not allowed to have pets."
 
 ## People often think these are reasons that prevent them from volunteering in dog rescue - but we disagree!
 
