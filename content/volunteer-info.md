@@ -114,10 +114,18 @@ title = "Our Volunteer Team"
 
 ![](/img/articles/divider.svg)
 
-![](/img/articles/jennifer.svg)
+![](/img/articles/jennifer-1.svg)
 
 ![](/img/articles/divider.svg)
 
 ![](/img/articles/terri.svg)
+
+![](/img/articles/divider.svg)
+
+![](/img/articles/kelly-1.svg)
+
+![](/img/articles/divider.svg)
+
+![](/img/articles/joanne.svg)
 
 ![](/img/articles/divider.svg)
