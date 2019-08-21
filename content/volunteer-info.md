@@ -16,11 +16,11 @@ title = "Our Volunteer Team"
 
 ## "I am not allowed to have pets."
 
-## People often think these are reasons that prevent them from being able to volunteer - but we disagree!
+## People often think these are reasons that prevent them from volunteering in dog rescue - but we disagree!
 
-## Read about us, the diverse ways we work together to carry out our mission - and see that we are just like you!
+## Read about us to see the diverse ways we work together to carry out our mission - and see that we are just like you!
 
-## Everyone has something to give, what are you waiting for? 
+## Everyone has something to give, what are you waiting for?
 
 ## Join us today!
 
