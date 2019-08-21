@@ -18,9 +18,11 @@ title = "Our Volunteer Team"
 
 ## People often think these are reasons that prevent them from being able to volunteer - but we disagree!
 
-## Read about our incredible crew of volunteers, the diverse ways they help us carry out our mission - and see that they are just like you!
+## Read about us, the diverse ways we work together to carry out our mission - and see that we are just like you!
 
 ## Everyone has something to give, what are you waiting for? 
+
+## Join us today!
 
 # ![](/img/articles/divider.svg)
 
