@@ -91,3 +91,5 @@ title = "Our Volunteer Team"
 ![](/img/articles/debra.svg)
 
 ![](/img/articles/divider.svg)
+
+![](/img/articles/pattie.svg)
