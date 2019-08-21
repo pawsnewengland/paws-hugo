@@ -8,9 +8,9 @@ title = "Our Volunteer Team"
 +++
 ![](/img/articles/reasons.svg)
 
-## People often think these are reasons that prevent them from volunteering in dog rescue - but we disagree!
+## If you think these are reasons why you can't join our mission to save homeless dogs - we've got great news...
 
-## Read about us to see the diverse ways we work together to carry out our mission - and see that we are just like you!
+## Read about us below to see the diverse ways we work together to carry out our mission - and see that we are just like you!
 
 ## Everyone has something to give, what are you waiting for?
 
