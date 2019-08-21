@@ -18,9 +18,9 @@ title = "Our Volunteer Team"
 
 ## People often think these are reasons that prevent them from being able to volunteer - but we disagree!
 
-## Read about our incredible crew of volunteers, the diverse ways they help us carry out our mission - see that they are just like you!
+## Read about our incredible crew of volunteers, the diverse ways they help us carry out our mission - and see that they are just like you!
 
-## Everyone has something to give, what are you waiting for?
+## Everyone has something to give, what are you waiting for? 
 
 # ![](/img/articles/divider.svg)
 
@@ -71,5 +71,13 @@ title = "Our Volunteer Team"
 ![](/img/articles/divider.svg)
 
 ![](/img/articles/KATI.svg)
+
+![](/img/articles/divider.svg)
+
+![](/img/articles/alexandra.svg)
+
+![](/img/articles/divider.svg)
+
+![](/img/articles/sharon.svg)
 
 ![](/img/articles/divider.svg)
