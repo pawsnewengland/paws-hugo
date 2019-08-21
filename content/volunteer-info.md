@@ -62,9 +62,7 @@ title = "Our Volunteer Team"
 
 ![](/img/articles/MELISSA.svg)
 
-![](/img/articles/divider.svg)
-
-![](/img/articles/KATI.svg)
+![](/img/articles/divider.svg)![](/img/articles/KATI.svg)
 
 ![](/img/articles/divider.svg)
 
