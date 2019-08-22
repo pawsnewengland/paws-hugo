@@ -12,7 +12,9 @@ title = "Our Volunteer Team"
 
 ## Read below to see the diverse ways we work together to carry out our mission - see that WE ARE JUST LIKE YOU!
 
-## Everyone has something to give, what are you waiting for?? Join us today!
+## Everyone has something to give!
+
+## What are you waiting for? Join us today!
 
 # ![](/img/articles/divider.svg)
 
