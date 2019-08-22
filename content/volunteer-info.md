@@ -138,7 +138,7 @@ title = "Our Volunteer Team"
 
 ## As the saying goes: Success starts at the top.
 
-#### PAWS has become one of the oldest and most reputable dog rescues in New England due to the leadership of two incredible humans who exemplify the power of volunteerism:
+#### PAWS has become one of the oldest and most reputable dog rescues in New England due to the leadership of these two incredible humans who exemplify the power of volunteerism:
 
 ![](/img/articles/kelly-1.svg)
 
