@@ -10,7 +10,7 @@ title = "Our Volunteer Team"
 
 ## If these reasons have prevented you from joining us to save homeless dogs - we've got great news...
 
-## Read below to see the diverse ways we work together to carry out our mission - and see that WE ARE JUST LIKE YOU!
+## Read below to see the diverse ways we work together to carry out our mission - see that WE ARE JUST LIKE YOU!
 
 ## Everyone has something to give, what are you waiting for?
 
