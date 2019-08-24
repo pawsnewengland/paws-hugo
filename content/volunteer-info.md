@@ -11,9 +11,9 @@ title = "Our Volunteer Team"
 
 ## Read below to see the diverse ways we work together to carry out our mission - see that WE ARE JUST LIKE YOU!
 
-## Everyone has something to give!
+## Everyone has something to give - [join us today!](https://pawsnewengland.com/volunteer/)
 
-## [Join us today!](https://pawsnewengland.com/volunteer/)
+## 
 
 # ![](/img/articles/divider.svg)
 
