@@ -13,7 +13,7 @@ title = "Our Volunteer Team"
 
 ## Everyone has something to give!
 
-## What are you waiting for? Join us today!
+## Join us today!
 
 # ![](/img/articles/divider.svg)
 
