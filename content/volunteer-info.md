@@ -13,7 +13,7 @@ title = "Our Volunteer Team"
 
 ## Everyone has something to give!
 
-## Join us today!
+## [Join us today!](https://pawsnewengland.com/volunteer/)
 
 # ![](/img/articles/divider.svg)
 
