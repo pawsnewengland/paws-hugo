@@ -175,7 +175,7 @@ title = "Our Volunteer Team"
 
 #### PAWS has become one of the oldest and most reputable dog rescues in New England due to the leadership of these two incredible humans who exemplify the power of volunteerism:
 
-![](/img/articles/kelly-1.svg)
+![](/img/articles/kelly.svg)
 
 ![](/img/articles/joanne.svg)
 
