@@ -39,7 +39,7 @@ http://randolphanimal.com
 88 West Warwick Avenue
 West Warwick, RI 02893
 (401) 615-2200
-http://www.cawsri.com
+http://www.cawsri.org
 
 **Memphis Veterinary Specialists**
 555 Trinity Creek Cove
