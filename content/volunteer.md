@@ -12,7 +12,6 @@ Want to join our team? We're always looking for people who can share their time 
 **We're currently looking for...**
 
 - [Adoption Coordinators](#adoption-coordinators)
-- [Fosters](#fosters)
 - [Home Visit Volunteers](#home-visit-volunteers)
 - [Fundraising Coordinators](#fundraising-managers)
 - [Transportation Volunteer](#transportation-volunteer)
@@ -75,7 +74,7 @@ Each application takes approximately one-hour to process over the course of one 
 
 <hr class="line-clear">
 
-## Fosters
+<!-- ## Fosters
 
 The more dogs we can foster, the more dogs we can save.
 
@@ -83,7 +82,7 @@ We're always looking for foster caregivers to provide our dogs with safe homes a
 
 <a class="btn btn-large" href="/foster/">Learn more about fostering</a>
 
-<hr class="line-clear">
+<hr class="line-clear"> -->
 
 ## Home Visit Volunteers
 
