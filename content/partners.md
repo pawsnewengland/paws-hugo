@@ -19,7 +19,10 @@ These businesses generously donate their time, money and services to help us do 
 ## Sponsors
 
 **The Brandi Project**
-http://www.thebrandiproject.com/
+http://www.thebrandiproject.com
+
+**The Hugs & Kisses Animal Fund**
+http://hugsandkissesanimalfund.org
 
 
 ## Veterinary Partners
@@ -108,7 +111,7 @@ http://www.dawnferragamophotography.com
 
 **Lisa Patnaude**
 Worcester, MA
-http://www.lisapatnaudephotography.com/-/lisapatnaudephotography/
+http://www.lisapatnaudephotography.com/-/lisapatnaudephotography
 
 **Kate Ackermann**
 Wilmington, MA
