@@ -11,7 +11,7 @@ Want to join our team? We're always looking for people who can share their time 
 
 **We're currently looking for...**
 
-- [Adoption Coordinators](#adoption-coordinators)
+<!-- - [Adoption Coordinators](#adoption-coordinators) -->
 - [Home Visit Volunteers](#home-visit-volunteers)
 - [Fundraising Coordinators](#fundraising-managers)
 - [Transportation Volunteer](#transportation-volunteer)
@@ -19,7 +19,7 @@ Want to join our team? We're always looking for people who can share their time 
 
 <hr class="line-secondary">
 
-## Adoption Coordinators
+<!-- ## Adoption Coordinators
 
 Adoption Coordinators are our volunteers who see each adoption through from start to finish. They play a vital role at PAWS!
 
@@ -72,7 +72,7 @@ Each application takes approximately one-hour to process over the course of one 
 	</div>
 </form>
 
-<hr class="line-clear">
+<hr class="line-clear"> -->
 
 <!-- ## Fosters
 
