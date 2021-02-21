@@ -1,7 +1,6 @@
 +++
 categories = []
 date = 2021-02-21T03:00:00Z
-draft = true
 layout = "post"
 title = "Record Breaking Cold Hits the South"
 
