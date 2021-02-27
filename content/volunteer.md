@@ -510,7 +510,7 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 
 <hr class="line-clear">
 
-## Marketing Volunteer
+<!-- ## Marketing Volunteer
 
 Do you want to help spread the word about PAWS New England? We're looking for marketing volunteers.
 
@@ -559,7 +559,7 @@ Do you want to help spread the word about PAWS New England? We're looking for ma
 	</div>
 </form>
 
-<hr class="line-clear">
+<hr class="line-clear"> -->
 
 ## Tell your friends about PAWS
 
