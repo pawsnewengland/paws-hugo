@@ -1,7 +1,6 @@
 +++
 categories = []
 date = 2021-03-04T23:43:39Z
-draft = true
 layout = "post"
 title = "Update on “Snow Dogs” Saved from Living Outside in the Record Breaking Cold"
 
