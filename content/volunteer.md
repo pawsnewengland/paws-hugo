@@ -249,6 +249,33 @@ This volunteer position requires good people skills. You will have the important
 		</div>
 	</div>
 
+	<div class="row margin-bottom">
+		<div class="grid-third">
+			<span id="f341-label">Do you have access to a computer for use while conducting virtual home visits?</span>
+		</div>
+		<div class="grid-two-thirds">
+			<label class="input-inline" for="computer_341_yes">
+				<input type="radio" name="computer_341" id="computer_341_yes" value="Yes" aria-describedby="f341-label"> Yes
+			</label>
+			<label class="input-inline" for="computer_341_no">
+				<input type="radio" name="computer_341" id="computer_341_no" value="No" aria-describedby="f341-label" checked> No
+			</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<span id="f342-label">I am able to conduct virtual home visits using (check all that apply):</span>
+		</div>
+		<div class="grid-two-thirds">
+			<label for="f342_1"><input type="checkbox" id="f342_1" data="FaceTime" name="software1_" aria-describedby="f342-label"> FaceTime</label>
+			<label for="f342_2"><input type="checkbox" id="f342_2" data="Google" name="software2_" aria-describedby="f342-label"> Google</label>
+			<label for="f342_4"><input type="checkbox" id="f342_4" data="Skype" name="software4_" aria-describedby="f342-label"> Skype</label>
+			<label for="f342_5"><input type="checkbox" id="f342_5" data="Zoom" name="software5_" aria-describedby="f342-label"> Zoom</label>
+			<label for="f342_3"><input type="checkbox" id="f342_3" data="Other" name="software3_" aria-describedby="f342-label"> Other</label>
+		</div>
+	</div>
+
 	<div class="clearfix text-right">
 		<input type="hidden" name="magicASJSkey" value="918273645">
 		<input class="input-inline btn" type="submit" value="Submit">
