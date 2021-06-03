@@ -11,7 +11,7 @@ Want to join our team? We're always looking for people who can share their time 
 
 **We're currently looking for...**
 
-<!-- - [Adoption Coordinators](#adoption-coordinators) -->
+- [Adoption Coordinators](#adoption-coordinators)
 - [Home Visit Volunteers](#home-visit-volunteers)
 - [Fundraising Coordinators](#fundraising-managers)
 - [Transportation Volunteer](#transportation-volunteer)
@@ -19,7 +19,7 @@ Want to join our team? We're always looking for people who can share their time 
 
 <hr class="line-secondary">
 
-<!-- ## Adoption Coordinators
+## Adoption Coordinators
 
 Adoption Coordinators are our volunteers who see each adoption through from start to finish. They play a vital role at PAWS!
 
@@ -35,7 +35,7 @@ Each application takes approximately one-hour to process over the course of one 
 			<label for="f147">First Name</label>
 		</div>
 		<div class="grid-two-thirds">
-			<input type="text" name="firstname_83" title="Enter your first name" required>
+			<input type="text" name="firstname_83" id="f147" title="Enter your first name" required>
 		</div>
 	</div>
 
@@ -44,7 +44,7 @@ Each application takes approximately one-hour to process over the course of one 
 			<label for="f148">Last Name</label>
 		</div>
 		<div class="grid-two-thirds">
-			<input type="text" name="lastname_84" title="Enter your last name" required>
+			<input type="text" name="lastname_84" id="f148" title="Enter your last name" required>
 		</div>
 	</div>
 
@@ -53,16 +53,208 @@ Each application takes approximately one-hour to process over the course of one 
 			<label for="f149">Email</label>
 		</div>
 		<div class="grid-two-thirds">
-			<input type="email" name="emailaddress_85" title="Enter your email address" required>
+			<input type="email" name="emailaddress_85" id="f149" title="Enter your email address" required>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="grid-third">
-			<label for="f149">Questions or Comments</label>
+			<label for="f277">Phone Number</label>
 		</div>
 		<div class="grid-two-thirds">
-			<textarea name="questionsComments_86" title="Enter any questions or comments you have"></textarea>
+			<input type="tel" id="f277" name="mobiletelephone_277" autocomplete="tel" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f186">Questions or Comments</label>
+		</div>
+		<div class="grid-two-thirds">
+			<textarea name="questionsComments_86" id="f186" title="Enter any questions or comments you have"></textarea>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f278">Street Address</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f278" name="address_278" autocomplete="street-address" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f279">City</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f279" name="city_279" autocomplete="address-level2" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f280">State</label>
+		</div>
+		<div class="grid-two-thirds">
+			<select id="f280" name="state_280" required>
+				<option>---</option>
+				<option>AL</option>
+				<option>AK</option>
+				<option>AZ</option>
+				<option>AR</option>
+				<option>CA</option>
+				<option>CO</option>
+				<option>CT</option>
+				<option>DE</option>
+				<option>FL</option>
+				<option>GA</option>
+				<option>HI</option>
+				<option>ID</option>
+				<option>IL</option>
+				<option>IN</option>
+				<option>IA</option>
+				<option>KS</option>
+				<option>KY</option>
+				<option>LA</option>
+				<option>ME</option>
+				<option>MD</option>
+				<option>MA</option>
+				<option>MI</option>
+				<option>MN</option>
+				<option>MS</option>
+				<option>MO</option>
+				<option>MT</option>
+				<option>NE</option>
+				<option>NV</option>
+				<option>NH</option>
+				<option>NJ</option>
+				<option>NM</option>
+				<option>NY</option>
+				<option>NC</option>
+				<option>ND</option>
+				<option>OH</option>
+				<option>OK</option>
+				<option>OR</option>
+				<option>PA</option>
+				<option>RI</option>
+				<option>SC</option>
+				<option>SD</option>
+				<option>TN</option>
+				<option>TX</option>
+				<option>UT</option>
+				<option>VT</option>
+				<option>VA</option>
+				<option>WA</option>
+				<option>WV</option>
+				<option>WI</option>
+				<option>WY</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f281">Zip Code</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="tel" id="f281" name="zipcode_281" autocomplete="postal-code" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f282">How did you hear about PAWS New England?</label>
+		</div>
+		<div class="grid-two-thirds">
+			<select id="f282" name="pneReference_282" required>
+				<option>---</option>
+				<option>Adopt-a-Pet</option>
+				<option>Adoption Event</option>
+				<option>Co-Worker</option>
+				<option>Facebook</option>
+				<option>Family</option>
+				<option>Friend</option>
+				<option>Fundraiser</option>
+				<option>Internet</option>
+				<option>Instagram</option>
+				<option>John Gagnon Pet Resourt</option>
+				<option>Other</option>
+				<option>Overstock</option>
+				<option>PAWS Volunteer</option>
+				<option>PAWS Website</option>
+				<option>Petfinder</option>
+				<option>TV</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f283">Have you volunteered for any other dog rescues? If so, please list names of organizations and contact name and number</label>
+		</div>
+		<div class="grid-two-thirds">
+			<textarea id="f283" name="previousExperience_283" required></textarea>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f284">Why are you interested in becoming an Adoption Coordinator?</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f284" name="interest_284" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<span id="f285-label">Do you have access to the internet, social media, and a telephone?</span>
+		</div>
+		<div class="grid-two-thirds">
+			<label class="input-inline" for="f285_yes">
+				<input type="radio" id="f285_yes" name="access_285" value="Yes" aria-describedby="f285-label"> Yes
+			</label>
+			<label class="input-inline" for="f285_no">
+				<input type="radio" id="f285_no" name="access_285" value="No" aria-describedby="f285-label"> No
+			</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f286">What is your schedule like every week?</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f286" name="schedule_286" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f287">How much time do you have to commit to volunteering?</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f287" name="time_287" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f288">Please tell us about your animal experience</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" id="f288" name="animalExperience_288" required>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-third">
+			<label for="f289">Please provide one personal reference (not a relative; please provide a name and phone number)</label>
+		</div>
+		<div class="grid-two-thirds">
+			<textarea id="f289" name="personalReferences_289" required></textarea>
 		</div>
 	</div>
 
@@ -72,7 +264,7 @@ Each application takes approximately one-hour to process over the course of one 
 	</div>
 </form>
 
-<hr class="line-clear"> -->
+<hr class="line-clear">
 
 <!-- ## Fosters
 
