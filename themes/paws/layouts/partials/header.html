@@ -7,6 +7,22 @@
 		<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 		{{ if .Params.noIndex }}<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">{{ end }}
 
+		{{- if and (isset .Params "redirect") (ne .Params.redirect "") -}}
+		<link rel="canonical" href="{{ .Params.redirect }}">
+		<meta http-equiv="refresh" content="0; url={{ .Params.redirect }}">
+		{{- end -}}
+
+		{{ if eq .Type "redirects" }}
+			{{ if .IsPage }}
+				{{ if ne .Params.redirect "" }}
+					<script>window.location.href = '{{ .Params.redirect }}';</script>
+				{{ end }}
+			{{ else  }}
+				<link rel="canonical" href="{{ .Site.BaseURL }}">
+				<meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}">
+			{{ end }}
+		{{ end }}
+
 		<!-- Mobile Screen Resizing -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
