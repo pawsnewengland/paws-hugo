@@ -2,20 +2,20 @@
 
 	#!/usr/bin/php -q
 
+	// Include required files
+	include_once('clean-pet-listings.php');
+	include_once('create-pet-listings.php');
+
+	// Load helper library
+	require_once('Requests/library/Requests.php');
+	Requests::register_autoloader();
+
 	/**
 	 * Run script to get pets from Shelter Manager API
 	 * https://sheltermanager.com/repo/asm3_help/service.html
 	 */
 
 	function run_get_pets () {
-
-		// Include required files
-		include_once('clean-pet-listings.php');
-		include_once('create-pet-listings.php');
-
-		// Load helper library
-		require_once('Requests/library/Requests.php');
-		Requests::register_autoloader();
 
 		// Variables
 		$account = getenv('ASM_ACCOUNT');
@@ -32,7 +32,7 @@
 		$responseBody = json_decode($response->body, true);
 		if (empty($responseBody)) {
 			file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Fail " . "\n", FILE_APPEND);
-			return 'done';
+			return 'failed';
 		}
 
 		// Create the JSON file

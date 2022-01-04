@@ -6,7 +6,6 @@ draft: false
 noTitle: false
 subnav: "adopt"
 wide: false
-redirect: https://service.sheltermanager.com/asmservice?account=zh0572&method=online_form_html&formid=1
 ---
 
 We hate paperwork, too. But to help us keep track of all the people who want to give our dogs wonderful homes, we need you to fill out an adoption form.
