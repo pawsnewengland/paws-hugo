@@ -62,6 +62,7 @@
 
 		// Create pet listings
 		clean_pet_listings_build();
+		clean_pet_listings_public();
 		create_pet_listings($pets);
 
 		return 'done';
