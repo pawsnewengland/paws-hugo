@@ -9,7 +9,7 @@
 	function clean_pet_listings_build () {
 
 		// Variables
-		$path = getenv('ASM_BUILD_PATH');
+		$path = '/srv/users/serverpilot/apps/paws/build/content/adopt';
 		$pets = scandir($path);
 
 		// Remove pet files
@@ -26,8 +26,8 @@
 	function clean_pet_listings_public () {
 
 		// Variables
-		$path_build = getenv('ASM_BUILD_PATH');
-		$path_public = getenv('ASM_PUBLIC_PATH');
+		$path_build = '/srv/users/serverpilot/apps/paws/build/content/adopt';
+		$path_public = '/srv/users/serverpilot/apps/paws/public/adopt';
 		$pets_build = scandir($path_build);
 		$pets_public = scandir($path_public);
 

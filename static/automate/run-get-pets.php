@@ -10,12 +10,6 @@
 	require_once('Requests/library/Requests.php');
 	Requests::register_autoloader();
 
-	// Directory paths
-	$repo_dir = '/srv/users/serverpilot/apps/paws/build';
-	$web_root_dir = '/srv/users/serverpilot/apps/paws/public';
-	$rendered_dir = '/public';
-	$hugo_path = '/usr/local/bin/hugo';
-
 	/**
 	 * Run script to get pets from Shelter Manager API
 	 * https://sheltermanager.com/repo/asm3_help/service.html
@@ -28,7 +22,6 @@
 		$username = getenv('ASM_USERNAME');
 		$password = getenv('ASM_PASSWORD');
 		$endpoint = 'https://service.sheltermanager.com/asmservice?method=json_adoptable_animals';
-
 
 		// Make the request
 		$request = $endpoint . '&account=' . $account . '&username=' . $username . '&password=' . $password;
@@ -71,9 +64,15 @@
 		clean_pet_listings_public();
 		create_pet_listings($pets);
 
-		// Run build
-		exec('cd ' . $repo_dir . ' && ' . $hugo_path);
-		exec('cd ' . $repo_dir . ' && cp -r ' . $repo_dir . $rendered_dir . '/. ' . $web_root_dir);
+		// // Directory paths
+		// $repo_dir = '/srv/users/serverpilot/apps/paws/build';
+		// $web_root_dir = '/srv/users/serverpilot/apps/paws/public';
+		// $rendered_dir = '/public';
+		// $hugo_path = '/usr/local/bin/hugo';
+
+		// // Run build
+		// exec('cd ' . $repo_dir . ' && ' . $hugo_path);
+		// exec('cd ' . $repo_dir . ' && cp -r ' . $repo_dir . $rendered_dir . '/. ' . $web_root_dir);
 
 		return 'done';
 

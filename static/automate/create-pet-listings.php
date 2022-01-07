@@ -65,7 +65,6 @@
 
 	// Create pet files
 	function create_pet_listings ($pets) {
-		$path = getenv('ASM_BUILD_PATH');
 		$pets_reverse = array_reverse($pets);
 		foreach ($pets_reverse as $key => $pet) {
 			$pet_details = '' .
@@ -89,6 +88,16 @@
 				'weight: ' . $key . "\n" .
 				'---' . "\n\n" .
 				$pet['description'];
-			file_put_contents($path . '/pet-' . $pet['id'] . '.md', $pet_details);
+			file_put_contents('/srv/users/serverpilot/apps/paws/build/content/adopt/pet-' . $pet['id'] . '.md', $pet_details);
 		}
+
+		// Directory paths
+		$repo_dir = '/srv/users/serverpilot/apps/paws/build';
+		$web_root_dir = '/srv/users/serverpilot/apps/paws/public';
+		$rendered_dir = '/public';
+		$hugo_path = '/usr/local/bin/hugo';
+
+		// Run build
+		exec('cd ' . $repo_dir . ' && ' . $hugo_path);
+		exec('cd ' . $repo_dir . ' && cp -r ' . $repo_dir . $rendered_dir . '/. ' . $web_root_dir);
 	}
