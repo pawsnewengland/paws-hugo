@@ -3,11 +3,11 @@
 	#!/usr/bin/php -q
 
 	// Include required files
-	include_once('clean-pet-listings.php');
-	include_once('create-pet-listings.php');
+	include_once('/srv/users/serverpilot/apps/paws/public/automate/clean-pet-listings.php');
+	include_once('/srv/users/serverpilot/apps/paws/public/automate/create-pet-listings.php');
 
 	// Load helper library
-	require_once('Requests/library/Requests.php');
+	require_once('/srv/users/serverpilot/apps/paws/public/automate/Requests/library/Requests.php');
 	Requests::register_autoloader();
 
 	/**
@@ -30,7 +30,7 @@
 		// Get the data
 		$responseBody = json_decode($response->body, true);
 		if (empty($responseBody)) {
-			file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Fail " . "\n", FILE_APPEND);
+			file_put_contents('/srv/users/serverpilot/apps/paws/public/automate/get-pets.log', date('m/d/Y h:i:s a') . " Fail " . "\n", FILE_APPEND);
 			return 'failed';
 		}
 
@@ -56,8 +56,8 @@
 		}
 
 		// Save to the server
-		file_put_contents('../api/pets.json', json_encode($pets));
-		file_put_contents('get-pets.log', date('m/d/Y h:i:s a') . " Success " . "\n", FILE_APPEND);
+		file_put_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json', json_encode($pets));
+		file_put_contents('/srv/users/serverpilot/apps/paws/public/automate/get-pets.log', date('m/d/Y h:i:s a') . " Success " . "\n", FILE_APPEND);
 
 		// Create pet listings
 		clean_pet_listings_build();
