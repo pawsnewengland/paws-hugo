@@ -11,10 +11,19 @@
 	Requests::register_autoloader();
 
 	/**
+	 * Sort pets by last updated date
+	 * @param  Object  $a The first pet
+	 * @param  Object  $b The second pet
+	 * @return Integer    The sort order
+	 */
+	function sort_by_updated ($a, $b) {
+		return strtotime($b['LASTCHANGEDDATE']) - strtotime($a['LASTCHANGEDDATE']);
+	}
+
+	/**
 	 * Run script to get pets from Shelter Manager API
 	 * https://sheltermanager.com/repo/asm3_help/service.html
 	 */
-
 	function run_get_pets () {
 
 		// Variables
@@ -54,6 +63,9 @@
 				'video' => $pet['WEBSITEVIDEOURL'],
 			);
 		}
+
+		// Sort pets by when they were last updated
+		usort($pets, 'sort_by_updated');
 
 		// Save to the server
 		file_put_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json', json_encode($pets));
