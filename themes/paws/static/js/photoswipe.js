@@ -943,11 +943,11 @@ var loadPetVideos = function () {
 	 * @return {String}     The video ID
 	 */
 	var getYouTubeID = function (url) {
-		if (/youtu.be/.test(url)) {
-			return url.replace('https://youtu.be/', '');
-		}
 		if (/\/shorts\//.test(url)) {
 			return url.replace('https://youtube.com/shorts/', '').replace('?feature', '');
+		}
+		if (/youtu.be/.test(url)) {
+			return url.replace('https://youtu.be/', '');
 		}
 		return getQueryString('v', url);
 	};
