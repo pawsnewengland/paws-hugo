@@ -44,6 +44,9 @@ var loadPetVideos = function () {
 		if (/youtu.be/.test(url)) {
 			return url.replace('https://youtu.be/', '');
 		}
+		if (/\/shorts\//.test(url)) {
+			return url.replace('https://www.youtube.com/shorts/', '').replace('?feature', '');
+		}
 		return getQueryString('v', url);
 	};
 
