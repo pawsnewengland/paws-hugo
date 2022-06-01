@@ -943,6 +943,7 @@ var loadPetVideos = function () {
 	 * @return {String}     The video ID
 	 */
 	var getYouTubeID = function (url) {
+		url = url.replace('//www.', '//');
 		if (/\/shorts\//.test(url)) {
 			return url.replace('https://youtube.com/shorts/', '').replace('?feature', '');
 		}
