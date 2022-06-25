@@ -12,7 +12,7 @@
 	{{- $petname := .Title -}}
 	<div data-photoswipe class="row row-start-xsmall row-wrap text-center margin-bottom-small">
 	{{- range $index, $sequence := (seq .Params.images) -}}
-		<a class="grid-third" data-size href="https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"><img class="img-photo asm-img-limit-height" alt="A photo of {{ $petname }}" src="https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"></a>
+		<a class="grid-third" data-size href="https://service.sheltermanager.com/asmservice?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"><img class="img-photo asm-img-limit-height" alt="A photo of {{ $petname }}" src="https://service.sheltermanager.com/asmservice?account=zh0572&method=animal_image&animalid={{ $petid }}&seq={{ $sequence }}"></a>
 	{{- end -}}
 	{{- if .Params.video -}}
 		{{- if ne (len (findRE "facebook.com" .Params.video)) 0 -}}
