@@ -13,7 +13,7 @@
 					<header>
 						<a href="/adopt/pet-{{ .Params.petid }}">
 							<figure>
-								<img class="img-photo asm-img-limit-height" alt="A photo of {{ .Title }}" src="{{ if gt .Params.images 0 }}https://us02.sheltermanager.com/service?account=zh0572&method=animal_image&animalid={{ .Params.petid }}&seq=1{{ else }}/img/adopt-missing-photo.png{{ end }}">
+								<img class="img-photo asm-img-limit-height" alt="A photo of {{ .Title }}" src="{{ if gt .Params.images 0 }}https://service.sheltermanager.com/asmservice?account=zh0572&method=animal_image&animalid={{ .Params.petid }}&seq=1{{ else }}/img/adopt-missing-photo.png{{ end }}">
 							</figure>
 							<h2 class="h3 no-padding-top no-margin-top no-padding-bottom no-margin-bottom">
 								{{ .Title }}
