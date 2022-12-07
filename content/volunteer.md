@@ -7,21 +7,9 @@ subnav: "volunteer"
 wide: false
 ---
 
-Want to join our team? We're always looking for people who can share their time and talents with us.
+Want to join our team? We're always looking for people who can share their time and talents with us. We're currently looking for...
 
-**We're currently looking for...**
-
-- [Adoption Coordinators](#adoption-coordinators)
-- [Fostering](#fosters)
-- [Home Visit Volunteers](#home-visit-volunteers)
-- [Fundraising Coordinators](#fundraising-managers)
-- [Transportation Volunteer](#transportation-volunteer)
-- [Marketing Volunteer](#marketing-volunteer)
-
-<hr class="line-secondary">
-
-## Adoption Coordinators
-
+{{<details summary="Adoption Coordinators">}}
 Adoption Coordinators are our volunteers who see each adoption through from start to finish. They play a vital role at PAWS!
 
 Coordinators are assigned a specific group of dogs on our site. When an application comes in for one of these dogs, coordinators begin by interviewing the applicant over the phone followed by checking references. If approved, the adoption coordinator puts the applicants and southern fosters in touch or helps to facilitate a meet and greet with our local dogs.
@@ -271,21 +259,19 @@ Each application takes approximately one-hour to process over the course of one 
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
+{{</details>}}
 
-<hr class="line-clear">
 
-## Fosters
-
+{{<details summary="Fosters">}}
 The more dogs we can foster, the more dogs we can save.
 
 We're always looking for foster caregivers to provide our dogs with safe homes and lots of TLC until they're adopted.
 
 <a class="btn btn-large" href="/foster/">Learn more about fostering</a>
+{{</details>}}
 
-<hr class="line-clear">
 
-## Home Visit Volunteers
-
+{{<details summary="Home Visit Volunteers">}}
 A home check volunteer will visit the home of potential adopters or fosters to answer questions the applicant may have about preparing their home and environment for welcoming a new animal.
 
 This volunteer position requires good people skills. You will have the important job of representing PAWS, providing important information to applicants while respecting the applicants homes and spaces.
@@ -488,11 +474,10 @@ This volunteer position requires good people skills. You will have the important
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
+{{</details>}}
 
-<hr class="line-clear">
 
-## Fundraising Managers
-
+{{<details summary="Fundraising Managers">}}
 When we rescue dogs, they often need vaccines, medical treatment and rehabilitation. To help us continue our life saving work, we're always looking for people with creative fundraising ideas.
 
 <form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/""><input type="hidden" name="flags" value="Applicant - Fundraising Manager"><input type="hidden" name="formname" value="Fundraising Manager Application Form">
@@ -546,11 +531,10 @@ When we rescue dogs, they often need vaccines, medical treatment and rehabilitat
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
+{{</details>}}
 
-<hr class="line-clear">
 
-## Transportation Volunteer
-
+{{<details margin="true" summary="Transportation Volunteers">}}
 We often need help getting our dogs to and from the vet, to foster or adoptive homes, and to pet fairs. We also get donations of food, toys and veterinary supplies that need to get delivered from the donor.
 
 <form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/"><input type="hidden" name="flags" value="driver"><input type="hidden" name="formname" value="Transportation Volunteer Application Form">
@@ -755,11 +739,11 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
+{{</details>}}
 
-<hr class="line-clear">
 
-<!-- ## Marketing Volunteer
-
+<!-- 
+{{<details summary="Marketing Volunteer">}}
 Do you want to help spread the word about PAWS New England? We're looking for marketing volunteers.
 
 <form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/"><input type="hidden" name="flags" value="Applicant - Marketing Coordinator"><input type="hidden" name="formname" value="Marketing Coordinator Application Form">
@@ -813,8 +797,8 @@ Do you want to help spread the word about PAWS New England? We're looking for ma
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
-
-<hr class="line-clear"> -->
+{{</details>}} 
+-->
 
 ## Tell your friends about PAWS
 
