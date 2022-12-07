@@ -515,6 +515,13 @@ You are their caregiver day and night until they are adopted.
 		<label class="input-inline"><input type="radio" name="terms_81" title="Select whether or not you agree" value="I agree" required> I agree</label><label class="input-inline"><input type="radio" name="terms_81" value="I disagree" required> I disagree</label>
 	</div>
 
+	<div class="tarpit">
+		<label>
+			<input name="termsscb" id="termsscb" type="checkbox">
+			If you're human, do NOT check this box.
+		</label>
+	</div>
+
 	<div class="clearfix">
 		<input type="hidden" name="magicASJSkey" value="918273645">
 		<input class="input-inline btn" type="submit" value="Apply Now">
