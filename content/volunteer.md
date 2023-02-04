@@ -16,7 +16,7 @@ Coordinators are assigned a specific group of dogs on our site. When an applicat
 
 Each application takes approximately one-hour to process over the course of one to two days on average.
 
-<form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/""><input type="hidden" name="flags" value="Applicant - Adoption Coordinator"><input type="hidden" name="formname" value="Adoption Coordinator Application Form">
+<form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/"><input type="hidden" name="flags" value="Applicant - Adoption Coordinator"><input type="hidden" name="formname" value="Adoption Coordinator Application Form">
 	<legend>Apply to become an Adoption Coordinator</legend>
 
 	<div class="row">
@@ -480,7 +480,7 @@ This volunteer position requires good people skills. You will have the important
 {{<details summary="Fundraising Managers">}}
 When we rescue dogs, they often need vaccines, medical treatment and rehabilitation. To help us continue our life saving work, we're always looking for people with creative fundraising ideas.
 
-<form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/""><input type="hidden" name="flags" value="Applicant - Fundraising Manager"><input type="hidden" name="formname" value="Fundraising Manager Application Form">
+<form class="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" value="online_form_post"><input type="hidden" name="account" value="zh0572"><input type="hidden" name="redirect" value="https://pawsnewengland.com/volunteer/volunteer-success/"><input type="hidden" name="flags" value="Applicant - Fundraising Manager"><input type="hidden" name="formname" value="Fundraising Manager Application Form">
 	<legend>Apply to become a Fundraising Manager</legend>
 
 	<div class="row">
