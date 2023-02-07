@@ -18,7 +18,7 @@
 		{{- if ne (len (findRE "facebook.com" .Params.video)) 0 -}}
 			<a class="grid-third" data-pet-video="facebook" target="_blank" href="{{ .Params.video }}"><img target="_blank" alt="Watch a video of {{ $petname }}" src="/img/video.png"></a>
 		{{- else -}}
-			<div class="grid-two-thirds" data-pet-video="{{ .Params.video }}"></div>
+			<div class="grid-full" data-pet-video="{{ .Params.video }}"></div>
 		{{- end -}}
 	{{- end -}}
 	</div>
