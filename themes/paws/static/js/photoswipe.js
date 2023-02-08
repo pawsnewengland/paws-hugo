@@ -945,7 +945,7 @@ var loadPetVideos = function () {
 	var getYouTubeID = function (url) {
 		url = url.replace('//www.', '//');
 		if (/\/shorts\//.test(url)) {
-			return url.replace('https://youtube.com/shorts/', '')replace('?feature=share', '');
+			return url.replace('https://youtube.com/shorts/', '').replace('?feature=share', '');
 		}
 		if (/youtu.be/.test(url)) {
 			return url.replace('https://youtu.be/', '');
