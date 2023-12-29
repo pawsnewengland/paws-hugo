@@ -45,7 +45,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 			<div class="grid-half">
 				<div>
 					<div>
-						<label for="address_366">Your Street</label>
+						<label for="address_366">Your Street (Number and Name)</label>
 					</div>
 					<div>
 						<input type="text" name="address_366" id="address_366" autocomplete="street-address" required>
@@ -505,15 +505,6 @@ An application does not mean you are required to adopt---it just lets us know yo
 			</div>
 			<div>
 				<input type="text" name="aloneTime_408" id="aloneTime_408" required>
-			</div>
-		</div>
-
-		<div>
-			<div>
-				<label for="dogWhileAway_396">How will the dog be maintained while you're away or at work?</label>
-			</div>
-			<div>
-				<textarea name="dogWhileAway_396" id="dogWhileAway_396" required></textarea>
 			</div>
 		</div>
 
