@@ -519,7 +519,10 @@ An application does not mean you are required to adopt---it just lets us know yo
 
 		<div class="margin-bottom-small">
 			<div>
-				<label id="surrenderedPets_409_label">Have you ever surrendered a pet?</label>
+				<label id="surrenderedPets_409_label">
+					Have you ever surrendered a pet?<br>
+					<span class="text-small text-muted margin-bottom-small">We understand there are circumstances where this is necessary. Answering yes will NOT automatically make you ineligible to adopt from PAWS New England.</span>
+				</label>
 			</div>
 			<div>
 				<label class="input-inline"><input aria-labelledby="surrenderedPets_409_label" type="radio" name="surrenderedPets_409" value="Yes" required> Yes</label>

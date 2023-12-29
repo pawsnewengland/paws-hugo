@@ -1,0 +1,1 @@
+git add . && git commit -a -m "Updated site" && git push origin master
