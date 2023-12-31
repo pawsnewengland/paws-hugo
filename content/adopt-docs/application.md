@@ -14,7 +14,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 
 <form class="adoption-form" id="adoption-form" action="https://service.sheltermanager.com/asmservice" method="post" accept-charset="utf-8"><input type="hidden" name="method" id="method" value="online_form_post"><input type="hidden" name="account" id="account"
 	 value="zh0572"><input type="hidden" name="redirect" id="redirect" value="https://pawsnewengland.com/adopt/application-success/"><input
-	 type="hidden" name="flags" id="flags" value="Applicant - Adopter"><input type="hidden" name="formname" value="Adoption Application Form (New)">
+	 type="hidden" name="flags" id="flags" value="Applicant - Adopter"><input type="hidden" name="formname" value="Adoption Application Form">
 		<legend>The Basics</legend>
 		<p class="text-small text-muted">Some basic information and how we can get in touch with you.</p>
 
