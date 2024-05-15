@@ -30,7 +30,7 @@ Unfortunately, you may not be the only one interested in adopting a particular d
 
 After you've been accepted, your dog's foster parent will coordinate with you to get your new pack member home.
 
-Sometimes our dogs are still being fostered with one of our volunteers in South. We partner with a few wonderful pet transportation services. [Click here to learn more.](/adopt/transportation/)
+Sometimes our dogs are still being fostered with one of our volunteers in South. We partner with a few wonderful pet transportation services.
 
 _**PAWS charges a fee---much smaller than you'd pay if you purchased a dog---for all of our adoptions.** This helps offset the cost of rescue and rehabilitation, and allows us to save more lives._
 
