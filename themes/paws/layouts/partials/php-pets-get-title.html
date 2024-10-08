@@ -1,0 +1,21 @@
+<?php
+
+	$pets = json_decode(file_get_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json'), true);
+	$pet_id = isset($_GET['id']) ? $_GET['id'] : null;
+	$pet = null;
+
+	if (!empty($pet_id)) {
+		foreach ($pets as $pet_data) {
+			if ($pet_data['id'] == $pet_id) {
+				$pet = $pet_data;
+				break;
+			}
+		}
+	}
+
+	if (empty($pet)) :
+?>
+Pet
+<?php else : ?>
+<?php echo $pet['name']; ?>
+<?php endif; ?>

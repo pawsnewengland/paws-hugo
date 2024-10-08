@@ -1,0 +1,53 @@
+<?php
+
+	// Create good with HTML
+	function create_good_with_html ($pet) {
+
+		$html = array();
+
+		// Get "bad with" text
+		if ($pet['nodogs'] === 1 && $pet['nocats'] === 1 && $pet['nokids'] === 1) { $html[] = 'No Dogs/Cats/Kids'; }
+		else if ($pet['nodogs'] === 1 && $pet['nocats'] === 1) { $html[] = 'No Dogs/Cats'; }
+		else if ($pet['nodogs'] === 1 && $pet['nokids'] === 1) { $html[] = 'No Dogs/Kids'; }
+		else if ($pet['nocats'] === 1 && $pet['nokids'] === 1) { $html[] = 'No Cats/Kids'; }
+		else if ($pet['nodogs'] === 1) { $html[] = 'No Dogs'; }
+		else if ($pet['nocats'] === 1) { $html[] = 'No Cats'; }
+		else if ($pet['nokids'] === 1) { $html[] = 'No Kids'; }
+
+		// Get "unknown" text
+		if ($pet['nodogs'] === 2 && $pet['nocats'] === 2 && $pet['nokids'] === 2) { $html[] = 'Unknown with Dogs/Cats/Kids'; }
+		else if ($pet['nodogs'] === 2 && $pet['nocats'] === 2) { $html[] = 'Unknown with Dogs/Cats'; }
+		else if ($pet['nodogs'] === 2 && $pet['nokids'] === 2) { $html[] = 'Unknown with Dogs/Kids'; }
+		else if ($pet['nocats'] === 2 && $pet['nokids'] === 2) { $html[] = 'Unknown with Cats/Kids'; }
+		else if ($pet['nodogs'] === 2) { $html[] = 'Unknown with&nbsp;Dogs'; }
+		else if ($pet['nocats'] === 2) { $html[] = 'Unknown with&nbsp;Cats'; }
+		else if ($pet['nokids'] === 2) { $html[] = 'Unknown with&nbsp;Kids'; }
+
+		return implode('<br>', $html);
+
+	}
+
+	$pets = json_decode(file_get_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json'), true);
+	foreach ($pets as $pet) :
+?>
+
+<article class="grid-auto grid-asm text-center margin-bottom asm-pet-{{ .Params.petid }}" data-asm-attribute="{{ .Params.attributes }}">
+	<header>
+		<a href="/adopt/pet?id=<?php echo htmlspecialchars($pet['id']); ?>">
+			<figure>
+				<img class="img-photo asm-img-limit-height" alt="A photo of <?php echo htmlspecialchars($pet['name']); ?>" src="<?php if ($pet['images'] > 0) : ?>https://service.sheltermanager.com/asmservice?account=zh0572&method=animal_image&animalid=<?php echo htmlspecialchars($pet['id']); ?>&seq=1<?php else : ?>/img/adopt-missing-photo.png<?php endif; ?>">
+			</figure>
+			<h2 class="h3 no-padding-top no-margin-top no-padding-bottom no-margin-bottom">
+				<?php echo htmlspecialchars($pet['name']); ?>
+			</h2>
+		</a>
+	</header>
+	<div class="text-small">
+		<div><?php echo htmlspecialchars($pet['size']); ?>, <?php echo htmlspecialchars($pet['age']); ?>, <?php echo htmlspecialchars($pet['sex']); ?></div>
+		<div class="text-muted"><?php echo htmlspecialchars(implode(', ', $pet['breeds'])); ?></div>
+		<div><em class="text-muted"><?php echo create_good_with_html($pet); ?></em></div>
+		<?php if ($pet['specialneeds']) : ?><div><em class="text-muted">Special Needs</em></div><?php endif; ?>
+	</div>
+</article>
+
+<?php endforeach; ?>
