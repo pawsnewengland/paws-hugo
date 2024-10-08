@@ -24,6 +24,18 @@ languageCode: "en-us"
 # theme to use (located by default in /themes/THEMENAME/)
 theme: "paws"
 
+# Output formats
+outputFormats:
+  php:
+    name: php
+    mediaType: application/x-httpd-php
+    isPlainText: true
+
+mediaTypes:
+  application/x-httpd-php:
+    suffixes:
+      - php
+
 # Permalinks
 # See "content-management/permalinks"
 permalinks:
