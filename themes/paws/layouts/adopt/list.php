@@ -14,7 +14,7 @@
 	</div>
 
 	<script>
-		var petListingData = {{ getJSON $.Site.Params.pets }};
+		var petListingData = {{ "<?php echo $pets_raw; ?>" | safeHTML }}
 	</script>
 
 {{ partial "footer.html" . }}

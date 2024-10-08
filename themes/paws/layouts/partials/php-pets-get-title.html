@@ -1,6 +1,7 @@
 <?php
 
-	$pets = json_decode(file_get_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json'), true);
+	$pets_raw = file_get_contents('/srv/users/serverpilot/apps/paws/public/api/pets.json');
+	$pets = json_decode($pets_raw, true);
 	$pet_id = isset($_GET['id']) ? $_GET['id'] : null;
 	$pet = null;
 
