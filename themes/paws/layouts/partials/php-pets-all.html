@@ -1,6 +1,40 @@
 <?php
 
-	// Create good with HTML
+	/**
+	 * Create pet listings
+	 */
+
+	function propify ($str) {
+		return strtolower(str_replace(' ', '-', $str));
+	}
+
+	function get_pet_breed_attributes ($pet) {
+		$breeds = array();
+		foreach ($pet['breeds'] as $breed) {
+			$breeds[] = 'breeds_' . propify($breed);
+		}
+		return implode(' ', $breeds);
+	}
+
+	function get_pet_options_attributes ($pet) {
+		$options = array();
+		if ($pet['nodogs'] === 1) $options[] = propify('options_' . 'No Dogs');
+		if ($pet['nocats'] === 1) $options[] = propify('options_' . 'No Cats');
+		if ($pet['nokids'] === 1) $options[] = propify('options_' . 'No Kids');
+		if ($pet['specialneeds']) $options[] = propify('options_' . 'Special Needs');
+		return implode(' ', $options);
+	}
+
+	function get_pet_attributes ($pet) {
+		return implode(' ', array(
+			propify('sizes_' . $pet['size']),
+			propify('ages_' . $pet['age']),
+			propify('genders_' . $pet['sex']),
+			get_pet_breed_attributes($pet),
+			get_pet_options_attributes($pet)
+		));
+	};
+
 	function create_good_with_html ($pet) {
 
 		$html = array();
@@ -31,7 +65,7 @@
 	foreach ($pets as $pet) :
 ?>
 
-<article class="grid-auto grid-asm text-center margin-bottom asm-pet-{{ .Params.petid }}" data-asm-attribute="{{ .Params.attributes }}">
+<article class="grid-auto grid-asm text-center margin-bottom asm-pet-<?php echo htmlspecialchars($pet['id']); ?>" data-asm-attribute="<?php echo htmlspecialchars(get_pet_attributes($pet)); ?>">
 	<header>
 		<a href="/adopt/pet?id=<?php echo htmlspecialchars($pet['id']); ?>">
 			<figure>
