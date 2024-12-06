@@ -161,10 +161,10 @@ An application does not mean you are required to adopt---it just lets us know yo
 
 				<div>
 					<div>
-						<label for="dateOfBirth_373">Date of Birth</label>
+						<label for="f458">Your Age</label>
 					</div>
 					<div>
-						<input type="text" name="dateOfBirth_373" id="dateOfBirth_373" required>
+						<input type="number" min="18" max="125" maxlength="3" id="f458" name="age_458" required>
 					</div>
 				</div>
 			</div>
