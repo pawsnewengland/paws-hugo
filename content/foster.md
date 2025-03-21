@@ -51,6 +51,15 @@ You are their caregiver day and night until they are adopted.
 		</div>
 	</div>
 
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="grid-third">
 			<label for="f148">Last Name</label>

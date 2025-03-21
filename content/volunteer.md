@@ -37,6 +37,15 @@ Each application takes approximately one-hour to process over the course of one 
 		</div>
 	</div>
 
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="grid-third">
 			<label for="f149">Email</label>
@@ -297,6 +306,15 @@ This volunteer position requires good people skills. You will have the important
 		</div>
 	</div>
 
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="grid-third">
 			<label for="f172">Your Street</label>
@@ -501,6 +519,15 @@ When we rescue dogs, they often need vaccines, medical treatment and rehabilitat
 		</div>
 	</div>
 
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="grid-third">
 			<label for="f149">Email</label>
@@ -555,6 +582,15 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 		</div>
 		<div class="grid-two-thirds">
 			<input type="text" name="lastname_96" title="Enter your last name" required>
+		</div>
+	</div>
+
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
 		</div>
 	</div>
 
@@ -764,6 +800,15 @@ Do you want to help spread the word about PAWS New England? We're looking for ma
 		</div>
 		<div class="grid-two-thirds">
 			<input type="text" name="lastname_146" title="Enter your last name" required>
+		</div>
+	</div>
+
+	<div class="row screen-reader">
+		<div class="grid-third">
+			<label for="a_emailaddress">If you're human, leave this field blank</label>
+		</div>
+		<div class="grid-two-thirds">
+			<input type="text" name="a_emailaddress" id="a_emailaddress">
 		</div>
 	</div>
 
