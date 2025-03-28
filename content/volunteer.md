@@ -9,7 +9,7 @@ wide: false
 
 Want to join our team? We're always looking for people who can share their time and talents with us. We're currently looking for...
 
-{{<details summary="Adoption Coordinators">}}
+<!-- {{<details summary="Adoption Coordinators">}}
 Adoption Coordinators are our volunteers who see each adoption through from start to finish. They play a vital role at PAWS!
 
 Coordinators are assigned a specific group of dogs on our site. When an application comes in for one of these dogs, coordinators begin by interviewing the applicant over the phone followed by checking references. If approved, the adoption coordinator puts the applicants and southern fosters in touch or helps to facilitate a meet and greet with our local dogs.
@@ -268,7 +268,7 @@ Each application takes approximately one-hour to process over the course of one 
 		<input class="input-inline btn" type="submit" value="Submit">
 	</div>
 </form>
-{{</details>}}
+{{</details>}} -->
 
 
 {{<details summary="Fosters">}}
