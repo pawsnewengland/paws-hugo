@@ -37,7 +37,7 @@ Our Doggie Matchmaker will work with you to narrow down your search and find a f
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
 		<div class="grid-two-thirds">
-			<input type="text" name="a_emailaddress" id="a_emailaddress">
+			<input type="text" name="a_emailaddress" id="a_emailaddress" autocomplete="off">
 		</div>
 	</div>
 

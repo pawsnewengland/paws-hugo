@@ -1,4 +1,3 @@
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find"></script>
 <script>
 	if ('querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_')) {
 		{{ if eq $.Site.Params.minify true }}{{ readFile "/themes/paws/static/js/loadJS.min.js" | safeJS }}{{ else }}{{ readFile "/themes/paws/static/js/loadJS.js" | safeJS }}{{ end }}

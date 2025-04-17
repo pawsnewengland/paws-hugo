@@ -46,7 +46,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 				<label for="a_emailaddress">If you're human, leave this field blank</label>
 			</div>
 			<div class="grid-two-thirds">
-				<input type="text" name="a_emailaddress" id="a_emailaddress">
+				<input type="text" name="a_emailaddress" id="a_emailaddress" autocomplete="off">
 			</div>
 		</div>
 
