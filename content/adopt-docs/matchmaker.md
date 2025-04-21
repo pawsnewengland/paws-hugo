@@ -32,7 +32,7 @@ Our Doggie Matchmaker will work with you to narrow down your search and find a f
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>

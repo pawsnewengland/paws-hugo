@@ -41,7 +41,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 			</div>
 		</div>
 
-		<div class="row screen-reader">
+		<div class="row tarpit">
 			<div class="grid-third">
 				<label for="a_emailaddress">If you're human, leave this field blank</label>
 			</div>

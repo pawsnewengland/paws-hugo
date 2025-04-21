@@ -37,7 +37,7 @@ Each application takes approximately one-hour to process over the course of one 
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
@@ -306,7 +306,7 @@ This volunteer position requires good people skills. You will have the important
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
@@ -519,7 +519,7 @@ When we rescue dogs, they often need vaccines, medical treatment and rehabilitat
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
@@ -585,7 +585,7 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
@@ -803,7 +803,7 @@ Do you want to help spread the word about PAWS New England? We're looking for ma
 		</div>
 	</div>
 
-	<div class="row screen-reader">
+	<div class="row tarpit">
 		<div class="grid-third">
 			<label for="a_emailaddress">If you're human, leave this field blank</label>
 		</div>
