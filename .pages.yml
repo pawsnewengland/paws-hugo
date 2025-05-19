@@ -4,12 +4,8 @@ content:
     path: content/news
     type: collection
     view:
-      fields: [ title, published, date ]
+      fields: [ title, date ]
     fields:
-      - name: published
-        label: Published
-        type: boolean
-        default: true
       - name: date
         label: Date
         type: date
