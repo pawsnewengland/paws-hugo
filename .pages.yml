@@ -5,4 +5,4 @@ content:
     type: collection
     fields:
       - { name: title, label: Title, type: string }
-      - { name: content, label: Content, type: rich-text }
+      - { name: body, label: Content, type: rich-text }
