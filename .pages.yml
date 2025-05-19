@@ -3,3 +3,5 @@ content:
     label: Posts
     path: content/news
     type: collection
+    fields:
+      - { name: title, label: Title, type: string }
