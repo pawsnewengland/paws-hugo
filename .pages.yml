@@ -1,9 +1,5 @@
 content:
-  - name: posts
+  - name: news
     label: Posts
-    path: src/_posts
+    path: content/news
     type: collection
-  - name: authors
-    label: Authors
-    path: src/_data/authors.json
-    type: file
