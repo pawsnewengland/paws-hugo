@@ -317,7 +317,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 				<label for="otherMembersOfHousehold_380">First Name, Last Name &amp; Age of ALL adults living in the home</label>
 			</div>
 			<div>
-				<input type="text" name="otherMembersOfHousehold_380" id="otherMembersOfHousehold_380">
+				<input type="text" name="otherMembersOfHousehold_380" id="otherMembersOfHousehold_380" required>
 			</div>
 		</div>
 
@@ -492,7 +492,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 				<label for="homeAdditionalInfo_394">Any additional information that describes your home environment?</label>
 			</div>
 			<div>
-				<textarea name="homeAdditionalInfo_394" id="homeAdditionalInfo_394"></textarea>
+				<textarea name="homeAdditionalInfo_394" id="homeAdditionalInfo_394" required></textarea>
 			</div>
 		</div>
 
@@ -605,7 +605,7 @@ An application does not mean you are required to adopt---it just lets us know yo
 			</label>
 			</div>
 			<div>
-				<textarea name="personalReferences_400" id="personalReferences_400"></textarea>
+				<textarea name="personalReferences_400" id="personalReferences_400" required></textarea>
 			</div>
 		</div>
 
