@@ -510,7 +510,7 @@ You are their caregiver day and night until they are adopted.
 			</label>
 		</div>
 		<div class="grid-two-thirds">
-			<textarea name="personalReferences_80" title="Provide a personal reference"></textarea>
+			<textarea name="personalReferences_80" title="Provide a personal reference" required></textarea>
 		</div>
 	</div>
 
