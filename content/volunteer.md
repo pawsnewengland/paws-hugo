@@ -696,7 +696,7 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 			<label for="f156">Mobile Phone #</label>
 		</div>
 		<div class="grid-two-thirds">
-			<input type="tel" name="mobiletelephone_101" title="Enter your mobile telephone number">
+			<input type="tel" name="mobiletelephone_101" title="Enter your mobile telephone number" required>
 		</div>
 	</div>
 
