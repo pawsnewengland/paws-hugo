@@ -732,7 +732,7 @@ We often need help getting our dogs to and from the vet, to foster or adoptive h
 			<label for="f159">How did you hear about our transport group?</label>
 		</div>
 		<div class="grid-two-thirds">
-			<select class="asm-onlineform-lookup" name="transportReference_129" title="Select how you heard about the transport group">
+			<select class="asm-onlineform-lookup" name="transportReference_129" title="Select how you heard about the transport group" required>
 				<option value=""></option>
 				<option>Adopt-a-Pet</option>
 				<option>Adoption Event</option>
