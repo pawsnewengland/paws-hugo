@@ -280,7 +280,7 @@ We're always looking for foster caregivers to provide our dogs with safe homes a
 {{</details>}}
 
 
-{{<details summary="Home Visit Volunteers">}}
+{{<details summary="Home Visit Volunteers" hide="true">}}
 A home check volunteer will visit the home of potential adopters or fosters to answer questions the applicant may have about preparing their home and environment for welcoming a new animal.
 
 This volunteer position requires good people skills. You will have the important job of representing PAWS, providing important information to applicants while respecting the applicants homes and spaces.
