@@ -48,7 +48,7 @@
 		{{ partial "header-styles-and-scripts.html" . }}
 	</head>
 
-	<body class="type-{{ .Type }} {{ if .IsPage }}page-single{{ else }}page-list{{ end }}" id="page-{{ .UniqueID }}">
+	<body class="type-{{ .Type }} {{ if .IsPage }}page-single{{ else }}page-list{{ end }}" id="page-{{ .File.UniqueID }}">
 
 		{{ partial "nav-a11y.html" }}
 

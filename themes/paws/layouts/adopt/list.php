@@ -14,7 +14,14 @@
 	</div>
 
 	<script>
-		var petListingData = {{ getJSON $.Site.Params.pets | jsonify }};
+		{{ with try (resources.GetRemote $.Site.Params.pets) }}
+			{{ with .Value }}
+				{{ $pets := . | transform.Unmarshal }}
+				var petListingData = {{ $pets | jsonify }};
+			{{ else }}
+				var petListingData = [];
+			{{ end }}
+		{{ end }}
 	</script>
 
 {{ partial "footer.html" . }}

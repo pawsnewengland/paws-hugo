@@ -1,28 +1,28 @@
 # hostname (and path) to the root
-baseURL: "https://pawsnewengland.com"
-# baseURL: "http://localhost:8888/paws-hugo/public/"
+baseURL: https://pawsnewengland.com
 
 # Site title
-title: "PAWS New England"
+title: PAWS New England
 
 # Custom parameters
 params:
-  description: "We save lives, one dog at a time."
-  rssURL: "https://pawsnewengland.com/feed/index.xml"
-  pets: "https://pawsnewengland.com/api/pets.json"
+  description: We save lives, one dog at a time.
+  author: PAWS New England
+  rssURL: https://pawsnewengland.com/feed/index.xml
+  pets: https://pawsnewengland.com/api/pets.json
   rssLimit: 7
   minify: true
 
 # Caches
 caches:
-  getjson:
-    maxAge: "10m"
+  getresource:
+    maxAge: 10m
 
 # The language code for the site
-languageCode: "en-us"
+languageCode: en-us
 
 # theme to use (located by default in /themes/THEMENAME/)
-theme: "paws"
+theme: paws
 
 # Output formats
 outputFormats:
@@ -47,7 +47,9 @@ canonifyURLs: true
 
 # Allows you to disable all page types and will render nothing related to 'kind';
 # values = "page", "home", "section", "taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
-disableKinds: ["RSS", "hugoGeneratorInject", "404"]
+disableKinds:
+  - RSS
+  - "404"
 
 # Files to ignore while rendering
 ignoreFiles: ["/content/articles/_2018-01-19-title.md", "/content/articles/_drafts/.*"]
@@ -60,10 +62,10 @@ paginate: 35
 paginatePath: "page"
 
 # Markdown Options
-blackfriday:
-  fractions: false
-  extensions: ['hardLineBreak']
-
-# Syntax Highlighting
-pygmentsCodefences: true
-pygmentsUseClasses: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codefences: true
+    noClasses: false
