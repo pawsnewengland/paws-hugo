@@ -9,6 +9,8 @@ wide: false
 
 We're incredibly proud of how we manage our organization, and we think you will be, too. Here are our financial documents if you'd like to take a look.
 
+- [2025 Form 990](/img/financials/2025-PNE990.pdf)
+- [2024 Form 990](/img/financials/2024-PNE990.pdf)
 - [2023 Form 990](/img/financials/2023-PNE990.pdf)
 - [2022 Form 990](/img/financials/2022-PNE990.pdf)
 - [2021 Form 990](/img/financials/2021-PNE990.pdf)
