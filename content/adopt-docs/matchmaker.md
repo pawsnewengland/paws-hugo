@@ -769,7 +769,7 @@ Our Doggie Matchmaker will work with you to narrow down your search and find a f
 			<label for="f159">Preferred activity level</label>
 		</div>
 		<div class="grid-two-thirds">
-			<select name="activityLevel_160" title="Select your preferred activity level">
+			<select name="activityLevel_160" title="Select your preferred activity level" required>
 				<option value=""></option>
 				<option>High Energy (good running/hiking partner)</option>
 				<option>Moderate Energy (enjoys long walks on the beach)</option>
